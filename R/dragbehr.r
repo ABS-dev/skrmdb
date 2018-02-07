@@ -49,7 +49,7 @@
 #' #     2.906593
 #' 
 #' 
-#' #' \dontrun{
+#' \dontrun{
 #' 
 #' ## unordered data
 #' X2 <- data.frame(dead = c(10,8,5,3,0), total = rep(10, 5), dil = c(1, 3, 2, 4, 5))
