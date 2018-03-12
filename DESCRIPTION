@@ -6,7 +6,8 @@ Date: XX-XX-XXXX
 Author: David Siev
 Maintainer: Marie Vendettuoli <marie.c.vendettuoli@aphis.usda.gov>
 Description: Package to estimate ED50 by the methods of Spearman-Karber,
-    Reed-Muench, Dragstedt-Behrens.
+    Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
+    implied for this package. It is made available for investigational or pedagogical use only
 License: MIT + file LICENSE
 LazyLoad: yes
 Depends:
