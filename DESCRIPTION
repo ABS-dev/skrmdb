@@ -2,7 +2,7 @@ Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
 Version: 4.2.5
-Date: XX-XX-XXXX
+Date: 2018-08-03
 Author: David Siev
 Maintainer: Marie Vendettuoli <marie.c.vendettuoli@aphis.usda.gov>
 Description: Package to estimate ED50 by the methods of Spearman-Karber,
@@ -11,4 +11,7 @@ Description: Package to estimate ED50 by the methods of Spearman-Karber,
 License: MIT + file LICENSE
 LazyLoad: yes
 Depends:
-    methods
+    R (>= 3.4.4)
+Imports:
+    methods, stats
+RoxygenNote: 6.0.1
