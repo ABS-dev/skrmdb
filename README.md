@@ -5,18 +5,16 @@ Package to estimate ED50 by the methods of Spearman-Karber, Reed-Muench, and Dra
 
 From **within R**
 
-1. Install last release v4.2.4
+1. Install last release v4.2.5
 
 ```
-require(devtools)
-install_github("ABS-dev/skrmdb", ref = "v4.2.4")
+devtools::install_github("ABS-dev/skrmdb", ref = "v4.2.5")
 ```
 
-2. Installing work-in-progress towards v4.2.5
+2. Installing work-in-progress towards v4.2.6
 
 ```
-require(devtools)
-install_github("ABS-dev/skrmdb")
+devtools::install_github("ABS-dev/skrmdb")
 ```
 
 ### Package vignette
