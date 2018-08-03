@@ -19,6 +19,11 @@ require(devtools)
 install_github("ABS-dev/skrmdb")
 ```
 
-This package was developed on a Windows machine running `R v3.2.4`
+### Package vignette
 
+Read online at: https://www.aphis.usda.gov/animal_health/vet_biologics/publications/STATWI0001.pdf
+
+### Package manual
+
+Read online at: https://github.com/ABS-dev/skrmdb/blob/master/inst/doc/skrmdb-manual.pdf
 
