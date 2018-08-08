@@ -10,7 +10,7 @@ The skrmdb object holds output from functions in the skrmdb package.
 }
 \details{
 \describe{
-		\item{\code{eval}}{Evaluation method. One of 'ReedMeunch', 'SpearKarb',  or 'DragBehr'. Character string.}
+		\item{\code{eval}}{Evaluation method. One of 'ReedMuench', 'SpearKarb',  or 'DragBehr'. Character string.}
 		\item{\code{ed}}{Median effective dose by eval method. Numeric.}
 }
 }
