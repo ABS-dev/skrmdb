@@ -6,8 +6,8 @@
 #' \tabular{ll}{
 #' Package: \tab skrmdb-package\cr
 #' Type: \tab Package\cr
-#' Version: \tab 4.2.5\cr
-#' Date: \tab 2018-08-03\cr
+#' Version: \tab 4.2.6\cr
+#' Date: \tab XXXX-XX-XX\cr
 #' License: \tab MIT \cr
 #' LazyLoad: \tab yes\cr
 #' LazyData: \tab yes\cr
