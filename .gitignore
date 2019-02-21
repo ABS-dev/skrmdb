@@ -53,3 +53,4 @@ Temporary Items
 *.Rhistory
 *.Rproj
 *.Rproj.user
+.Rproj.user
