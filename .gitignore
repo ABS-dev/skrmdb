@@ -49,7 +49,6 @@ Temporary Items
 # =========================
 # RStudio & R stuff
 # =========================
-*.Rbuildignore
 *.Rhistory
 *.Rproj
 *.Rproj.user
