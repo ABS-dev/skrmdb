@@ -13,6 +13,8 @@ devtools::install_github("ABS-dev/skrmdb", ref = "v4.2.5")
 
 2. Installing work-in-progress towards v4.2.6
 
+Travis: [![Build Status](https://travis-ci.org/ABS-dev/skrmdb.svg?branch=master)](https://travis-ci.org/ABS-dev/skrmdb)
+
 ```
 devtools::install_github("ABS-dev/skrmdb")
 ```
