@@ -3,7 +3,6 @@
 \docType{package}
 \name{skrmdb-package}
 \alias{skrmdb-package}
-\alias{skrmdb}
 \title{skrmdb package.}
 \description{
 Includes functions to estimate ED50 by the methods of Spearman-Karber, Reed-Muench, Dragstedt-Behrens. \cr \cr For internal use only at
@@ -13,8 +12,8 @@ the USDA Center for Veterinary Biologics \cr
 \tabular{ll}{
 Package: \tab skrmdb-package\cr
 Type: \tab Package\cr
-Version: \tab 4.2.5\cr
-Date: \tab 2018-08-03\cr
+Version: \tab 4.2.6\cr
+Date: \tab XXXX-XX-XX\cr
 License: \tab MIT \cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr

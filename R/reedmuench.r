@@ -20,7 +20,7 @@
 #' @param x log dilution or dose
 #' @param warn.me boolean to give warning message
 #' @param show boolean to display extended summary
-#' @return object of class \code{skrmdb} with slots:\cr 
+#' @return object of class \code{SKRMDB} with slots:\cr 
 #' \item{ed}{Estimated median effective dose (ED50)}
 #' \item{eval}{Evaluation method: 'ReedMuench'}
 #' @export

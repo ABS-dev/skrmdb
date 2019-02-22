@@ -6,7 +6,7 @@
 \alias{getED,skrmdb-method}
 \title{Accessor to retrieve the numeric median effective dose from a skrmdb or sk object}
 \usage{
-getED(x)
+getED(object)
 
 \S4method{getED}{skrmdb}(object)
 }

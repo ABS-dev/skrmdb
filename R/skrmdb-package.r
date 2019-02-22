@@ -14,7 +14,6 @@
 #' }
 #'
 #' @name skrmdb-package
-#' @aliases skrmdb
 #' @docType package
 #' @author David Siev \email{David.Siev@@aphis.usda.gov}
 #' @section Resources:

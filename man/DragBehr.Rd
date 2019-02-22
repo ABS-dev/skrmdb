@@ -4,7 +4,8 @@
 \alias{DragBehr}
 \title{Dragstedt-Behrens estimator}
 \usage{
-DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T, show = F)
+DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T,
+  show = F)
 }
 \arguments{
 \item{formula}{a formula of the form \code{cbind(y,n) ~ x}}
