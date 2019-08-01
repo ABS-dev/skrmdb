@@ -2,13 +2,18 @@ Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
 Version: 4.2.6
-Date: XXXX-XX-XX
-Author: David Siev
-Maintainer: Marie Vendettuoli <marie.c.vendettuoli@aphis.usda.gov>
+Date: 2019-08-15
+Authors@R: c(
+  person("David", "Siev", , , c("fmo", "aut"), comment = "1990-2019"),
+  person("Marie", "Vendettuoli", , ,"aut", comment = "starting 2010"),
+  person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "cre", 
+    comment = "starting 2017"))
 Description: Package to estimate ED50 by the methods of Spearman-Karber,
     Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
     implied for this package. It is made available for investigational or pedagogical use only.
-License: MIT + file LICENSE
+License: CC0
+URL: https://github.com/ABS-dev/skrmdb/blob/master/README.md
+BugReports: https://github.com/ABS-dev/skrmdb/issues
 LazyLoad: yes
 Depends:
     R (>= 3.5)
