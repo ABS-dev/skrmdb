@@ -38,7 +38,7 @@
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 - 542}. \cr \cr
 #' Behrens, B. (1929) Zur Auswertung der Digitalisblatter im Froschversuch. \emph{Arkiv fur Experimentelle Pathologie und Pharmakologie.} \bold{140: 237-256}. \cr \cr
 #' Dragstedt, CA., Lang, VF. (1928). Respiratory Stimulants in acute poisoning in rabbits. \emph{J. of Pharmacology} \bold{32: 215--222}.
-#' @author David Siev \email{David.Siev@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @examples 
 #' X <- data.frame(dead=c(0,3,5,8,10,10),total=rep(10,6),dil=1:6)	
 #' DragBehr(cbind(dead,total) ~ dil, X)
