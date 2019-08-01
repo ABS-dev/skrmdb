@@ -30,5 +30,5 @@ getED(temp2)
 \code{\link{skrmdb-class}}, \code{\link{sk-class}}
 }
 \author{
-Marie Vendettuol \email{marie.c.vendettuoli@aphis.usda.gov}
+\link{skrmdb-package}
 }

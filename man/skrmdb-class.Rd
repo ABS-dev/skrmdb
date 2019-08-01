@@ -22,5 +22,5 @@ new("skrmdb", ed = 2.906593, eval = "DragBehr")
 \code{\link{sk-class}}
 }
 \author{
-Marie Vendettuoli \email{marie.c.vendettuoli@aphis.usda.gov}
+\link{skrmdb-package}
 }

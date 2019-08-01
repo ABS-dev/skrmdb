@@ -89,5 +89,5 @@ Dragstedt, CA., Lang, VF. (1928). Respiratory Stimulants in acute poisoning in r
 The function \link{ReedMuench} gives the Reed-Muench estimate of ED50, \code{\link{skrmdb-class}}
 }
 \author{
-David Siev \email{David.Siev@aphis.usda.gov}
+\link{skrmdb-package}
 }
