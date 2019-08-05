@@ -5,13 +5,13 @@ Package to estimate ED50 by the methods of Spearman-Karber, Reed-Muench, and Dra
 
 From **within R**
 
-1. Install last release v4.2.5
+1. Install last release v4.2.6
 
 ```
-devtools::install_github("ABS-dev/skrmdb", ref = "v4.2.5")
+devtools::install_github("ABS-dev/skrmdb", ref = "v4.2.6")
 ```
 
-2. Installing work-in-progress towards v4.2.6
+2. Installing work-in-progress towards v4.2.7
 
 Travis: [![Build Status](https://travis-ci.org/ABS-dev/skrmdb.svg?branch=master)](https://travis-ci.org/ABS-dev/skrmdb)
 
