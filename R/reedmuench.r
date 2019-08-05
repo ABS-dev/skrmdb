@@ -26,7 +26,7 @@
 #' @export
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 -- 542}. \cr \cr
 #' Reed LJ, Muench H (1938). A simple method of estimating fifty percent endpoints. \emph{American Journal of Hygiene.} \bold{27:493--497.} 
-#' @author David Siev \email{David.Siev@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @note Many microbiology texts mistakenly present the Dragstedt-Behrens method 
 #' as the Reed-Muench method.\cr
 #'

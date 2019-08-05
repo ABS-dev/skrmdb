@@ -88,5 +88,5 @@ Reed LJ, Muench H (1938). A simple method of estimating fifty percent endpoints.
 The function \code{\link{DragBehr}} gives the Dragstedt-Behrens estimate of ED50 \code{\link{skrmdb-class}}
 }
 \author{
-David Siev \email{David.Siev@aphis.usda.gov}
+\link{skrmdb-package}
 }

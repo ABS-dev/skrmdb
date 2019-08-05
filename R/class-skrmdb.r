@@ -9,7 +9,7 @@
 #' @rdname skrmdb-class
 #' @exportClass skrmdb
 #' @seealso \code{\link{sk-class}}
-#' @author Marie Vendettuoli \email{marie.c.vendettuoli@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @examples
 #' new("skrmdb", ed = 2.906593, eval = "DragBehr")
 skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'), methods = list(
@@ -39,7 +39,7 @@ setMethod('print', 'skrmdb', function(x,...){x$print()})
 #' @rdname getED-methods
 #' @export
 #' @seealso \code{\link{skrmdb-class}}, \code{\link{sk-class}}
-#' @author Marie Vendettuol \email{marie.c.vendettuoli@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @examples
 #' ## with an object of class skrmdb
 #' temp1 <- DragBehr(y=c(0,3,5,8,10,10), n=rep(10,6), x=1:6)
@@ -66,7 +66,7 @@ setMethod('getED', 'skrmdb', function(object){return(as.numeric(object$ed))})
 #' @rdname sk-class
 #' @exportClass sk
 #' @seealso \code{\link{skrmdb-class}}
-#' @author Marie Vendettuoli \email{marie.c.vendettuoli@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @examples
 #' new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")
 sk <- setRefClass('sk', contains = 'skrmdb', fields = list(sk.var = 'numeric'),
