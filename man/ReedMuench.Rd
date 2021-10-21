@@ -4,8 +4,7 @@
 \alias{ReedMuench}
 \title{Reed-Muench estimator}
 \usage{
-ReedMuench(formula = NULL, data = NULL, y, n, x, warn.me = T,
-  show = F)
+ReedMuench(formula = NULL, data = NULL, y, n, x, warn.me = T, show = F)
 }
 \arguments{
 \item{formula}{a formula of the form \code{cbind(y,n) ~ x}}

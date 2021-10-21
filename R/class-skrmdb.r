@@ -13,11 +13,11 @@
 #' @examples
 #' new("skrmdb", ed = 2.906593, eval = "DragBehr")
 skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'), methods = list(
-	initialize = function(ed = numeric(), eval = character()){
+	initialize = function(ed = numeric(), eval = character()) {
 		initFields(ed = ed, eval = eval)
 	}, 
-	print = function(){
-		if(length(.self$ed) == 0){
+	print = function() {
+		if(length(.self$ed) == 0) {
 			cat("empty construct\n")
 		} else {
 			cat(paste('ED50 by method ', .self$eval, '\n', sep = ''))
@@ -26,8 +26,8 @@ skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'
 	}
 	))
 
-setMethod('show', 'skrmdb', function(object){object$print()})
-setMethod('print', 'skrmdb', function(x,...){x$print()})
+setMethod('show', 'skrmdb', function(object) {object$print()})
+setMethod('print', 'skrmdb', function(x,...) {x$print()})
 
 #' @name getED
 #' @title Accessor to retrieve the numeric median effective dose from a skrmdb or sk object
@@ -48,11 +48,11 @@ setMethod('print', 'skrmdb', function(x,...){x$print()})
 #' X <- data.frame(dead=c(0,3,5,8,10), total=rep(10,5), dil=1:5)
 #' temp2 <- SpearKarb(cbind(dead,total) ~ dil, X)
 #' getED(temp2)
-setGeneric(name = 'getED', def = function(object){standardGeneric('getED')})
+setGeneric(name = 'getED', def = function(object) {standardGeneric('getED')})
 
 #' @rdname getED-methods
 #' @aliases getED,skrmdb-method
-setMethod('getED', 'skrmdb', function(object){return(as.numeric(object$ed))})
+setMethod('getED', 'skrmdb', function(object) {return(as.numeric(object$ed))})
 
 #' @title Class definition for sk object
 #' @description The sk object holds values for the Spear Karb estimator for median estimated dose. It extends the skrmdb data object with value for variance.
@@ -72,16 +72,16 @@ setMethod('getED', 'skrmdb', function(object){return(as.numeric(object$ed))})
 sk <- setRefClass('sk', contains = 'skrmdb', fields = list(sk.var = 'numeric'),
 	methods = list(
 	
-	initialize = function(ed = numeric(), eval = 'SpearKarb', sk.var = numeric()){
-		if(eval != 'SpearKarb'){
+	initialize = function(ed = numeric(), eval = 'SpearKarb', sk.var = numeric()) {
+		if(eval != 'SpearKarb') {
 
 			stop("[sk: validation] the estimator must be 'SpearKarb'")
 		} else {
 			initFields(ed = ed, eval = eval, sk.var = sk.var)
 		}
 	},
-	print = function(){
-		if(length(.self$ed) == 0){
+	print = function() {
+		if(length(.self$ed) == 0) {
 			cat('Empty Construct\n')
 		} else {
 			cat(paste('ED50 by method ', .self$eval, '\n',sep = ''))
@@ -91,5 +91,5 @@ sk <- setRefClass('sk', contains = 'skrmdb', fields = list(sk.var = 'numeric'),
 	}
 	))
 					
-setMethod('show', 'sk', function(object){object$print()})
-setMethod('print', 'sk', function(x,...){x$print()})
+setMethod('show', 'sk', function(object) {object$print()})
+setMethod('print', 'sk', function(x,...) {x$print()})

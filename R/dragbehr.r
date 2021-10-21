@@ -67,9 +67,9 @@
 #' DragBehr(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
 
-DragBehr <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F){
+DragBehr <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)){
+  if(is.null(A)) {
     A <- .checkvars(y, n, x)
   }	
   y <- A[,1]
@@ -81,7 +81,7 @@ DragBehr <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F){
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
   h <- length(y)
-  if (length(unique(n)) > 1){
+  if (length(unique(n)) > 1) {
     a <- cumsum(p)
     b <- rev(cumsum(rev(1 - p)))
     }

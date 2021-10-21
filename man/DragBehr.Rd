@@ -4,8 +4,7 @@
 \alias{DragBehr}
 \title{Dragstedt-Behrens estimator}
 \usage{
-DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T,
-  show = F)
+DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T, show = F)
 }
 \arguments{
 \item{formula}{a formula of the form \code{cbind(y,n) ~ x}}
@@ -31,7 +30,7 @@ object of \code{skrmdb} class with slots: \cr
 Gives the Dragstedt-Behrens estimate of median effective dose (ED50)
 }
 \details{
-Data input may either be a formula and data frame, or variables may be input directly (see example).
+Data input may either be a formula and data frame, or variables may be input directly (see example).  
 
 The Dragstedt-Behrens method estimates the median effective dose by interpolating between the two 
 doses that bracket the dose producing median response. It accumulates sums in both directions by

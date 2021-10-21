@@ -65,9 +65,9 @@
 #' ReedMuench(cbind(dead, total) ~ dil, X3)
 #' ReedMuench(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
-ReedMuench <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F){
+ReedMuench <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)){
+  if(is.null(A)) {
     A <- .checkvars(y, n, x)
   }	
   y <- A[,1]
