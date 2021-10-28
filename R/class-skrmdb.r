@@ -12,19 +12,21 @@
 #' @author \link{skrmdb-package}
 #' @examples
 #' new("skrmdb", ed = 2.906593, eval = "DragBehr")
-skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'), methods = list(
-	initialize = function(ed = numeric(), eval = character()) {
-		initFields(ed = ed, eval = eval)
-	}, 
-	print = function() {
-		if(length(.self$ed) == 0) {
-			cat("empty construct\n")
-		} else {
-			cat(paste('ED50 by method ', .self$eval, '\n', sep = ''))
-			cat(.self$ed, '\n')
-		}
-	}
-	))
+skrmdb <- setRefClass('skrmdb', 
+                      fields = list(ed = 'numeric', eval = 'character'), 
+                      methods = list(
+                        initialize = function(ed = numeric(), eval = character()) {
+                          initFields(ed = ed, eval = eval)
+                        }, 
+                        print = function() {
+                          if(length(.self$ed) == 0) {
+                            cat("empty construct\n")
+                          } else {
+                            cat(paste('ED50 by method ', .self$eval, '\n', sep = ''))
+                            cat(.self$ed, '\n')
+                          }
+                        }
+                      ))
 
 setMethod('show', 'skrmdb', function(object) {object$print()})
 setMethod('print', 'skrmdb', function(x,...) {x$print()})
@@ -69,27 +71,29 @@ setMethod('getED', 'skrmdb', function(object) {return(as.numeric(object$ed))})
 #' @author \link{skrmdb-package}
 #' @examples
 #' new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")
-sk <- setRefClass('sk', contains = 'skrmdb', fields = list(sk.var = 'numeric'),
-	methods = list(
-	
-	initialize = function(ed = numeric(), eval = 'SpearKarb', sk.var = numeric()) {
-		if(eval != 'SpearKarb') {
+sk <- setRefClass('sk', 
+                  contains = 'skrmdb', 
+                  fields = list(sk.var = 'numeric'),
+                  methods = list(
+                    
+                    initialize = function(ed = numeric(), eval = 'SpearKarb', sk.var = numeric()) {
+                      if(eval != 'SpearKarb') {
+                        
+                        stop("[sk: validation] the estimator must be 'SpearKarb'")
+                      } else {
+                        initFields(ed = ed, eval = eval, sk.var = sk.var)
+                      }
+                    },
+                    print = function() {
+                      if(length(.self$ed) == 0) {
+                        cat('Empty Construct\n')
+                      } else {
+                        cat(paste('ED50 by method ', .self$eval, '\n',sep = ''))
+                        cat(paste('ed: ', ed = getED(.self), '\n'))
+                        cat(paste('sk.var: ', sk.var = .self$sk.var, '\n'))
+                      }
+                    }
+                  ))
 
-			stop("[sk: validation] the estimator must be 'SpearKarb'")
-		} else {
-			initFields(ed = ed, eval = eval, sk.var = sk.var)
-		}
-	},
-	print = function() {
-		if(length(.self$ed) == 0) {
-			cat('Empty Construct\n')
-		} else {
-			cat(paste('ED50 by method ', .self$eval, '\n',sep = ''))
-			cat(paste('ed: ', ed = getED(.self), '\n'))
-			cat(paste('sk.var: ', sk.var = .self$sk.var, '\n'))
-		}
-	}
-	))
-					
 setMethod('show', 'sk', function(object) {object$print()})
 setMethod('print', 'sk', function(x,...) {x$print()})

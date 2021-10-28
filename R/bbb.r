@@ -1,4 +1,3 @@
-
 .checkdata <- function(data, formula) {
   if(!is.null(data) & !is.null(formula)) {
     A <- .checkmatrixorder(as.matrix(model.frame(formula = formula, data = data)))
@@ -19,15 +18,12 @@
     
     return(A)  
   }
-  
-  
 }
 
 .checkmatrixorder <- function(A) {
   if(is.null(rownames(A))) {
     rownames(A) <- 1:nrow(A)
   }
-  
   # check order of x variable (column 3)
   # enforce that user must order by x variable
   x <- A[, 3]
