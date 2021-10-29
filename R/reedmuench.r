@@ -65,37 +65,26 @@
 #' ReedMuench(cbind(dead, total) ~ dil, X3)
 #' ReedMuench(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
-ReedMuench <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F) {
-  A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)) {
-    A <- .checkvars(y, n, x)
-  }	
-  y <- A[,1]
-  n <- A[,2]
-  x <- A[,3]
+ReedMuench <- function(formula = NULL, data = NULL, y, n, x, 
+                       autoarrange = TRUE, warn.me = TRUE, show = FALSE) {
+  A <- .checkdata(formula, data, autoarrange, warn.me)
+  if (is.null(A)) {
+    A <- .checkvars(y, n, x, autoarrange, warn.me)
+  }
+  y <- A$y
+  n <- A$n
+  x <- A$x
   
-  d <- unique(diff(zapsmall(x)))
-  p <- y/n
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
-  h <- length(y)
-  P <- a/(a + b)
-  i <- max(c(1:h)[P <= 0.5])
-  if(length(d) > 1) {
-    d <- x[i + 1] - x[i]
-    #  d <-  d[i]
-    if(warn.me) warning("Uneven dilution scheme")
-  }
-  if(length(unique(n)) == 1)
-    ed <- x[i] + (d * (b[i] - a[i]))/(n[i] - y[i] + y[i + 1])
-  else {
-    A <- cumsum(p)
-    B <- rev(cumsum(rev(1. - p)))
-    ed <- x[i] + (d * (B[i] - A[i]))/(1. - p[i] + p[i + 1])
-  }
-  names(ed) <- 'rm'
-  if(show)
-    print(cbind(y, n, p, a, b, P = round(P, 2), x, d))
-  #return(ed)
-  return(new('skrmdb', ed = ed, eval = 'ReedMuench'))
+  diff <- a - b
+  if (any(diff == 0)) {
+    ed <- mean(x[which(diff == 0)])
+  } else {
+    i <- max(which(diff < 0))
+    ed <- x[i] + ((x[i + 1] - x[i]) * (b[i] - a[i])) / (n[i] - y[i] + y[i + 1])
+  }    
+  
+  if (show) print(data.frame(x, y, n, y0 = A$y0, n0 = A$n0, a, b, P = round(a / (a + b), 2)))
+  return(new_skrmdb("Reed-Muench", A, ed))
 }

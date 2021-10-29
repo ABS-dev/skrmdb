@@ -66,36 +66,27 @@
 #' DragBehr(cbind(dead, total) ~ dil, X3)
 #' DragBehr(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
-DragBehr <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F) {
-  A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)) {
-    A <- .checkvars(y, n, x)
-  }	
-  y <- A[,1]
-  n <- A[,2]
-  x <- A[,3]
+DragBehr <- function(formula = NULL, data = NULL, y, n, x, 
+                     autoarrange = TRUE, warn.me = TRUE, show = FALSE) {
+  A <- .checkdata(formula, data, autoarrange, warn.me)
+  if (is.null(A)) {
+    A <- .checkvars(y, n, x, autoarrange, warn.me)
+  }
+  y <- A$y
+  n <- A$n
+  x <- A$x
   
-  d <- unique(diff(zapsmall(x)))
-  p <- y/n
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
-  h <- length(y)
-  
-  
-  if (length(unique(n)) > 1) {
-    a <- cumsum(p)
-    b <- rev(cumsum(rev(1 - p)))
+  P <- a / (a + b)
+  diff <- a - b
+  if (any(diff == 0)) {
+    ed <- mean(x[which(diff == 0)])
+  } else {
+    i <- max(which(diff < 0)) 
+    ed <- x[i] + (((x[i + 1] - x[i]) * (1 / 2 - P[i])) / (P[i + 1] - P[i]))
   }
-  P <- a/(a + b)
-  i <- max(c(1:h)[P <= 0.5])
-  if(length(d) > 1) {
-    d <- x[i + 1] - x[i]
-    if(warn.me)
-      warning("Uneven dilution scheme")
-  }
-  ed <- x[i] + ((d * (1/2 - P[i]))/(P[i + 1] - P[i]))
-  names(ed) <- 'db'
-  if(show)
-    print(cbind(y, n, p, a, b, P = round(P, 2), x, d))
-  return(new('skrmdb', ed = ed, eval = 'DragBehr'))
+  
+  if (show) print(data.frame(x, y, n, y0 = A$y0, n0 = A$n0, a, b, P = round(P, 2)))
+  return(new_skrmdb("Dragstedt-Behrens", A, ed))
 }
