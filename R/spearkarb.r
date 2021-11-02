@@ -2,10 +2,10 @@
 #' 
 #' @export
 SpearKarb <- function(formula = NULL, data = NULL, y, n, x, 
-                      autoarrange = TRUE, warn.me = TRUE, show = FALSE) {
-  A <- .checkdata(formula, data, autoarrange, warn.me)
+                      direction = "auto", warn.me = TRUE, show = FALSE) {
+  A <- .checkdata(formula, data, direction, warn.me)
   if (is.null(A)) {
-    A <- .checkvars(y, n, x, autoarrange, warn.me)
+    A <- .checkvars(y, n, x, direction, warn.me)
   }
   y <- A$y
   n <- A$n

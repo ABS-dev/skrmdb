@@ -38,7 +38,12 @@
 #' @param y an integer vector corresponding to the number responding at each log dilution or dose.
 #' @param n an integer vector corresponding to the group size at each log dilution or dose.
 #' @param x a vector corresponding to the log dilution or dose for each group.
-#' @param autoarrange if TRUE will sort the data according to \code{sort(x)} or \code{sort(-x)}, so
+#' @param direction default "auto".  Possible values are "auto", "increasing", "decreasing". If
+#'   "increasing", assumes \code{y/n} is increasing in \code{x}.  If "decreasing", assumes 
+#'   \code{y/n} is decreasing in \code{x}. Otherwise attempts to determine if \code{y/n}
+#'   is increasing or decreasing in \code{x}.  
+#' 
+#' if TRUE will sort the data according to \code{sort(x)} or \code{sort(-x)}, so
 #'   that \code{y / n} appears to be increasing.
 #' @param warn.me if TRUE, warnings and messages related to the processing of the data will be
 #'   displayed.
