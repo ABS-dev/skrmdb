@@ -18,9 +18,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity
@@ -41,9 +41,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # uneven
@@ -64,9 +64,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # bracket
@@ -87,9 +87,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
   
 test_that("examples work", {
@@ -109,9 +109,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotincity + reversed
@@ -124,7 +124,7 @@ test_that("examples work", {
   resb = ReedMuench(y + n ~ x)
   resc = ReedMuench(dead + total ~ dil, dt)
   res  = list(eval = "Reed-Muench",
-                ed   = 2.3333333333)
+                ed   = 2.3333333)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -132,9 +132,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # bracket + uneven
@@ -155,9 +155,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -177,9 +177,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity + bracket
@@ -200,9 +200,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 #  + reversed
@@ -215,7 +215,7 @@ test_that("examples work", {
   resb = ReedMuench(y + n ~ x)
   resc = ReedMuench(dead + total ~ dil, dt)
   res  = list(eval = "Reed-Muench",
-                ed   = 4.1111111111)
+                ed   = 4.11111)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -223,9 +223,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity + uneven
@@ -246,9 +246,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 #   + reversed
@@ -269,9 +269,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity + uneven + bracket
@@ -292,13 +292,13 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
-  y = c(4, 1, 2, 0)
+  y = c(4, 1, 3, 0)
   n = c(4, 4, 4, 4) + 4
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
@@ -306,7 +306,7 @@ test_that("examples work", {
   resb = ReedMuench(y + n ~ x)
   resc = ReedMuench(dead + total ~ dil, dt)
   res  = list(eval = "Reed-Muench",
-                ed   = 1.272727272)
+                ed   = 1.36363636)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -314,9 +314,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -336,9 +336,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -358,8 +358,8 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
 

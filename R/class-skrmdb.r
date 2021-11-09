@@ -81,6 +81,11 @@ new_skrmdb <- function(eval = character(), A,
                        ed = numeric(), 
                        var = NA_real_) {
   messages <- character()
+  if (attr(A, "warning.increasing")) {
+    messages <- c(messages, "Count trend is increasing with dilution.")
+  } else {
+    messages <- c(messages, "Count trend is decreasing with dilution.")
+  }
   if (attr(A, "warning.uneven")) {
     messages <- c(messages, "Uneven dilution scheme.")
   }

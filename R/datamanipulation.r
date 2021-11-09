@@ -1,5 +1,5 @@
 #' @importFrom data.table setnames setorder as.data.table := .N
-.checkmatrix <- function(A, direction, warn.me) {
+.checkmatrix <- function(A, autosort = TRUE, warn.me = FALSE) {
   y <- n <- x <- y0 <- n0 <- NULL 
   A <- as.data.table(A)
   setnames(A, c("y", "n", "x"))
@@ -13,19 +13,17 @@
   A[, y := y * N / n]
   A[, n0 := n]
   A[, n := N]
-  # setorder(A, x)
   warning.monotone <- warning.uneven <-
-    warning.bracket <- warning.reverse <- FALSE
-  if (direction == "increasing") {
-    setorder(A, x)
-  } else if (direction == "decreasing") {
-    setorder(A, -x)
-  } else {
-    if (A[, .N] * A[, sum(y * x)] > A[, sum(x) * sum(y)]) {
+    warning.bracket <- warning.increasing <- FALSE
+
+  S = A[, .N * sum(x * y) - sum(x) * sum(y)]
+  warning.increasing <- S >= 0  # All algorithms make assumption that p's should be increasing.
+  if (autosort) {
+    if (S >= 0) {
       setorder(A, x)
     } else {
       setorder(A, -x)
-    } 
+    }
   }
   if (length(unique(diff(zapsmall(A$x)))) > 1) {
     if (warn.me) message("skrmdb :: Uneven dilution scheme.")
@@ -39,15 +37,16 @@
     if (warn.me) message("skrmdb :: Dilutions fail to bracket the midpoint. ED50 is unreliable.")
     warning.bracket <- TRUE
   }
-  attr(A, "warning.monotone") <- warning.monotone
-  attr(A, "warning.uneven")   <- warning.uneven
-  attr(A, "warning.bracket")  <- warning.bracket
+  attr(A, "warning.monotone")   <- warning.monotone
+  attr(A, "warning.uneven")     <- warning.uneven
+  attr(A, "warning.bracket")    <- warning.bracket
+  attr(A, "warning.increasing") <- warning.increasing
   return(A)
 }
 
 #' @importFrom stats model.frame formula terms
 #' @importFrom Formula Formula
-.checkdata <- function(formula, data, direction, warn.me) {
+.checkdata <- function(formula, data, autosort = TRUE, warn.me = FALSE) {
   if (is.null(formula)) {
     return(NULL)
   }
@@ -60,16 +59,24 @@
   if (ncol(A) != 3) {
     stop("skrmdb :: formula must be for form y + n ~ x where y, n, and x are all different.", call. = FALSE)
   }
-  .checkmatrix(A, direction, warn.me)
+  .checkmatrix(A, autosort, warn.me)
 }
 
 #' @importFrom data.table data.table
-.checkvars <- function(y, n, x, direction, warn.me) {
+.checkvars <- function(y, n, x, autosort = TRUE, warn.me = FALSE) {
   # message("Depreciated: Use y + n ~ x.")
   if (missing(y) | missing(n) | missing(x)) {
     return(NULL)
   } else if ((length(y) != length(x)) | (length(y) != length(n))) {
     stop("skrmdb :: variables x, n, and y must be the same length", call. = FALSE)
   } 
-  .checkmatrix(data.table(y = y, n = n, x = x), direction, warn.me)
+  .checkmatrix(data.table(y = y, n = n, x = x), autosort, warn.me)
+}
+
+.checkall <- function(formula, data, y, n, x, autosort = TRUE, warn.me = FALSE) {
+  A <- .checkdata(formula, data, autosort, warn.me)
+  if (is.null(A)) {
+    A <- .checkvars(y, n, x, autosort, warn.me)
+  }
+  return(A)
 }

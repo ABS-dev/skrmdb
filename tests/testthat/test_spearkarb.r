@@ -19,12 +19,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # monotinicity
@@ -46,12 +46,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # uneven
@@ -65,7 +65,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 3,
-                var  = 0.3958333)
+                var  = 0.25)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -73,12 +73,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # bracket
@@ -100,12 +100,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
   
 test_that("examples work", {
@@ -126,12 +126,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # monotincity + reversed
@@ -153,12 +153,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # bracket + uneven
@@ -172,7 +172,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 4.5,
-                var  = 0.1852679)
+                var  = 0.21875)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -180,12 +180,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -198,7 +198,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 1.75,
-                var  = 0.09598214)
+                var  = 0.1294643)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -206,12 +206,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # monotinicity + bracket
@@ -233,12 +233,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 #  + reversed
@@ -260,12 +260,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # monotinicity + uneven
@@ -279,7 +279,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 3.5,
-                var  = 0.3958333)
+                var  = 0.25)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -287,12 +287,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 #   + reversed
@@ -306,7 +306,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 2.5,
-                var  = 0.3958333)
+                var  = 0.25)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -314,12 +314,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 # monotinicity + uneven + bracket
@@ -333,7 +333,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 4.5,
-                var  = 0.1584821)
+                var  = 0.1116071)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -341,12 +341,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -359,7 +359,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 1.5,
-                var  = 0.1584821)
+                var  = 0.1116071)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -367,12 +367,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -385,7 +385,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 1.75,
-                var  = 0.2834821)
+                var  = 0.2366071)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -393,12 +393,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -411,7 +411,7 @@ test_that("examples work", {
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
                 ed   = 4.25,
-                var  = 0.2834821)
+                var  = 0.2366071)
   
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
@@ -419,11 +419,11 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed)
-  expect_equal(resb$ed, res$ed)
-  expect_equal(resc$ed, res$ed)
-  expect_equal(resa$var, res$var, tol = 0.001)
-  expect_equal(resb$var, res$var, tol = 0.001)
-  expect_equal(resc$var, res$var, tol = 0.001)
+  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 

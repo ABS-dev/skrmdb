@@ -15,7 +15,7 @@ DragBehr(
   y,
   n,
   x,
-  direction = "auto",
+  autosort = TRUE,
   warn.me = TRUE,
   show = FALSE
 )
@@ -26,7 +26,7 @@ ReedMuench(
   y,
   n,
   x,
-  direction = "auto",
+  autosort = TRUE,
   warn.me = TRUE,
   show = FALSE
 )
@@ -37,7 +37,7 @@ SpearKarb(
   y,
   n,
   x,
-  direction = "auto",
+  autosort = TRUE,
   warn.me = TRUE,
   show = FALSE
 )
@@ -53,13 +53,9 @@ SpearKarb(
 
 \item{x}{a vector corresponding to the log dilution or dose for each group.}
 
-\item{direction}{default "auto".  Possible values are "auto", "increasing", "decreasing". If
-  "increasing", assumes \code{y/n} is increasing in \code{x}.  If "decreasing", assumes 
-  \code{y/n} is decreasing in \code{x}. Otherwise attempts to determine if \code{y/n}
-  is increasing or decreasing in \code{x}.  
-
-if TRUE will sort the data according to \code{sort(x)} or \code{sort(-x)}, so
-  that \code{y / n} appears to be increasing.}
+\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data according to either
+\code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing with the
+index.  This is how the three methods assume the data to be ordered.}
 
 \item{warn.me}{if TRUE, warnings and messages related to the processing of the data will be
 displayed.}
