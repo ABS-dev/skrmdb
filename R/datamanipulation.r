@@ -64,7 +64,7 @@
 
 #' @importFrom data.table data.table
 .checkvars <- function(y, n, x, autosort = TRUE, warn.me = FALSE) {
-  # message("Depreciated: Use y + n ~ x.")
+  message("Depreciated: Use y + n ~ x instead.")
   if (missing(y) | missing(n) | missing(x)) {
     return(NULL)
   } else if ((length(y) != length(x)) | (length(y) != length(n))) {
