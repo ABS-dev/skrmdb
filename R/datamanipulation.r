@@ -47,7 +47,7 @@
 #' @importFrom stats model.frame formula terms
 #' @importFrom Formula Formula
 .checkdata <- function(formula, data, autosort = TRUE, warn.me = FALSE) {
-  if (is.null(formula)) {
+  if (missing(formula)) {
     return(NULL)
   }
   vars <- attr(terms(formula(formula)), which = "variables")
@@ -64,7 +64,7 @@
 
 #' @importFrom data.table data.table
 .checkvars <- function(y, n, x, autosort = TRUE, warn.me = FALSE) {
-  message("Depreciated: Use y + n ~ x instead.")
+  # message("Depreciated: Use y + n ~ x instead.")
   if (missing(y) | missing(n) | missing(x)) {
     return(NULL)
   } else if ((length(y) != length(x)) | (length(y) != length(n))) {

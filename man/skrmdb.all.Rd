@@ -4,15 +4,16 @@
 \alias{skrmdb.all}
 \title{Function to run all three methods for determining ED50.}
 \usage{
-skrmdb.all(x, ..., autosort = FALSE)
+skrmdb.all(formula, data, autosort = TRUE)
 }
 \arguments{
-\item{x}{A data frame containing the required columns \code{positive}, \code{total}, and 
-\code{log_dil}}
+\item{formula}{A formula of the form \code{y + n ~ x} or \code{y + n ~ x | v1 + ... + vK}. 
+\code{y} is the number responding at each dilution level, \code{n} is the number tested
+at each dilution level, and \code{x} is the dilution levels.  \code{v1, ..., vK} are the 
+grouping variables.  \code{y, n, x, v1, ..., vK} must all be distenct.}
 
-\item{...}{The columns which are used to subset the data when calculating ED50 by the three 
-methods.  If \code{...} is missing, the code will subset based on all columns that are not
-the required ones.  If \code{... == NULL}, the code does not subset the data.}
+\item{data}{A data.frame containting the titration data. Formatted as specified in the CVB
+Data Guide.}
 
 \item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data according to either
 \code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing with the
@@ -32,9 +33,9 @@ in the \code{\link{skrmdb}} package for determining ED50.
 \examples{
 data(titration)
 titration$log_dil = -log10(titration$dil)
-skrmdb.all(titration, Vial, Operator)
+skrmdb.all(positive + total ~ log_dil | Vial + Operator, titration)
 
 titration$dil = NULL
-skrmdb.all(titration)
+skrmdb.all(positive + total ~ log_dil | ., titration)
   
 }
