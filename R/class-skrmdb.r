@@ -64,8 +64,9 @@ print.skrmdb <- function(x, ...) {
   invisible(x)
 }
 
-#' @title Class definition for skrmdb object
-#' @description The skrmdb object holds output from functions in the skrmdb package. A valid
+#' Class definition for skrmdb object
+#' 
+#' The skrmdb object holds output from functions in the skrmdb package. A valid
 #' skrmdb object is a list whicn contains the followling components:
 #' 
 #' @param eval Evaluation method. One of 'ReedMuench', 'SpearKarb',  or 'DragBehr'. character string.
@@ -77,6 +78,7 @@ print.skrmdb <- function(x, ...) {
 #' @name skrmdb-class
 NULL
 
+
 new_skrmdb <- function(eval = character(), A, 
                        ed = numeric(), 
                        var = NA_real_) {
@@ -86,10 +88,13 @@ new_skrmdb <- function(eval = character(), A,
   } else {
     messages <- c(messages, "Count trend is decreasing with dilution.")
   }
+  if (attr(A, "warning.duplicate")) {
+    messages <- c(messages, "Duplicate dilutions found. Results combined.")
+  }
   if (attr(A, "warning.uneven")) {
     messages <- c(messages, "Uneven dilution scheme.")
   }
-  if (attr(A, "warning.monotone")) {
+  if (attr(A, "warning.monotonic")) {
     messages <- c(messages, "y is not monotonic. ED50 may be unreliable.")
   }
   if (attr(A, "warning.bracket")) {

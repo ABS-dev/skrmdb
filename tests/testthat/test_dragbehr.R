@@ -6,7 +6,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -29,7 +29,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -52,7 +52,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -75,7 +75,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -97,7 +97,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -120,7 +120,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -143,7 +143,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -165,7 +165,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -188,7 +188,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -211,7 +211,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -234,7 +234,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -257,7 +257,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -280,7 +280,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -302,7 +302,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -324,7 +324,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
@@ -346,7 +346,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = DragBehr(y = y, x = x, n = n)
+  resa = suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",

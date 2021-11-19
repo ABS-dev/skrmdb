@@ -9,20 +9,11 @@
 \alias{SpearKarb}
 \title{skrmdb package}
 \usage{
-DragBehr(
-  formula = NULL,
-  data = NULL,
-  y,
-  n,
-  x,
-  autosort = TRUE,
-  warn.me = TRUE,
-  show = FALSE
-)
+DragBehr(formula, data, y, n, x, autosort = TRUE, warn.me = TRUE, show = FALSE)
 
 ReedMuench(
-  formula = NULL,
-  data = NULL,
+  formula,
+  data,
   y,
   n,
   x,
@@ -32,8 +23,8 @@ ReedMuench(
 )
 
 SpearKarb(
-  formula = NULL,
-  data = NULL,
+  formula,
+  data,
   y,
   n,
   x,

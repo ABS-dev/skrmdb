@@ -6,7 +6,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -33,7 +33,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -60,7 +60,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -87,7 +87,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -113,7 +113,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -140,7 +140,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4, 4)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -167,7 +167,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -193,7 +193,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -220,7 +220,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -247,7 +247,7 @@ test_that("examples work", {
   n = c(8, 8, 8, 8, 8)
   x = c(1, 2, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -274,7 +274,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -301,7 +301,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4)
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -328,7 +328,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -354,7 +354,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -380,7 +380,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 3, 4, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
@@ -406,7 +406,7 @@ test_that("examples work", {
   n = c(4, 4, 4, 4) + 4
   x = c(1, 2, 3, 5)
   dt = data.frame(dead = y, total = n, dil = x)
-  resa = SpearKarb(y = y, x = x, n = n)
+  resa = suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",

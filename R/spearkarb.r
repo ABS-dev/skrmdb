@@ -1,3 +1,19 @@
+#' Spearman-Kärber algorithm
+#' 
+#' Implements the Spearman-Kärber Algorithm as found in Miller, 1973
+#' 
+#' @param y Integer vector.  Number of subjects responding at each level.  
+#'   Assumed to be increasing.
+#' @param n Integer vector.  Number of subjects tested at each level.  
+#'   Assumed to be constant.
+#' @param x Integer vector.  The dilution at each level.
+#' @param n0 The original number of subjects tested at each level before scaling by 
+#'   \code{.checkmatrix}.
+#' @param show logical.  If TRUE shows the intermediary statistics
+#' 
+#' @return Numeric.  ED50 as computed by Spearman-Kärber.
+#' 
+#' @noRd
 .SpearKarb <- function(y, n, x, n0, show = FALSE) {
   K <- length(x)
   p  <- y / n
@@ -15,7 +31,7 @@
 #' @rdname skrmdb
 #' 
 #' @export
-SpearKarb <- function(formula = NULL, data = NULL, y, n, x, 
+SpearKarb <- function(formula, data, y, n, x, 
                      autosort = TRUE, warn.me = TRUE, show = FALSE) {
   A <- .checkall(formula, data, y, n, x, autosort, warn.me)
   res = .SpearKarb(A$y, A$n, A$x, A$n0, show)

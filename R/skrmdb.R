@@ -38,7 +38,6 @@
 #' @param y an integer vector corresponding to the number responding at each log dilution or dose.
 #' @param n an integer vector corresponding to the group size at each log dilution or dose.
 #' @param x a vector corresponding to the log dilution or dose for each group.
-#' 
 #' @param autosort Default \code{TRUE}.  If \code{TRUE} will sort the data according to either
 #'   \code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing with the
 #'   index.  This is how the three methods assume the data to be ordered.

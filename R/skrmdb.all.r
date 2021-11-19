@@ -1,4 +1,14 @@
-.get.opvar = function(fmla) {
+#' \code{.get_opvar}
+#' 
+#' Parses a formula for operators and variables.
+#' 
+#' @param fmla a formula
+#' 
+#' @return a list of two vectors. \code{operators} is a vector of all operators used in \code{fmla},
+#'   and \code{variables} is a vector of all variables used in \code{fmla}.
+#'   
+#' @noRd
+.get_opvar = function(fmla) {
   opvar <- list(operators = c(),
                 variables = c())
   len <- length(fmla)
@@ -10,7 +20,7 @@
       if (is.name(fmla[[ii]])) {
         opvar$variables <- c(opvar$variables, as.character(fmla[[ii]]))
       } else {
-        res = .get.opvar(fmla[[ii]])
+        res = .get_opvar(fmla[[ii]])
         opvar$operators <- c(opvar$operators, res$operators)
         opvar$variables <- c(opvar$variables, res$variables)
       }
@@ -19,35 +29,58 @@
   return(opvar)
 }
 
+#' \code{.parse_formula}
+#' 
+#' Parses a formula to determine if it is of one of the following forms
+#' \code{y + n ~ x}
+#' \code{y + n ~ x | v1} 
+#' \code{y + n ~ x | v1 + ... + vK}
+#' 
+#' @param fmla a formula
+#' 
+#' @return Logical.  True if \code{fmla} is of the correcto form, FALSE otherwise.
+#' 
+#' @noRd
 .parse_formula = function(fmla) {
   # LHS must be of form v1 + v2
-  opvar.lhs <- .get.opvar(fmla[[2]])
+  opvar.lhs <- .get_opvar(fmla[[2]])
   ops = opvar.lhs$operators
-  if (length(ops) != 1 ||
-      ops != "+")  {
+  if (length(ops) != 1 || !(ops %in% c("cbind", "+")))  {
     return(FALSE)
   } 
-  # RHS must be for form v3 or v3 | v4  or V3 | v4 + ... + vK
+  # RHS must be of the form v3 or v3 | v4  or V3 | v4 + ... + vK
   if (length(fmla[[3]]) > 1) {
-    if (as.character(fmla[[3]][[1]]) != "|" || 
-        length(fmla[[3]][[2]]) > 1) {
+    if (as.character(fmla[[3]][[1]]) != "|" || length(fmla[[3]][[2]]) > 1) {
       return(FALSE)
     }
-    ops <- unique(.get.opvar(fmla[[3]][[3]])$operators)
+    ops <- unique(.get_opvar(fmla[[3]][[3]])$operators)
     if (length(ops) > 1 ||
         (length(ops) == 1 && ops != "+")) {
       return(FALSE)
     }
-    # vars.rhs <- .get.opvar(fmla[[3]][[2]])$variables
   } 
   # all variables names are unique
-  all.vars = c(opvar.lhs$variables, .get.opvar(fmla[[3]])$variables)
+  all.vars = c(opvar.lhs$variables, .get_opvar(fmla[[3]])$variables)
   if (length(all.vars) != length(unique(all.vars))) {
     return(FALSE)
   }
   TRUE
 }
 
+#' \code{.skrmdb.all}
+#' 
+#' Computes ED50 using the three methods found in this package for a single test.
+#' 
+#' @param y Integer vector.  Number of subjects responding at each level.  
+#' @param n Integer vector.  Number of subjects tested at each level.  
+#' @param x Integer vector.  The dilution at each level.
+#' @param autosort logical.  If TRUE, sorts according to -x or x so that y/n is increasing
+#'   with the index
+#' 
+#' @return a list containing the ED50 for the three methods, the variance as computed by 
+#'   SpearKarb, and Boolean values for the four warning messages
+#'
+#' @noRd
 .skrmdb.all <- function(y, n, x, autosort = TRUE) {
   A  <- .checkvars(   y,   n,   x, autosort)
   DB <- .DragBehr(  A$y, A$n, A$x)
@@ -59,7 +92,7 @@
               SpearKarb.var      =  SK[2],
               increasing         =  attr(A, "warning.increasing"),
               `even dilution`    = !attr(A, "warning.uneven"),
-              monotone           = !attr(A, "warning.monotone"),
+              monotonic           = !attr(A, "warning.monotonic"),
               `bracket midpoint` = !attr(A, "warning.bracket")))
 }
 
@@ -81,7 +114,7 @@
 #' @return A \code{\link{data.frame}} containing columns for each of the subset variables, the ED50
 #'   as computed by \code{DragBehr}, \code{ReedMuench}, the ED50 and variance as computed by 
 #'   \code{SpearKarb}, and columns of logical values which indicate if the data are increasing or
-#'   decreasing with \code{log_dil}, has an even dilution scheme, are monotone, and brackets the
+#'   decreasing with \code{log_dil}, has an even dilution scheme, are monotonic, and brackets the
 #'   midpoint.
 #'
 #' @examples 
@@ -98,6 +131,7 @@
 #' @export
 #' @export
 skrmdb.all = function(formula, data, autosort = TRUE) {
+  y <- n <- x <- NULL
   if (missing(formula))
     stop("skrmdb :: formala is a required parameter.", call. = FALSE)
   if (missing(data)) 
