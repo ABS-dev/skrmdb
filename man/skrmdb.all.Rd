@@ -23,7 +23,7 @@ index.  This is how the three methods assume the data to be ordered.}
 A \code{\link{data.frame}} containing columns for each of the subset variables, the ED50
   as computed by \code{DragBehr}, \code{ReedMuench}, the ED50 and variance as computed by 
   \code{SpearKarb}, and columns of logical values which indicate if the data are increasing or
-  decreasing with \code{log_dil}, has an even dilution scheme, are monotone, and brackets the
+  decreasing with \code{log_dil}, has an even dilution scheme, are monotonic, and brackets the
   midpoint.
 }
 \description{

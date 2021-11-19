@@ -83,17 +83,18 @@
 #' @noRd
 .skrmdb.all <- function(y, n, x, autosort = TRUE) {
   A  <- .checkvars(   y,   n,   x, autosort)
-  DB <- .DragBehr(  A$y, A$n, A$x)
-  RM <- .ReedMuench(A$y, A$n, A$x)
-  SK <- .SpearKarb( A$y, A$n, A$x, A$n0)
+  DB <- .DragBehr(  A$y_inc, A$y_dec, A$x)
+  RM <- .ReedMuench(A$y_inc, A$y_dec, A$x)
+  SK <- .SpearKarb( A$y_inc, A$y_dec, A$x, A$n, )
   return(list(DragBehr           =  DB,
               ReedMuench         =  RM,
               SpearKarb          =  SK[1],
               SpearKarb.var      =  SK[2],
-              increasing         =  attr(A, "warning.increasing"),
-              `even dilution`    = !attr(A, "warning.uneven"),
-              monotonic           = !attr(A, "warning.monotonic"),
-              `bracket midpoint` = !attr(A, "warning.bracket")))
+              `response increasing` =  attr(A, "warning.increasing"),
+              `duplicate dilutions` =  attr(A, "warning.duplicate"),
+              `even dilution`       = !attr(A, "warning.uneven"),
+              monotonic             = !attr(A, "warning.monotonic"),
+              `bracket midpoint`    = !attr(A, "warning.bracket")))
 }
 
 #' Function to run all three methods for determining ED50.

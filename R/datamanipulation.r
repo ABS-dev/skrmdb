@@ -27,10 +27,10 @@
 #' 
 #' @noRd
 .checkmatrix <- function(A, autosort = TRUE, warn.me = FALSE) {
-  y <- n <- x <- y0 <- n0 <- NULL 
-  warning.monotonic <- warning.uneven <-
-    warning.bracket <- warning.increasing <- 
-    warning.duplicate <- FALSE
+  y_inc <- y_dec <- y <- n <- x <- NULL
+  # y <- n <- x <- y0 <- n0 <- NULL 
+  warning.monotonic <- warning.uneven <- warning.bracket <- 
+    warning.increasing <- warning.duplicate <- FALSE
   A <- as.data.table(A)
   setnames(A, c("y", "n", "x"))
   # put in some checking here for what if y, n, or x are not integers
@@ -44,31 +44,29 @@
     if (warn.me) message("skrmdb :: combining results from duplicate dilutions")
     warning.duplicate <- TRUE
   }
+  # Sort by dilution
+  setorder(A, x)
   # Then scale appropriately since the functions assume that n is constant
   N <- A[, prod(unique(n))]
-  A[, y0 := y]
-  A[, y := y * N / n]
-  A[, n0 := n]
-  A[, n := N]
-
-  S = A[, .N * sum(x * y) - sum(x) * sum(y)]
-  warning.increasing <- S >= 0  # All algorithms make assumption that p's should be increasing.
-  if (autosort) {
-    if (S >= 0) {
-      setorder(A, x)
-    } else {
-      setorder(A, -x)
-    }
+  Y1 <- A[, y * N / n]
+  Y2 <- N - Y1
+  warning.increasing <- A[, .N * sum(x * Y1) - sum(x) * sum(Y1)] >= 0  
+  if (autosort & !warning.increasing) {
+    A[, y_inc := Y2]
+    A[, y_dec := Y1]
+  } else {
+    A[, y_inc := Y1]
+    A[, y_dec := Y2]
   }
   if (length(unique(diff(zapsmall(A$x)))) > 1) {
     if (warn.me) message("skrmdb :: Uneven dilution scheme.")
     warning.uneven <- TRUE
   }
-  if (A[, !all(y == cummax(y))] && A[, !all(y == cummin(y))]) {
+  if (A[, !all(y_inc == cummax(y_inc))] && A[, !all(y_inc == cummin(y_inc))]) {
     if (warn.me) message("skrmdb :: y is not monotonic. ED50 may be unreliable.")
     warning.monotonic <- TRUE
   }
-  if (2 * A[, min(y)] >= N || 2 * A[, max(y)] <= N) {
+  if (2 * A[, min(y_inc)] >= N || 2 * A[, max(y_inc)] <= N) {
     if (warn.me) message("skrmdb :: Dilutions fail to bracket the midpoint. ED50 is unreliable.")
     warning.bracket <- TRUE
   }
