@@ -28,7 +28,7 @@
   return(c(ed, var))
 }
 
-#' @rdname skrmdb
+#' @rdname skrmdb2
 #' 
 #' @export
 SpearKarb <- function(formula, data, y, n, x, 

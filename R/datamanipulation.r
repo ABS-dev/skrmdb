@@ -9,8 +9,9 @@
 #' reliable.
 #' 1. \code{y} is not increasing with the index
 #' 2. Uneven dilution scheme
-#' 3. Not monotonic
-#' 4. y/n does not bracked the midpoint
+#' 3. Duplicate dilutions
+#' 4. Not monotonic
+#' 5. y/n does not bracketed the midpoint
 #' 
 #' @param A a data.frame.  Assumes that the first column is the number responding at each level,
 #'   the second column is the number tested at each level and the third column is the dilution

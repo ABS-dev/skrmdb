@@ -1,4 +1,4 @@
-Package: skrmdb
+Package: skrmdb2
 Type: Package
 Title: Package to estimate ED50
 Version: 4.3.0
@@ -22,7 +22,6 @@ Imports:
   data.table,
   Formula
 Suggests:
-  rmarkdown,
   testthat
 Encoding: UTF-8
 RoxygenNote: 7.1.2

@@ -1,6 +1,6 @@
-#' skrmdb package
+#' skrmdb2 package
 #'
-#' The skrmdb package provides functionality to compute the median effective dose (ED50) using the
+#' The skrmdb2 package provides functionality to compute the median effective dose (ED50) using the
 #' Dragstedt-Behrens, Reed-Muench, and Spearman-Kärber estimators.
 #'
 #' The Dragstedt-Behrens and Reed-Muench methods estimate the median effective dose by interpolating
@@ -49,7 +49,7 @@
 #' 
 #' @docType package
 #' 
-#' @name skrmdb
+#' @name skrmdb2
 #' 
 #' @examples
 #' # All examples are with \code{SpearKarb}, however, the usage for \code{DragBehr} 
