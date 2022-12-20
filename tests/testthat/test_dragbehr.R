@@ -10,8 +10,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 3)
-  
+              ed   = 3)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -33,8 +33,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 3.6363636)
-  
+              ed   = 3.6363636)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -56,8 +56,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 3.23076923)
-  
+              ed   = 3.23076923)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -79,8 +79,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4.3181818)
-  
+              ed   = 4.3181818)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -91,7 +91,7 @@ test_that("examples work", {
   expect_equal(resb$ed, res$ed, tolerance = 0.0001)
   expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
-  
+
 test_that("examples work", {
   y = c(4, 5, 6, 7, 8)
   n = c(8, 8, 8, 8, 8)
@@ -101,8 +101,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 1.68181)
-  
+              ed   = 1.68181)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -124,8 +124,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 2.363636)
-  
+              ed   = 2.363636)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -147,8 +147,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4.327586)
-  
+              ed   = 4.327586)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -169,8 +169,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 1.573770)
-  
+              ed   = 1.573770)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -192,8 +192,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4.5833333)
-  
+              ed   = 4.5833333)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -215,8 +215,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4.105263)
-  
+              ed   = 4.105263)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -238,8 +238,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4)
-  
+              ed   = 4)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -261,8 +261,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 2)
-  
+              ed   = 2)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -284,8 +284,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 4.676923076923)
-  
+              ed   = 4.676923076923)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -306,8 +306,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 1.416666)
-  
+              ed   = 1.416666)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -328,8 +328,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 2.071428571429)
-  
+              ed   = 2.071428571429)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -350,8 +350,8 @@ test_that("examples work", {
   resb = DragBehr(y + n ~ x)
   resc = DragBehr(dead + total ~ dil, dt)
   res  = list(eval = "Dragstedt-Behrens",
-                ed   = 3.928571)
-  
+              ed   = 3.928571)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -362,4 +362,3 @@ test_that("examples work", {
   expect_equal(resb$ed, res$ed, tolerance = 0.0001)
   expect_equal(resc$ed, res$ed, tolerance = 0.0001)
 })
-

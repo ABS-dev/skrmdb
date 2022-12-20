@@ -10,9 +10,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 3,
-                var  = 0.2083333)
-  
+              ed   = 3,
+              var  = 0.2083333)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -37,9 +37,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 3.5,
-                var  = 0.2083333)
-  
+              ed   = 3.5,
+              var  = 0.2083333)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -64,9 +64,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 3,
-                var  = 0.25)
-  
+              ed   = 3,
+              var  = 0.25)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -91,9 +91,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4.25,
-                var  = 0.1116071)
-  
+              ed   = 4.25,
+              var  = 0.1116071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -107,7 +107,7 @@ test_that("examples work", {
   expect_equal(resb$var, res$var, tolerance = 0.0001)
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
-  
+
 test_that("examples work", {
   y = c(4, 5, 6, 7, 8)
   n = c(8, 8, 8, 8, 8)
@@ -117,9 +117,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 1.75,
-                var  = 0.1116071)
-  
+              ed   = 1.75,
+              var  = 0.1116071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -144,9 +144,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 2.5,
-                var  = 0.2083333)
-  
+              ed   = 2.5,
+              var  = 0.2083333)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -171,9 +171,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4.5,
-                var  = 0.21875)
-  
+              ed   = 4.5,
+              var  = 0.21875)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -197,9 +197,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 1.75,
-                var  = 0.1294643)
-  
+              ed   = 1.75,
+              var  = 0.1294643)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -224,9 +224,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4.5,
-                var  = 0.09375)
-  
+              ed   = 4.5,
+              var  = 0.09375)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -251,9 +251,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4,
-                var  = 0.1294643)
-  
+              ed   = 4,
+              var  = 0.1294643)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -278,9 +278,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 3.5,
-                var  = 0.25)
-  
+              ed   = 3.5,
+              var  = 0.25)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -305,9 +305,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 2.5,
-                var  = 0.25)
-  
+              ed   = 2.5,
+              var  = 0.25)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -332,9 +332,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4.5,
-                var  = 0.1116071)
-  
+              ed   = 4.5,
+              var  = 0.1116071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -358,9 +358,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 1.5,
-                var  = 0.1116071)
-  
+              ed   = 1.5,
+              var  = 0.1116071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -384,9 +384,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 1.75,
-                var  = 0.2366071)
-  
+              ed   = 1.75,
+              var  = 0.2366071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -410,9 +410,9 @@ test_that("examples work", {
   resb = SpearKarb(y + n ~ x)
   resc = SpearKarb(dead + total ~ dil, dt)
   res  = list(eval = "Spearman-Kärber",
-                ed   = 4.25,
-                var  = 0.2366071)
-  
+              ed   = 4.25,
+              var  = 0.2366071)
+
   expect_s3_class(resa, "skrmdb")
   expect_s3_class(resb, "skrmdb")
   expect_s3_class(resc, "skrmdb")
@@ -426,4 +426,3 @@ test_that("examples work", {
   expect_equal(resb$var, res$var, tolerance = 0.0001)
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
-
