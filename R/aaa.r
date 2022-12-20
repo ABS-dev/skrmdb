@@ -1,1 +1,1 @@
-setGeneric('print')
+setGeneric("print")

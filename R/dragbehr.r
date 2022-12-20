@@ -79,9 +79,9 @@
 #' }
 
 DragBehr <- function(formula = NULL, data = NULL, y, n, x,
-                     warn.me = TRUE, show = FALSE){
+                     warn.me = TRUE, show = FALSE) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)){
+  if(is.null(A)) {
     A <- .checkvars(y, n, x)
   }
   y <- A[,1]
@@ -93,7 +93,7 @@ DragBehr <- function(formula = NULL, data = NULL, y, n, x,
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
   h <- length(y)
-  if (length(unique(n)) > 1){
+  if (length(unique(n)) > 1) {
     a <- cumsum(p)
     b <- rev(cumsum(rev(1 - p)))
     }

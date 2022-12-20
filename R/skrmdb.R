@@ -68,9 +68,9 @@
 #' SpearKarb(cbind(dead, total) ~ dil, X3)
 #' SpearKarb(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
-SpearKarb <- function(formula = NULL, data = NULL, y, n, x){
+SpearKarb <- function(formula = NULL, data = NULL, y, n, x) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)){
+  if(is.null(A)) {
     A <- .checkvars(y, n, x)
 	}	
   y <- A[,1]

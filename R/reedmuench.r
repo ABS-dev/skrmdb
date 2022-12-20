@@ -71,7 +71,7 @@
 ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
                        warn.me = TRUE, show = FALSE) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)){
+  if(is.null(A)) {
     A <- .checkvars(y, n, x)
   }
   y <- A[,1]
