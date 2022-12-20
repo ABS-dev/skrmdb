@@ -11,23 +11,23 @@
 .checkvars <- function(y, n, x){
   if(missing(y) | missing(n) | missing(x)){
     return(NULL)
-  } else if ((length(y) != length(x)) | (length(y) != length(n)) | 
-               (length(x) != length(n))){
+  } else if ((length(y) != length(x)) | (length(y) != length(n)) |
+             (length(x) != length(n))){
     stop('skrmdb :: variables x, n, and y must be the same length')
   } else {
     A <- .checkmatrixorder(data.frame(y = y, n = n, x = x))
-    
-    return(A)  
+
+    return(A)
   }
-  
-  
+
+
 }
 
 .checkmatrixorder <- function(A){
   if(is.null(rownames(A))){
     rownames(A) <- 1:nrow(A)
   }
-  
+
   # check order of x variable (column 3)
   # enforce that user must order by x variable
   x <- A[, 3]
@@ -46,6 +46,6 @@
       warning('skrmdb :: y is not monotone')
     }
   }
-  
+
   return(A)
 }
