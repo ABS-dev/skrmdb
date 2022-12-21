@@ -71,7 +71,7 @@
 ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
                        warn.me = TRUE, show = FALSE) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)) {
+ if (is.null(A)) {
     A <- .checkvars(y, n, x)
   }
   y <- A[,1]
@@ -85,20 +85,20 @@ ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
   h <- length(y)
   P <- a/(a + b)
   i <- max(c(1:h)[P <= 0.5])
-  if(length(d) > 1) {
+ if (length(d) > 1) {
     d <- x[i + 1] - x[i]
     #  d <-  d[i]
-    if(warn.me) warning("Uneven dilution scheme")
+   if (warn.me) warning("Uneven dilution scheme")
   }
-  if(length(unique(n)) == 1)
+ if (length(unique(n)) == 1) {
     ed <- x[i] + (d * (b[i] - a[i]))/(n[i] - y[i] + y[i + 1])
-  else {
+  } else {
     A <- cumsum(p)
     B <- rev(cumsum(rev(1. - p)))
     ed <- x[i] + (d * (B[i] - A[i]))/(1. - p[i] + p[i + 1])
   }
   names(ed) <- 'rm'
-  if(show)
+ if (show)
     print(cbind(y, n, p, a, b, P = round(P, 2), x, d))
   #return(ed)
   return(new('skrmdb', ed = ed, eval = 'ReedMuench'))

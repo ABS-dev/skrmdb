@@ -81,7 +81,7 @@
 DragBehr <- function(formula = NULL, data = NULL, y, n, x,
                      warn.me = TRUE, show = FALSE) {
   A <- .checkdata(data = data, formula = formula)
-  if(is.null(A)) {
+ if (is.null(A)) {
     A <- .checkvars(y, n, x)
   }
   y <- A[,1]
@@ -99,14 +99,14 @@ DragBehr <- function(formula = NULL, data = NULL, y, n, x,
     }
   P <- a/(a + b)
   i <- max(c(1:h)[P <= 0.5])
-  if(length(d) > 1) {
+ if (length(d) > 1) {
     d <- x[i + 1] - x[i]
-    if(warn.me)
+   if (warn.me)
       warning("Uneven dilution scheme")
   }
   ed <- x[i] + ((d * (1/2 - P[i]))/(P[i + 1] - P[i]))
   names(ed) <- 'db'
-  if(show)
+ if (show)
     print(cbind(y, n, p, a, b, P = round(P, 2), x, d))
   return(new('skrmdb', ed = ed, eval = 'DragBehr'))
 }
