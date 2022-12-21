@@ -57,7 +57,6 @@ print.skrmdb <- function(x, ...) {
       cat(paste("var: ", signif(x$var, digits = 3), "\n"))
     }
     if (length(x$messages) > 0) {
-      # cat("\n")
       message(paste0(x$messages, collapse = "\n"))
     }
   }
@@ -101,7 +100,8 @@ new_skrmdb <- function(eval = character(), A,
     messages <- c(messages, "y is not monotonic. ED50 may be unreliable.")
   }
   if (attr(A, "warning.bracket")) {
-    messages <- c(messages, "Dilutions fail to bracket the midpoint. ED50 is unreliable.")
+    messages <- c(messages,
+                  "Dilutions fail to bracket the midpoint. ED50 is unreliable.")
   }
   structure(list(eval = eval,
                  ed   = ed,

@@ -34,5 +34,6 @@
 DragBehr <- function(formula, data, y, n, x,
                      autosort = TRUE, warn.me = TRUE, show = FALSE) {
   A <- .checkall(formula, data, y, n, x, autosort, warn.me)
-  return(new_skrmdb("Dragstedt-Behrens", A, .DragBehr(A$y_inc, A$y_dec, A$x, show)))
+  return(new_skrmdb("Dragstedt-Behrens", A,
+                    .DragBehr(A$y_inc, A$y_dec, A$x, show)))
 }
