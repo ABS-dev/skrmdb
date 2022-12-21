@@ -9,7 +9,7 @@
 #'   in \code{fmla}.
 #'
 #' @noRd
-.get_opvar = function(fmla) {
+.get_opvar <- function(fmla) {
   opvar <- list(operators = c(),
                 variables = c())
   len <- length(fmla)
@@ -21,7 +21,7 @@
       if (is.name(fmla[[ii]])) {
         opvar$variables <- c(opvar$variables, as.character(fmla[[ii]]))
       } else {
-        res = .get_opvar(fmla[[ii]])
+        res <- .get_opvar(fmla[[ii]])
         opvar$operators <- c(opvar$operators, res$operators)
         opvar$variables <- c(opvar$variables, res$variables)
       }
@@ -41,10 +41,10 @@
 #'   otherwise.
 #'
 #' @noRd
-.parse_formula = function(fmla) {
+.parse_formula <- function(fmla) {
   # LHS must be of form v1 + v2
   opvar.lhs <- .get_opvar(fmla[[2]])
-  ops = opvar.lhs$operators
+  ops <- opvar.lhs$operators
   if (length(ops) != 1 || !(ops %in% c("cbind", "+")))  {
     return(FALSE)
   }
@@ -60,7 +60,7 @@
     }
   }
   # all variables names are unique
-  all.vars = c(opvar.lhs$variables, .get_opvar(fmla[[3]])$variables)
+  all.vars <- c(opvar.lhs$variables, .get_opvar(fmla[[3]])$variables)
   if (length(all.vars) != length(unique(all.vars))) {
     return(FALSE)
   }
@@ -136,7 +136,7 @@
 #' @importFrom stats model.frame
 #' @export
 #' @export
-skrmdb.all = function(formula, data, autosort = TRUE) {
+skrmdb.all <- function(formula, data, autosort = TRUE) {
   y <- n <- x <- NULL
   if (missing(formula))
     stop("skrmdb :: formala is a required parameter.", call. = FALSE)
@@ -146,6 +146,6 @@ skrmdb.all = function(formula, data, autosort = TRUE) {
     stop("skrmdb :: formula must be of form y + n ~ x or y + n ~ x | v1 + ... + vK with y, n, x uniquely named", call. = FALSE)
   A <- data.table(model.frame(formula = Formula(formula), data = data))
   setnames(A, names(A)[1:3], c("y", "n", "x"))
-  groups = names(A)[-(1:3)]
+  groups <- names(A)[-(1:3)]
   data.frame(A[, .skrmdb.all(y, n, x, autosort), groups])
 }
