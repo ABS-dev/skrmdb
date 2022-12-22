@@ -87,7 +87,7 @@ SpearKarb <- function(formula = NULL, data = NULL, y, n, x) {
   p.i <- y/n
   d <- diff(c(initial, x))
   # spacing
-  sk.var <- sum((d^2 * p.i * (1 - p.i))/(n - 1))
+  sk.var <- sum((d^2 * p.i * (1 - p.i)) / (n - 1))
   return(new("sk", ed = SK, sk.var = sk.var, eval = "SpearKarb"))
   #return(c(sk = SK, sk.var = sk.var))
 }
