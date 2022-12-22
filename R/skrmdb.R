@@ -36,7 +36,7 @@
 #'   will be calculated in the original order regardless of direction.
 #' @author \link{skrmdb-package}
 #' @examples
-#' X <- data.frame(dead=c(0,3,5,8,10),
+#' X <- data.frame(dead=c(0, 3,5, 8, 10),
 #'                 total=rep(10,5),
 #'                 dil=1:5)
 #' SpearKarb(cbind(dead,total) ~ dil, X)
@@ -46,13 +46,13 @@
 #'
 #'
 #' # without zero and complete response
-#' X <- data.frame(dead=c(3,5,8),
-#'                 total=rep(10,3),
+#' X <- data.frame(dead=c(3,5, 8),
+#'                 total=rep(10, 3),
 #'                 dil=2:4)
 #' SpearKarb(cbind(dead,total) ~ dil, X)
 #' # or
-#' SpearKarb(y=c(3,5,8),
-#'           n=rep(10,3),
+#' SpearKarb(y=c(3,5, 8),
+#'           n=rep(10, 3),
 #'           x=2:4)
 #'
 #' #         sk     sk.var
@@ -61,7 +61,7 @@
 #'
 #' \dontrun{
 #' ## unordered
-#' X2 <- data.frame(dead = c(10,8,5,3,0),
+#' X2 <- data.frame(dead = c(10, 8,5, 3, 0),
 #'                  total = rep(10, 5),
 #'                  dil = c(1, 3, 2, 4, 5))
 #' SpearKarb(cbind(dead,total) ~ dil, X2)
