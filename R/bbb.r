@@ -33,16 +33,19 @@
   # enforce that user must order by x variable
   x <- A[, 3]
   if (!(all(x == cummax(x)) || all(x == cummin(x)))) {
-    stop("SpearKarb :: data must be ordered by x variable (either increasing or decreasing)")
+    stop("SpearKarb :: data must be ordered by x variable ",
+         "(either increasing or decreasing)")
   } else {
     # check that y is monotone
-    # calculate SK estimate regardless, but let them know what type (monotone incr,
-    #     monotone decr, not monotone) response is.
+    #
+    # calculate SK estimate regardless, but let them know what type (monotone
+    # incr, monotone decr, not monotone) response is.
     y <- A[, 1]
     if (all(y == cummax(y))) {
       message("skrmdb :: y is monotone increasing")
     } else if (all(y == cummin(y))) {
-      message("skrmdb :: y is monotone decreasing. calculations assume y to be monotone increasing!!")
+      message("skrmdb :: y is monotone decreasing. ",
+              "calculations assume y to be monotone increasing!!")
     } else {
       warning("skrmdb :: y is not monotone")
     }

@@ -54,17 +54,23 @@
 #' \dontrun{
 #'
 #' ## unordered data
-#' X2 <- data.frame(dead = c(10,8,5,3,0), total = rep(10, 5), dil = c(1, 3, 2, 4, 5))
+#' X2 <- data.frame(dead = c(10,8,5,3,0),
+#'                  total = rep(10, 5),
+#'                  dil = c(1, 3, 2, 4, 5))
 #' ReedMuench(cbind(dead,total) ~ dil, X2)
 #' ReedMuench(y = X2$dead, n = X2$total, x = X2$dil)
 #'
 #' ## monotone decreasing (note that x variable direction is ignored!!)
-#' reverse <- data.frame(dead = c(10, 8, 5, 3, 0), total = rep(10, 5), dil = 5:1)
+#' reverse <- data.frame(dead = c(10, 8, 5, 3, 0),
+#'                       total = rep(10, 5),
+#'                       dil = 5:1)
 #' ReedMuench(cbind(dead,total) ~ dil, reverse)
 #' ReedMuench(y = reverse$dead, n = reverse$total, x = reverse$dil)
 #'
 #' ## not monotone
-#' X3 <- data.frame(dead = c(1:3, 5, 4), total = rep(10, 5), dil = 1:5 )
+#' X3 <- data.frame(dead = c(1:3, 5, 4),
+#'                  total = rep(10, 5),
+#'                  dil = 1:5)
 #' ReedMuench(cbind(dead, total) ~ dil, X3)
 #' ReedMuench(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
@@ -74,16 +80,16 @@ ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
   if (is.null(A)) {
     A <- .checkvars(y, n, x)
   }
-  y <- A[,1]
-  n <- A[,2]
-  x <- A[,3]
+  y <- A[, 1]
+  n <- A[, 2]
+  x <- A[, 3]
 
   d <- unique(diff(zapsmall(x)))
-  p <- y/n
+  p <- y / n
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
   h <- length(y)
-  P <- a/(a + b)
+  P <- a / (a + b)
   i <- max(c(1:h)[P <= 0.5])
   if (length(d) > 1) {
     d <- x[i + 1] - x[i]
@@ -91,11 +97,11 @@ ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
     if (warn.me) warning("Uneven dilution scheme")
   }
   if (length(unique(n)) == 1) {
-    ed <- x[i] + (d * (b[i] - a[i]))/(n[i] - y[i] + y[i + 1])
+    ed <- x[i] + (d * (b[i] - a[i])) / (n[i] - y[i] + y[i + 1])
   } else {
     A <- cumsum(p)
     B <- rev(cumsum(rev(1. - p)))
-    ed <- x[i] + (d * (B[i] - A[i]))/(1. - p[i] + p[i + 1])
+    ed <- x[i] + (d * (B[i] - A[i])) / (1. - p[i] + p[i + 1])
   }
   names(ed) <- "rm"
   if (show)
