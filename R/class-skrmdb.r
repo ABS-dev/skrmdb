@@ -75,7 +75,7 @@ setGeneric(name = "getED",
            })
 
 #' @rdname getED-methods
-#' @aliases getED,skrmdb-method
+#' @aliases getED, skrmdb-method
 setMethod("getED", "skrmdb",
           function(object) {
             return(as.numeric(object$ed))

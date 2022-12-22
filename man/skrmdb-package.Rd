@@ -6,9 +6,7 @@
 \alias{skrmdb-package}
 \title{skrmdb: Package to estimate ED50}
 \description{
-Package to estimate ED50 by the methods of Spearman-Karber,
-    Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
-    implied for this package. It is made available for investigational or pedagogical use only.
+Package to estimate ED50 by the methods of Spearman-Karber, Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is implied for this package. It is made available for investigational or pedagogical use only.
 }
 \seealso{
 Useful links:

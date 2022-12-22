@@ -42,7 +42,7 @@
 #' @seealso The function \code{\link{DragBehr}} gives the Dragstedt-Behrens
 #'   estimate of ED50 \code{\link{skrmdb-class}}
 #' @examples
-#' X <- data.frame(dead=c(0, 3,5, 8, 10, 10),total=rep(10, 6),dil=1:6)
+#' X <- data.frame(dead=c(0, 3,5, 8, 10, 10),total=rep(10, 6), dil=1:6)
 #' ReedMuench(cbind(dead,total) ~ dil, X)
 #' # or
 #' ReedMuench(y=c(0, 3,5, 8, 10, 10), n=rep(10, 6), x=1:6)

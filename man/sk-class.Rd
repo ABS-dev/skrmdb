@@ -6,13 +6,19 @@
 \alias{sk}
 \title{Class definition for sk object}
 \description{
-The sk object holds values for the Spear Karb estimator for median estimated dose. It extends the skrmdb data object with value for variance.
+The sk object holds values for the Spear Karb estimator for
+  median estimated dose. It extends the skrmdb data object with value for
+  variance.
 }
 \details{
 \describe{
-		\item{\code{eval}}{Evaluation method. "SpearKarb". Character string.}
-		\item{\code{ed}}{Median effective dose by eval method. Numeric.}
-		\item{\code{sk.var}}{variance. Numeric.}
+
+\item{\code{eval}}{Evaluation method. "SpearKarb". Character string.}
+
+\item{\code{ed}}{Median effective dose by eval method. Numeric.}
+
+\item{\code{sk.var}}{variance. Numeric.}
+
 }
 }
 
