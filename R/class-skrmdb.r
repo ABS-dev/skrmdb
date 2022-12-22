@@ -12,7 +12,7 @@
 #' @author \link{skrmdb-package}
 #' @examples
 #' new("skrmdb", ed = 2.906593, eval = "DragBehr")
-skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'), methods = list(
+skrmdb <- setRefClass("skrmdb", fields = list(ed = "numeric", eval = "character"), methods = list(
   initialize = function(ed = numeric(), eval = character()) {
     initFields(ed = ed, eval = eval)
   },
@@ -20,17 +20,17 @@ skrmdb <- setRefClass('skrmdb', fields = list(ed = 'numeric', eval = 'character'
    if (length(.self$ed) == 0) {
       cat("empty construct\n")
     } else {
-      cat(paste('ED50 by method ', .self$eval, '\n', sep = ''))
-      cat(.self$ed, '\n')
+      cat(paste("ED50 by method ", .self$eval, "\n", sep = ""))
+      cat(.self$ed, "\n")
     }
   }
 ))
 
-setMethod('show', 'skrmdb',
+setMethod("show", "skrmdb",
           function(object) {
             object$print()
           })
-setMethod('print', 'skrmdb',
+setMethod("print", "skrmdb",
           function(x, ...) {
             x$print()
           })
@@ -54,14 +54,14 @@ setMethod('print', 'skrmdb',
 #' X <- data.frame(dead=c(0,3,5,8,10), total=rep(10,5), dil=1:5)
 #' temp2 <- SpearKarb(cbind(dead,total) ~ dil, X)
 #' getED(temp2)
-setGeneric(name = 'getED',
+setGeneric(name = "getED",
            def = function(object) {
-             standardGeneric('getED')
+             standardGeneric("getED")
            })
 
 #' @rdname getED-methods
 #' @aliases getED,skrmdb-method
-setMethod('getED', 'skrmdb',
+setMethod("getED", "skrmdb",
           function(object) {
             return(as.numeric(object$ed))
           })
@@ -81,32 +81,32 @@ setMethod('getED', 'skrmdb',
 #' @author \link{skrmdb-package}
 #' @examples
 #' new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")
-sk <- setRefClass('sk', contains = 'skrmdb', fields = list(sk.var = 'numeric'),
+sk <- setRefClass("sk", contains = "skrmdb", fields = list(sk.var = "numeric"),
                   methods = list(
-                    initialize = function(ed = numeric(), eval = 'SpearKarb', sk.var = numeric()) {
-                     if (eval != 'SpearKarb') {
+                    initialize = function(ed = numeric(), eval = "SpearKarb", sk.var = numeric()) {
+                     if (eval != "SpearKarb") {
 
-                        stop("[sk: validation] the estimator must be 'SpearKarb'")
+                        stop("[sk: validation] the estimator must be \"SpearKarb\"")
                       } else {
                         initFields(ed = ed, eval = eval, sk.var = sk.var)
                       }
                     },
                     print = function() {
                      if (length(.self$ed) == 0) {
-                        cat('Empty Construct\n')
+                        cat("Empty Construct\n")
                       } else {
-                        cat(paste('ED50 by method ', .self$eval, '\n',sep = ''))
-                        cat(paste('ed: ', ed = getED(.self), '\n'))
-                        cat(paste('sk.var: ', sk.var = .self$sk.var, '\n'))
+                        cat(paste("ED50 by method ", .self$eval, "\n", sep = ""))
+                        cat(paste("ed: ", ed = getED(.self), "\n"))
+                        cat(paste("sk.var: ", sk.var = .self$sk.var, "\n"))
                       }
                     }
                   ))
 
-setMethod('show', 'sk',
+setMethod("show", "sk",
           function(object) {
             object$print()
           })
-setMethod('print', 'sk',
+setMethod("print", "sk",
           function(x,...) {
             x$print()
           })
