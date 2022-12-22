@@ -120,7 +120,7 @@ SpearKarb(rev(dead) + rev(total) ~ rev(dil))
 
 ## Unordered data
 # Observe that the data is not monotonic after being sorted by dil.
-dead <- c(10,8,5,3,0)
+dead <- c(10, 8,5, 3, 0)
 total <- rep(10, 5)
 dil <- c(1, 3, 2, 4, 5)
 SpearKarb(dead + total ~ dil)

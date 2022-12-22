@@ -7,7 +7,7 @@
 #' @param x class skrmdb.
 #' @return the estimated ED50.
 #' @examples
-#' temp <- DragBehr(y=c(0,3,5,8,10,10), n=rep(10,6), x=1:6)
+#' temp <- DragBehr(y=c(0, 3,5, 8, 10, 10), n=rep(10, 6), x=1:6)
 #' getED(temp)
 #' @export
 getED <- function(x) {
@@ -23,7 +23,7 @@ getED <- function(x) {
 #' @param x class skrmdb.
 #' @return the estimated variance.
 #' @examples
-#' temp <- DragBehr(y=c(0,3,5,8,10,10), n=rep(10,6), x=1:6)
+#' temp <- DragBehr(y=c(0, 3,5, 8, 10, 10), n=rep(10, 6), x=1:6)
 #' getvar(temp)
 #' @export
 getvar <- function(x) {
@@ -39,7 +39,7 @@ getvar <- function(x) {
 #' @param x class skrmdb.
 #' @return a dataframe containing the sorted data.
 #' @examples
-#' temp <- DragBehr(y=c(0,3,5,8,10,10), n=rep(10,6), x=1:6)
+#' temp <- DragBehr(y=c(0, 3,5, 8, 10, 10), n=rep(10, 6), x=1:6)
 #' getdata(temp)
 #' @export
 getdata <- function(x) {
@@ -68,7 +68,7 @@ print.skrmdb <- function(x, ...) {
 #' The skrmdb object holds output from functions in the skrmdb package. A valid
 #' skrmdb object is a list whicn contains the followling components:
 #'
-#' @param eval Evaluation method. One of 'ReedMuench', 'SpearKarb',  or
+#' @param eval Evaluation method. One of 'ReedMuench', 'SpearKarb', or
 #'   'DragBehr'. character string.
 #' @param ed Median effective dose by eval method. numeric.
 #' @param var Variance (for Spearman-Kärber method only). numeric.

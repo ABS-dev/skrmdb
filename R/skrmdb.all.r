@@ -83,7 +83,7 @@
 #'
 #' @noRd
 .skrmdb.all <- function(y, n, x, autosort = TRUE) {
-  A  <- .checkvars(y,   n,   x, autosort)
+  A  <- .checkvars(y, n, x, autosort)
   DB <- .DragBehr(A$y_inc, A$y_dec, A$x)
   RM <- .ReedMuench(A$y_inc, A$y_dec, A$x)
   SK <- .SpearKarb(A$y_inc, A$y_dec, A$x, A$n, )

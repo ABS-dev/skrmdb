@@ -4,7 +4,7 @@
 \alias{skrmdb-class}
 \title{Class definition for skrmdb object}
 \arguments{
-\item{eval}{Evaluation method. One of 'ReedMuench', 'SpearKarb',  or
+\item{eval}{Evaluation method. One of 'ReedMuench', 'SpearKarb', or
 'DragBehr'. character string.}
 
 \item{ed}{Median effective dose by eval method. numeric.}
