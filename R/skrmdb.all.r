@@ -143,7 +143,9 @@ skrmdb.all <- function(formula, data, autosort = TRUE) {
   if (missing(data))
     stop("skrmdb :: data is a required parameter.", call. = FALSE)
   if (!.parse_formula(formula))
-    stop("skrmdb :: formula must be of form y + n ~ x or y + n ~ x | v1 + ... + vK with y, n, x uniquely named", call. = FALSE)
+    stop("skrmdb :: formula must be of form y + n ~ x or",
+         "y + n ~ x | v1 + ... + vK with y, n, x uniquely named",
+         call. = FALSE)
   A <- data.table(model.frame(formula = Formula(formula), data = data))
   setnames(A, names(A)[1:3], c("y", "n", "x"))
   groups <- names(A)[-(1:3)]
