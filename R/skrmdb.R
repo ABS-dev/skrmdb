@@ -39,7 +39,7 @@
 #' X <- data.frame(dead=c(0, 3,5, 8, 10),
 #'                 total=rep(10,5),
 #'                 dil=1:5)
-#' SpearKarb(cbind(dead,total) ~ dil, X)
+#' SpearKarb(cbind(dead, total) ~ dil, X)
 #'
 #' #        sk     sk.var
 #' #2.90000000 0.06888889

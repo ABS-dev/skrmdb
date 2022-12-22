@@ -54,8 +54,8 @@ Many microbiology texts mistakenly present the Dragstedt-Behrens method
  Use of unsorted data will result in error.
 }
 \examples{
-X <- data.frame(dead=c(0, 3, 5, 8, 10, 10),total=rep(10, 6), dil=1:6)
-DragBehr(cbind(dead,total) ~ dil, X)
+X <- data.frame(dead=c(0, 3, 5, 8, 10, 10), total=rep(10, 6), dil=1:6)
+DragBehr(cbind(dead, total) ~ dil, X)
 # or
 DragBehr(y=c(0, 3, 5, 8, 10, 10), n=rep(10, 6), x=1:6)
 
@@ -69,14 +69,14 @@ DragBehr(y=c(0, 3, 5, 8, 10, 10), n=rep(10, 6), x=1:6)
 X2 <- data.frame(dead = c(10, 8, 5, 3, 0),
                  total = rep(10, 5),
                  dil = c(1, 3, 2, 4, 5))
-DragBehr(cbind(dead,total) ~ dil, X2)
+DragBehr(cbind(dead, total) ~ dil, X2)
 DragBehr(y = X2$dead, n = X2$total, x = X2$dil)
 
 ## monotone decreasing (note that x variable direction is ignored!!)
 reverse <- data.frame(dead = c(10, 8, 5, 3, 0),
                       total = rep(10, 5),
                       dil = 5:1)
-DragBehr(cbind(dead,total) ~ dil, reverse)
+DragBehr(cbind(dead, total) ~ dil, reverse)
 DragBehr(y = reverse$dead,
          n = reverse$total,
          x = reverse$dil)

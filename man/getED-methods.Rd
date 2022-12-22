@@ -32,7 +32,7 @@ X <- data.frame(dead = c(0, 3, 5, 8, 10),
                 total = rep(10, 5),
                 dil = 1:5)
 
-temp2 <- SpearKarb(cbind(dead,total) ~ dil, X)
+temp2 <- SpearKarb(cbind(dead, total) ~ dil, X)
 getED(temp2)
 }
 \seealso{

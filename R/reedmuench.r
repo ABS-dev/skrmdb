@@ -42,8 +42,8 @@
 #' @seealso The function \code{\link{DragBehr}} gives the Dragstedt-Behrens
 #'   estimate of ED50 \code{\link{skrmdb-class}}
 #' @examples
-#' X <- data.frame(dead=c(0, 3,5, 8, 10, 10),total=rep(10, 6), dil=1:6)
-#' ReedMuench(cbind(dead,total) ~ dil, X)
+#' X <- data.frame(dead=c(0, 3,5, 8, 10, 10), total=rep(10, 6), dil=1:6)
+#' ReedMuench(cbind(dead, total) ~ dil, X)
 #' # or
 #' ReedMuench(y=c(0, 3,5, 8, 10, 10), n=rep(10, 6), x=1:6)
 #'
@@ -57,14 +57,14 @@
 #' X2 <- data.frame(dead = c(10, 8,5, 3, 0),
 #'                  total = rep(10, 5),
 #'                  dil = c(1, 3, 2, 4, 5))
-#' ReedMuench(cbind(dead,total) ~ dil, X2)
+#' ReedMuench(cbind(dead, total) ~ dil, X2)
 #' ReedMuench(y = X2$dead, n = X2$total, x = X2$dil)
 #'
 #' ## monotone decreasing (note that x variable direction is ignored!!)
 #' reverse <- data.frame(dead = c(10, 8, 5, 3, 0),
 #'                       total = rep(10, 5),
 #'                       dil = 5:1)
-#' ReedMuench(cbind(dead,total) ~ dil, reverse)
+#' ReedMuench(cbind(dead, total) ~ dil, reverse)
 #' ReedMuench(y = reverse$dead, n = reverse$total, x = reverse$dil)
 #'
 #' ## not monotone

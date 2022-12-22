@@ -67,7 +67,7 @@ setMethod("print", "skrmdb",
 #'                 total = rep(10, 5),
 #'                 dil = 1:5)
 #'
-#' temp2 <- SpearKarb(cbind(dead,total) ~ dil, X)
+#' temp2 <- SpearKarb(cbind(dead, total) ~ dil, X)
 #' getED(temp2)
 setGeneric(name = "getED",
            def = function(object) {
