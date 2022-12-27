@@ -50,7 +50,7 @@
 
   # Look for duplicate dilutions and consolidate
   n1 <- A[, .N]
-  A <- A[, .(y = sum(y), n = sum(n)), x]
+  A <- A[, list(y = sum(y), n = sum(n)), x]
 
   if (A[, .N < n1]) {
     if (warn.me) message("skrmdb :: combining results from duplicate dilutions")
