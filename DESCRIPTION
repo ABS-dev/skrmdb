@@ -14,6 +14,7 @@ Description: Package to estimate ED50 by the methods of Spearman-Kärber,
   implied for this package. It is made available for investigational or pedagogical use only.
 License: MIT + file LICENSE
 LazyLoad: true
+LazyData: true
 URL: https://github.com/ABS-dev/skrmdb/blob/master/README.md
 BugReports: https://github.com/ABS-dev/skrmdb/issues
 Depends:
