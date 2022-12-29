@@ -18,6 +18,7 @@
 #' @author \link{skrmdb-package}
 #' @examples
 #' new("skrmdb", ed = 2.906593, eval = "DragBehr")
+#' @importFrom methods setRefClass
 skrmdb <- setRefClass("skrmdb",
                       fields = list(ed = "numeric",
                                     eval = "character"),
@@ -35,10 +36,13 @@ skrmdb <- setRefClass("skrmdb",
                       }
                       ))
 
+#' @importFrom methods setMethod
 setMethod("show", "skrmdb",
           function(object) {
             object$print()
           })
+
+#' @importFrom methods setMethod
 setMethod("print", "skrmdb",
           function(x, ...) {
             x$print()
@@ -69,6 +73,7 @@ setMethod("print", "skrmdb",
 #'
 #' temp2 <- SpearKarb(cbind(dead, total) ~ dil, X)
 #' getED(temp2)
+#' @importFrom methods setGeneric
 setGeneric(name = "getED",
            def = function(object) {
              standardGeneric("getED")
@@ -76,6 +81,7 @@ setGeneric(name = "getED",
 
 #' @rdname getED-methods
 #' @aliases getED, skrmdb-method
+#' @importFrom methods setMethod
 setMethod("getED", "skrmdb",
           function(object) {
             return(as.numeric(object$ed))
@@ -103,6 +109,7 @@ setMethod("getED", "skrmdb",
 #' @author \link{skrmdb-package}
 #' @examples
 #' new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")
+#' @importFrom methods setRefClass
 sk <- setRefClass("sk",
                   contains = "skrmdb",
                   fields = list(sk.var = "numeric"),
@@ -128,10 +135,13 @@ sk <- setRefClass("sk",
                     }
                   ))
 
+#' @importFrom methods setMethod
 setMethod("show", "sk",
           function(object) {
             object$print()
           })
+
+#' @importFrom methods setMethod
 setMethod("print", "sk",
           function(x, ...) {
             x$print()

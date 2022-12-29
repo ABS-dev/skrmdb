@@ -22,7 +22,6 @@
 #' @param x log dilution or dose
 #' @return  object of class \code{sk} \item{ed}{estimator of mean response}
 #'   \item{sk.var}{variance} \item{eval}{evaluation method: 'SpearKarb'}
-#' @export
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean
 #'   tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 -- 542}.\cr \cr
 #'   Karber, G. (1931). Beitrag zur kollektiven Behandlung Parmakogischer
@@ -87,6 +86,8 @@
 #'           n = X3$total,
 #'           x = X3$dil)
 #' }
+#' @importFrom methods new
+#' @export
 SpearKarb <- function(formula = NULL, data = NULL, y, n, x) {
   A <- .checkdata(data = data, formula = formula)
   if (is.null(A)) {

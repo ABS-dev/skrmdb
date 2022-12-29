@@ -23,7 +23,7 @@ DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = TRUE, show = FALSE)
 }
 \value{
 object of \code{skrmdb} class with slots: \cr \item{ed}{Estimated
- median effective dose (ED50)} \item{eval}{Evaluation method: 'DragBehr'}
+  median effective dose (ED50)} \item{eval}{Evaluation method: 'DragBehr'}
 }
 \description{
 Gives the Dragstedt-Behrens estimate of median effective dose (ED50)
@@ -44,14 +44,14 @@ bracketing doses.
 }
 \note{
 Many microbiology texts mistakenly present the Dragstedt-Behrens method
- as the Reed-Muench method.\cr
+  as the Reed-Muench method.\cr
 
- And yes, it is absurd to have an R function for an archaic method developed
- to avoid complex calculations. \cr\cr
+  And yes, it is absurd to have an R function for an archaic method developed
+  to avoid complex calculations. \cr\cr
 
 
- Input data is expected to be sorted by x (either increasing or decreasing).
- Use of unsorted data will result in error.
+  Input data is expected to be sorted by x (either increasing or decreasing).
+  Use of unsorted data will result in error.
 }
 \examples{
 X <- data.frame(dead=c(0, 3, 5, 8, 10, 10), total=rep(10, 6), dil=1:6)
@@ -61,7 +61,6 @@ DragBehr(y=c(0, 3, 5, 8, 10, 10), n=rep(10, 6), x=1:6)
 
 #           db
 #     2.906593
-
 
 \dontrun{
 
@@ -89,16 +88,16 @@ DragBehr(y = X3$dead, n = X3$total, x = X3$dil)
 }
 \references{
 Miller, Rupert G. (1973). Nonparametric estimateors of the mean
- tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 - 542}. \cr \cr
- Behrens, B. (1929) Zur Auswertung der Digitalisblatter im Froschversuch.
- \emph{Arkiv fur Experimentelle Pathologie und Pharmakologie.} \bold{140:
- 237-256}. \cr \cr Dragstedt, CA., Lang, VF. (1928). Respiratory Stimulants
- in acute poisoning in rabbits. \emph{J. of Pharmacology} \bold{32:
- 215--222}.
+  tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 - 542}. \cr \cr
+  Behrens, B. (1929) Zur Auswertung der Digitalisblatter im Froschversuch.
+  \emph{Arkiv fur Experimentelle Pathologie und Pharmakologie.} \bold{140:
+  237-256}. \cr \cr Dragstedt, CA., Lang, VF. (1928). Respiratory Stimulants
+  in acute poisoning in rabbits. \emph{J. of Pharmacology} \bold{32:
+  215--222}.
 }
 \seealso{
 The function \link{ReedMuench} gives the Reed-Muench estimate of
- ED50, \code{\link{skrmdb-class}}
+  ED50, \code{\link{skrmdb-class}}
 }
 \author{
 \link{skrmdb-package}

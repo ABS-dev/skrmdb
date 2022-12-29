@@ -19,5 +19,6 @@ Depends:
     R (>= 3.5)
 Encoding: UTF-8
 Imports:
-    methods, stats
+    methods, 
+    stats
 RoxygenNote: 7.2.1

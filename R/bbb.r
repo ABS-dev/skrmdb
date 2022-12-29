@@ -1,4 +1,4 @@
-
+#' @importFrom stats model.frame
 .checkdata <- function(data, formula) {
   if (!is.null(data) && !is.null(formula)) {
     A <- .checkmatrixorder(as.matrix(model.frame(formula = formula,
@@ -17,18 +17,14 @@
     stop("skrmdb :: variables x, n, and y must be the same length")
   } else {
     A <- .checkmatrixorder(data.frame(y = y, n = n, x = x))
-
     return(A)
   }
-
-
 }
 
 .checkmatrixorder <- function(A) {
   if (is.null(rownames(A))) {
     rownames(A) <- seq_along(nrow(A))
   }
-
   # check order of x variable (column 3)
   # enforce that user must order by x variable
   x <- A[, 3]

@@ -23,7 +23,6 @@
 #' @param show boolean to display extended summary
 #' @return object of class \code{SKRMDB} with slots:\cr \item{ed}{Estimated
 #'   median effective dose (ED50)} \item{eval}{Evaluation method: 'ReedMuench'}
-#' @export
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean
 #'   tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 -- 542}. \cr \cr
 #'   Reed LJ, Muench H (1938). A simple method of estimating fifty percent
@@ -74,6 +73,8 @@
 #' ReedMuench(cbind(dead, total) ~ dil, X3)
 #' ReedMuench(y = X3$dead, n = X3$total, x = X3$dil)
 #' }
+#' @importFrom methods new
+#' @export
 ReedMuench <- function(formula = NULL, data = NULL, y, n, x,
                        warn.me = TRUE, show = FALSE) {
   A <- .checkdata(data = data, formula = formula)
