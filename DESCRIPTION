@@ -12,7 +12,7 @@ Maintainer: Thomas Kent <thomas.kent@usda.gov>
 Description: Package to estimate ED50 by the methods of Spearman-Kärber,
   Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
   implied for this package. It is made available for investigational or pedagogical use only.
-License: MIT + file LICENSE
+License: file LICENSE
 LazyLoad: true
 LazyData: true
 URL: https://github.com/ABS-dev/skrmdb/blob/master/README.md
