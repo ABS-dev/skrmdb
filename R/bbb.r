@@ -23,7 +23,7 @@
 
 .checkmatrixorder <- function(A) {
   if (is.null(rownames(A))) {
-    rownames(A) <- seq_along(nrow(A))
+    rownames(A) <- seq_len(nrow(A))
   }
   # check order of x variable (column 3)
   # enforce that user must order by x variable
