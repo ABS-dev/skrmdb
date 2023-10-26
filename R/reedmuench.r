@@ -29,7 +29,7 @@
   return(ed)
 }
 
-#' @rdname skrmdb2
+#' @rdname skrmdb
 #'
 #' @export
 ReedMuench <- function(formula, data, y, n, x,

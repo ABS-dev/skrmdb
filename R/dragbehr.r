@@ -28,7 +28,7 @@
   return(ed)
 }
 
-#' @rdname skrmdb2
+#' @rdname skrmdb
 #'
 #' @export
 DragBehr <- function(formula, data, y, n, x,

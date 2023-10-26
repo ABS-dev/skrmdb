@@ -1,4 +1,4 @@
-Package: skrmdb2
+Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
 Version: 4.3.1
@@ -25,4 +25,4 @@ Imports:
 Suggests:
   testthat
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
