@@ -9,9 +9,10 @@ Authors@R: c(
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "aut", comment = "starting 2010"),
   person("Thomas", "Kent", , , "aut", comment = "starting 2021"))
 Maintainer: Thomas Kent <thomas.kent@usda.gov>
-Description: Package to estimate ED50 by the methods of Spearman-Kärber,
+Description: Package to estimate ED50 by the methods of Spearman-Karber,
   Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
-  implied for this package. It is made available for investigational or pedagogical use only.
+  implied for this package. It is made available for investigational or 
+  pedagogical use only.
 License: file LICENSE
 LazyLoad: true
 LazyData: true
