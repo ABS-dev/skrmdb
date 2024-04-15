@@ -11,44 +11,12 @@ path <- getwd()
 linter <- N <- NULL
 
 # Variables that don't follow stylistic guidelines, which we are not changing.
-okay_vars <- c("UA",
-               "RP",
-               "plateID",
-               "3PL",
-               "checkSerialTest",
-               "serialID",
-               "HTML",
-               "displayPlateLayout",
-               "flattened2Stacked",
-               "stacked2Stacked",
-               "getComparisons",
-               "Nminus1",
-               "getMinus1comparisons",
-               "expandComparisons",
-               "importELISA",
-               "_idx",
-               "_tmp",
-               "RelPot",
-               "setLinearValidity",
-               "setLinearBestComp",
-               "setLayDilutionFactor",
-               "setLayReference",
-               "setLayPositiveControl",
-               "setLayNegativeControl",
-               "setLayBlank",
-               "setLaySerial",
-               "setLayNPS",
-               "setLayNA",
-               "setLayRole",
-               "resetLayRoles",
-               "countLayRoles",
-               "ID",
-               "initLogis_USP",
-               "SSlogis_USP",
-               "mCall",
-               "tieBreaker",
-               ".plateID",
-               "\\._.*")
+okay_vars <- c("A", "K", "N", "P", "DB", "RM", "SK", "Y1", "Y2", "getED",
+               "warn.me", "DragBehr", ".DragBehr", "SpearKarb", "opvar.lhs",
+               ".SpearKarb", "ReedMuench", "skrmdb.all", ".ReedMuench",
+               ".skrmdb.all", "warning.uneven", "warning.bracket",
+               "warning.uneven", "warning.bracket", "warning.duplicate",
+               "warning.monotonic", "warning.increasing")
 
 ## Change This Value ##
 # Determine whose files should be linted.  Change the number in the [.]
@@ -72,7 +40,7 @@ tmp <- codeDiagnostics::lint_package_extended(
 
 # Send results to Markers screen
 if (length(tmp) == 0) {
-  message("Sucess!  No lintr issues!")  
+  message("Sucess!  No lintr issues!")
 } else {
   tmp
 }
