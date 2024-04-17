@@ -53,8 +53,6 @@ data.table::fwrite(
   col.names = FALSE
 )
 
-file.copy(file.path(path_0, asis), file.path(path_2, asis))
-
 devtools::build_manual(path = path_0)
 
 manual <- dir(path_0, pattern = pat_pdf)
