@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "locale": "en_US",
+  "platform": "4.3.2",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "index.html",
+    "content_category": "site",
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    "404.html": {
+      "checksum": "a3d968b85f8d51bb7cfb9b446a6edfac"
+    },
+    "authors.html": {
+      "checksum": "3308fda1a72209a3277c32b6f3b5a332"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.bundle.min.js": {
+      "checksum": "d2b0d31f74e62440ea1a557f126d0c64"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.bundle.min.js.map": {
+      "checksum": "458916405b5ef70e2e5ee10e85b09acb"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.min.css": {
+      "checksum": "c2d21862999ca0dea73bc04af237a1a0"
+    },
+    "deps/data-deps.txt": {
+      "checksum": "be1e8f6884e833c9b4dfa05681edbcc4"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.js": {
+      "checksum": "2849239b95f5a9a2aea3f6ed9420bb88"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.js": {
+      "checksum": "8fb8fee4fcc3cc86ff6c724154c49c42"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
+      "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
+    },
+    "index.html": {
+      "checksum": "a4475f8da5de0faee4a9c26467d03b18"
+    },
+    "LICENSE-text.html": {
+      "checksum": "ab3c6a0b735236b849cef7b5ec565362"
+    },
+    "link.svg": {
+      "checksum": "4759f31f8a585e9af173fc579d730265"
+    },
+    "pkgdown.js": {
+      "checksum": "9c627b6b2c41322b8f362fac07a2ae5a"
+    },
+    "pkgdown.yml": {
+      "checksum": "ac98c04b7e82ecc5ac90349d6a9924f8"
+    },
+    "reference/getdata.html": {
+      "checksum": "7f7ccb04f43a93e255d91ada1ff76d3a"
+    },
+    "reference/getED.html": {
+      "checksum": "1e39913c4aaedf127c523e3f5d5b02b0"
+    },
+    "reference/getvar.html": {
+      "checksum": "bfba2e4414c1a791a6759921edfbc231"
+    },
+    "reference/index.html": {
+      "checksum": "e20634c1c5fa81d3a2e33066ae39c413"
+    },
+    "reference/Rplot001.png": {
+      "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
+    },
+    "reference/skrmdb-class.html": {
+      "checksum": "4d2a7847c65fb6ad9811ef80d1734f3d"
+    },
+    "reference/skrmdb.all.html": {
+      "checksum": "3409cbce3514ce3615129dba26cf0a5f"
+    },
+    "reference/skrmdb.html": {
+      "checksum": "3eb0ec8ff18b0927c3d2010f0d5963c7"
+    },
+    "reference/titration.html": {
+      "checksum": "01e8616dd4f0bbcb954ed29bcaabe110"
+    },
+    "search.json": {
+      "checksum": "e5a047148eb2f096d6b63ca52fa4976c"
+    },
+    "sitemap.xml": {
+      "checksum": "ab70f9808a8f5cd3a24a6de68b0d138b"
+    }
+  },
+  "users": null
+}
