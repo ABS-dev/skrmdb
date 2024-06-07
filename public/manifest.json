@@ -12,10 +12,28 @@
   "packages": null,
   "files": {
     "404.html": {
-      "checksum": "a3d968b85f8d51bb7cfb9b446a6edfac"
+      "checksum": "3fd34c4e11954fb58d27e7a4c7e13500"
+    },
+    "apple-touch-icon-120x120.png": {
+      "checksum": "a34e009ae348e3aa5bcdb241fce2f959"
+    },
+    "apple-touch-icon-152x152.png": {
+      "checksum": "4b990e6235974e4b11f9d83c16aa3e40"
+    },
+    "apple-touch-icon-180x180.png": {
+      "checksum": "f16d060d678dafd644291c50f97e8817"
+    },
+    "apple-touch-icon-60x60.png": {
+      "checksum": "623c5dafe7ab51d2476a4c1a45298273"
+    },
+    "apple-touch-icon-76x76.png": {
+      "checksum": "5504a85b8fdb36948debfb89657afaf9"
+    },
+    "apple-touch-icon.png": {
+      "checksum": "3ad0a682085a9384018e830468374ae0"
     },
     "authors.html": {
-      "checksum": "3308fda1a72209a3277c32b6f3b5a332"
+      "checksum": "9d4de70d576405d55e992478c83be385"
     },
     "deps/bootstrap-5.2.2/bootstrap.bundle.min.js": {
       "checksum": "d2b0d31f74e62440ea1a557f126d0c64"
@@ -38,50 +56,65 @@
     "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
       "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
     },
+    "favicon-16x16.png": {
+      "checksum": "e374f2e007b34d1d0601b321a7b6e4b1"
+    },
+    "favicon-32x32.png": {
+      "checksum": "196cbfb27887a8b3afac3548d0f66cf3"
+    },
+    "favicon.ico": {
+      "checksum": "2c52397a2403f45a4eec8c957b160d5c"
+    },
     "index.html": {
-      "checksum": "a4475f8da5de0faee4a9c26467d03b18"
+      "checksum": "2bc9310a0dbe170dab74a6a3ebfcbc44"
     },
     "LICENSE-text.html": {
-      "checksum": "ab3c6a0b735236b849cef7b5ec565362"
+      "checksum": "7d97fe6ff2e49568ede85b1dcd8f1ed7"
     },
     "link.svg": {
       "checksum": "4759f31f8a585e9af173fc579d730265"
+    },
+    "logo.png": {
+      "checksum": "75cfbd798c11b6aef3179dad615d0dbe"
     },
     "pkgdown.js": {
       "checksum": "9c627b6b2c41322b8f362fac07a2ae5a"
     },
     "pkgdown.yml": {
-      "checksum": "ac98c04b7e82ecc5ac90349d6a9924f8"
+      "checksum": "fa576949c4e826fbb8042ba755de768e"
+    },
+    "reference/figures/logo.png": {
+      "checksum": "75cfbd798c11b6aef3179dad615d0dbe"
     },
     "reference/getdata.html": {
-      "checksum": "7f7ccb04f43a93e255d91ada1ff76d3a"
+      "checksum": "1be514d06b1c32806646c48fbbfd69f5"
     },
     "reference/getED.html": {
-      "checksum": "1e39913c4aaedf127c523e3f5d5b02b0"
+      "checksum": "fb029f7bfb11940e12cfbaffc03eb854"
     },
     "reference/getvar.html": {
-      "checksum": "bfba2e4414c1a791a6759921edfbc231"
+      "checksum": "f8adc4f2b16e638c54deddb3933eb68d"
     },
     "reference/index.html": {
-      "checksum": "e20634c1c5fa81d3a2e33066ae39c413"
+      "checksum": "52e9fa3fe487a142653910032ea03eef"
     },
     "reference/Rplot001.png": {
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "4d2a7847c65fb6ad9811ef80d1734f3d"
+      "checksum": "a72ab1292b51280bed4784013b0d02f7"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "3409cbce3514ce3615129dba26cf0a5f"
+      "checksum": "1560a427254c5f6d4bb20df779d7132b"
     },
     "reference/skrmdb.html": {
-      "checksum": "3eb0ec8ff18b0927c3d2010f0d5963c7"
+      "checksum": "5ea7c0648c9de199eaf9c21b8092550a"
     },
     "reference/titration.html": {
-      "checksum": "01e8616dd4f0bbcb954ed29bcaabe110"
+      "checksum": "2129a5a00e78f809df4ceef410463a13"
     },
     "search.json": {
-      "checksum": "e5a047148eb2f096d6b63ca52fa4976c"
+      "checksum": "f279a89a532e9586cf7f5e35cc3700b0"
     },
     "sitemap.xml": {
       "checksum": "ab70f9808a8f5cd3a24a6de68b0d138b"
