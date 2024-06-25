@@ -3,6 +3,7 @@
 %   R/spearkarb.r
 \docType{package}
 \name{DragBehr}
+\alias{skrmdb-package}
 \alias{DragBehr}
 \alias{ReedMuench}
 \alias{skrmdb}
@@ -140,4 +141,23 @@ Simple Method of Estimating Fifty Percent Endpoints. \emph{American Journal
 of Hygiene.} \bold{27: 493--497.} \cr Spearman, C. (1908). The Method of
 'Right and Wrong Cases' ('Constant Stimuli') without Gauss's Formulae.
 \emph{Brit. J. of Psychology.} \bold{2: 227--242.}
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ABS-dev/skrmdb/blob/master/README.md}
+  \item Report bugs at \url{https://github.com/ABS-dev/skrmdb/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: CVB Statistics \email{CVB.Data.Help@usda.gov} [former owner]
+
+Authors:
+\itemize{
+  \item David Siev (until 2019)
+  \item Marie Vendettuoli (until 2019)
+  \item Thomas Kent (starting 2020)
+}
+
 }

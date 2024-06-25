@@ -65,8 +65,6 @@
 #'
 #' @return An object of class \code{\link{skrmdb-class}}
 #'
-#' @docType package
-#'
 #' @name skrmdb
 #'
 #' @examples
@@ -98,4 +96,4 @@
 #' total <- rep(10, 5)
 #' dil <- c(1, 3, 2, 4, 5)
 #' SpearKarb(dead + total ~ dil)
-NULL
+"_PACKAGE"
