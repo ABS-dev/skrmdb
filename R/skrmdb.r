@@ -17,12 +17,12 @@
 #' The Spearman-Karber method gives a non-parametric estimate of the mean of an
 #' tolerance distribution from its empirical distribution (EDF). The empirical
 #' PMF is derived from the EDF by differencing and the estimator is \eqn{\sum{ x
-#' f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of \var{x},
-#' \code{SpearKarb()} extends it by assuming the next lower dilution would
+#' f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of `x`,
+#' `SpearKarb()` extends it by assuming the next lower dilution would
 #' produce zero response and the next higher dilution would produce complete
 #' response.
 #'
-#' @note These methods assume that the \code{y} is monotonic in \code{x},
+#' @note These methods assume that the `y` is monotonic in `x`,
 #'   however ED50 will still be computed if this is not the case. These methods
 #'   also assume that data brackets ED50.  If the data does not bracket ED50, a
 #'   result could still be returned, but the accuracy of this value in
@@ -46,30 +46,29 @@
 #'   'Right and Wrong Cases' ('Constant Stimuli') without Gauss's Formulae.
 #'   \emph{Brit. J. of Psychology.} \bold{2: 227--242.}
 #'
-#' @param formula a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~
-#'   x}
+#' @param formula a formula of the form `y + n ~ x` or `cbind(y, n) ~ x`
 #' @param data a data frame
 #' @param y an integer vector corresponding to the number responding at each log
 #'   dilution or dose.
 #' @param n an integer vector corresponding to the group size at each log
 #'   dilution or dose.
 #' @param x a vector corresponding to the log dilution or dose for each group.
-#' @param autosort Default \code{TRUE}.  If \code{TRUE} will sort the data
-#'   according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
-#'   appears to be increasing with the index.  This is how the three methods
-#'   assume the data to be ordered.
+#' @param autosort Default `TRUE`.  If `TRUE` will sort the data according to
+#'   either `sort(x)` or `sort(-x)` so that `y / n` appears to be increasing
+#'   with the index.  This is how the three methods assume the data to be
+#'   ordered.
 #' @param warn.me if TRUE, warnings and messages related to the processing of
 #'   the data will be displayed.
 #' @param show if TRUE, will print the intermediary statistics used to calculate
 #'   ED50.
 #'
-#' @return An object of class \code{\link{skrmdb-class}}
+#' @return An object of class [skrmdb-class]
 #'
 #' @name skrmdb
 #'
 #' @examples
-#' # All examples are with \code{SpearKarb}, however, the usage for
-#' # \code{DragBehr} and \code{ReedMuench} is identical.
+#' # All examples are with `SpearKarb`, however, the usage for
+#' # `DragBehr` and `ReedMuench` is identical.
 #'
 #' ## Monotonically increasing data
 #' # The three calls are equivalent.

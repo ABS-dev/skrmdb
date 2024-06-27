@@ -35,8 +35,7 @@ SpearKarb(
 )
 }
 \arguments{
-\item{formula}{a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~
-x}}
+\item{formula}{a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~ x}}
 
 \item{data}{a data frame}
 
@@ -48,10 +47,10 @@ dilution or dose.}
 
 \item{x}{a vector corresponding to the log dilution or dose for each group.}
 
-\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data
-according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
-appears to be increasing with the index.  This is how the three methods
-assume the data to be ordered.}
+\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data according to
+either \code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing
+with the index.  This is how the three methods assume the data to be
+ordered.}
 
 \item{warn.me}{if TRUE, warnings and messages related to the processing of
 the data will be displayed.}
@@ -60,7 +59,7 @@ the data will be displayed.}
 ED50.}
 }
 \value{
-An object of class \code{\link{skrmdb-class}}
+An object of class \linkS4class{skrmdb}
 }
 \description{
 The skrmdb package provides functionality to compute the median effective
@@ -81,7 +80,7 @@ lines connecting the two sets of cumulative sums between bracketing doses.
 The Spearman-Karber method gives a non-parametric estimate of the mean of an
 tolerance distribution from its empirical distribution (EDF). The empirical
 PMF is derived from the EDF by differencing and the estimator is \eqn{\sum{ x
-f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of \var{x},
+f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of \code{x},
 \code{SpearKarb()} extends it by assuming the next lower dilution would
 produce zero response and the next higher dilution would produce complete
 response.
@@ -97,8 +96,8 @@ Many microbiology texts mistakenly present the Dragstedt-Behrens method
 as the Reed-Muench method.
 }
 \examples{
-# All examples are with \code{SpearKarb}, however, the usage for
-# \code{DragBehr} and \code{ReedMuench} is identical.
+# All examples are with `SpearKarb`, however, the usage for
+# `DragBehr` and `ReedMuench` is identical.
 
 ## Monotonically increasing data
 # The three calls are equivalent.

@@ -58,7 +58,7 @@ setMethod("print", "skrmdb",
 #' @docType methods
 #' @rdname getED-methods
 #' @export
-#' @seealso \code{\link{skrmdb-class}}, \code{\link{sk-class}}
+#' @seealso [skrmdb-class], \code{\link{sk-class}}
 #' @author \link{skrmdb-package}
 #' @examples
 #' ## with an object of class skrmdb
@@ -105,7 +105,7 @@ setMethod("getED", "skrmdb",
 #' @name sk-class
 #' @rdname sk-class
 #' @exportClass sk
-#' @seealso \code{\link{skrmdb-class}}
+#' @seealso [skrmdb-class]
 #' @author \link{skrmdb-package}
 #' @examples
 #' new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")

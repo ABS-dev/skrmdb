@@ -39,7 +39,7 @@
 #'   are evaluated for monotone, increasing or decreasing; however the estimate
 #'   will be calculated in the original order regardless.
 #' @seealso The function \code{\link{DragBehr}} gives the Dragstedt-Behrens
-#'   estimate of ED50 \code{\link{skrmdb-class}}
+#'   estimate of ED50 [skrmdb-class]
 #' @examples
 #' X <- data.frame(dead=c(0, 3,5, 8, 10, 10), total=rep(10, 6), dil=1:6)
 #' ReedMuench(cbind(dead, total) ~ dil, X)

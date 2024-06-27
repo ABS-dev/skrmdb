@@ -8,7 +8,7 @@
 #'   be constant.
 #' @param x Integer vector.  The dilution at each level.
 #' @param n0 The original number of subjects tested at each level before scaling
-#'   by \code{.checkmatrix}.
+#'   by `.checkmatrix`.
 #' @param show logical.  If TRUE shows the intermediary statistics
 #'
 #' @return Numeric.  ED50 as computed by Spearman-Kärber.

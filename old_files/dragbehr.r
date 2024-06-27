@@ -33,7 +33,7 @@
 #'   Input data is expected to be sorted by x (either increasing or decreasing).
 #'   Use of unsorted data will result in error.
 #' @seealso The function \link{ReedMuench} gives the Reed-Muench estimate of
-#'   ED50, \code{\link{skrmdb-class}}
+#'   ED50, [skrmdb-class]
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean
 #'   tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 - 542}. \cr \cr
 #'   Behrens, B. (1929) Zur Auswertung der Digitalisblatter im Froschversuch.
