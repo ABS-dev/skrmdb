@@ -32,19 +32,26 @@
 #'   as the Reed-Muench method.
 
 #' @references Behrens, B. (1929) Zur Auswertung der Digitalisblätter im
-#'   Froschversuch. \emph{Arkiv für Experimentelle Pathologie und
-#'   Pharmakologie.} \bold{140: 237-256}.\cr Dragstedt, C. A., Lang, V. F.
-#'   (1928). Respiratory Stimulants in Acute Cocaine Poisoning in Rabbits.
-#'   \emph{J. of Pharmacology and Experimental Therapeutics.} \bold{32:
-#'   215--222}.\cr Kärber, G. (1931). Beitrag zur kollektiven Behandlung
-#'   Parmakogischer Reihenversuche. \emph{Archiv für Experimentelle Pathologie
-#'   und Pharmakologie.} \bold{162: 480--483}.\cr Miller, Rupert G. (1973).
-#'   Nonparametric Estimators of the Mean Tolerance in Bioassay.
-#'   \emph{Biometrika.} \bold{60: 535 - 542}.\cr Reed LJ, Muench H (1938). A
-#'   Simple Method of Estimating Fifty Percent Endpoints. \emph{American Journal
-#'   of Hygiene.} \bold{27: 493--497.} \cr Spearman, C. (1908). The Method of
-#'   'Right and Wrong Cases' ('Constant Stimuli') without Gauss's Formulae.
-#'   \emph{Brit. J. of Psychology.} \bold{2: 227--242.}
+#'   Froschversuch. *Arkiv für Experimentelle Pathologie und Pharmakologie.*
+#'   **140: 237-256**.
+#'
+#'   Dragstedt, C. A., Lang, V. F. (1928). Respiratory Stimulants in Acute
+#'   Cocaine Poisoning in Rabbits. *J. of Pharmacology and Experimental
+#'   Therapeutics.* **32: 215--222**.
+#'
+#'   Kärber, G. (1931). Beitrag zur kollektiven Behandlung Parmakogischer
+#'   Reihenversuche. *Archiv für Experimentelle Pathologie und Pharmakologie.*
+#'   **162: 480--483**.
+#'
+#'   Miller, Rupert G. (1973). Nonparametric Estimators of the Mean Tolerance in
+#'   Bioassay. *Biometrika.* **60: 535 - 542**.
+#'
+#'   Reed LJ, Muench H (1938). A Simple Method of Estimating Fifty Percent
+#'   Endpoints. *American Journal of Hygiene.* **27: 493--497**.
+#'
+#'   Spearman, C. (1908). The Method of 'Right and Wrong Cases' ('Constant
+#'   Stimuli') without Gauss's Formulae. *Brit. J. of Psychology.* **2:
+#'   227--242**.
 #'
 #' @param formula a formula of the form `y + n ~ x` or `cbind(y, n) ~ x`
 #' @param data a data frame
