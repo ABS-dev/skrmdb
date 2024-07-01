@@ -9,8 +9,8 @@ A data.frame with 67 rows and 9 columns
 \describe{
 \item{\code{testID}}{Mandatory. A test identifier that is unique in the table.
 Every test must have a test identifier.}
-\item{\code{PrepID}}{Mandatory. The identifier of the preparation used. This will
-usually be a lot or serial number of a vaccine.}
+\item{\code{PrepID}}{Mandatory. The identifier of the preparation used. This
+will usually be a lot or serial number of a vaccine.}
 \item{\code{PrepRole}}{Mandatory. The role of the preparation. This must be
 reference, test, or other.}
 \item{\code{Date}}{Optional. The Date the test was performed.}
