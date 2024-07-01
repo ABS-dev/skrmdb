@@ -120,7 +120,7 @@ SpearKarb(rev(dead) + rev(total) ~ rev(dil))
 
 ## Unordered data
 # Observe that the data is not monotonic after being sorted by dil.
-dead <- c(10, 8,5, 3, 0)
+dead <- c(10, 8, 5, 3, 0)
 total <- rep(10, 5)
 dil <- c(1, 3, 2, 4, 5)
 SpearKarb(dead + total ~ dil)
@@ -144,8 +144,8 @@ Bioassay. \emph{Biometrika.} \strong{60: 535 - 542}.
 Reed LJ, Muench H (1938). A Simple Method of Estimating Fifty Percent
 Endpoints. \emph{American Journal of Hygiene.} \strong{27: 493--497}.
 
-Spearman, C. (1908). The Method of 'Right and Wrong Cases' ('Constant
-Stimuli') without Gauss's Formulae. \emph{Brit. J. of Psychology.} \strong{2:
+Spearman, C. (1908). The Method of "Right and Wrong Cases" ("Constant
+Stimuli") without Gauss's Formulae. \emph{Brit. J. of Psychology.} \strong{2:
 227--242}.
 }
 \seealso{

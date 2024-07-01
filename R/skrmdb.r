@@ -49,8 +49,8 @@
 #'   Reed LJ, Muench H (1938). A Simple Method of Estimating Fifty Percent
 #'   Endpoints. *American Journal of Hygiene.* **27: 493--497**.
 #'
-#'   Spearman, C. (1908). The Method of 'Right and Wrong Cases' ('Constant
-#'   Stimuli') without Gauss's Formulae. *Brit. J. of Psychology.* **2:
+#'   Spearman, C. (1908). The Method of "Right and Wrong Cases" ("Constant
+#'   Stimuli") without Gauss's Formulae. *Brit. J. of Psychology.* **2:
 #'   227--242**.
 #'
 #' @param formula a formula of the form `y + n ~ x` or `cbind(y, n) ~ x`
@@ -98,7 +98,7 @@
 #'
 #' ## Unordered data
 #' # Observe that the data is not monotonic after being sorted by dil.
-#' dead <- c(10, 8,5, 3, 0)
+#' dead <- c(10, 8, 5, 3, 0)
 #' total <- rep(10, 5)
 #' dil <- c(1, 3, 2, 4, 5)
 #' SpearKarb(dead + total ~ dil)
