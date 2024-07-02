@@ -4,7 +4,7 @@
 #'
 #' @param fmla a formula
 #'
-#' @return a list of two vectors. `operators` is a vector of all operators used
+#' @returns a list of two vectors. `operators` is a vector of all operators used
 #'   in `fmla`, and `variables` is a vector of all variables used in `fmla`.
 #'
 #' @noRd
@@ -36,7 +36,7 @@
 #'
 #' @param fmla a formula
 #'
-#' @return Logical.  True if `fmla` is of the correcto form, FALSE
+#' @returns Logical.  True if `fmla` is of the correcto form, FALSE
 #'   otherwise.
 #'
 #' @noRd
@@ -77,7 +77,7 @@
 #' @param autosort logical.  If TRUE, sorts according to -x or x so that y/n is
 #'   increasing with the index
 #'
-#' @return a list containing the ED50 for the three methods, the variance as
+#' @returns a list containing the ED50 for the three methods, the variance as
 #'   computed by SpearKarb, and Boolean values for the four warning messages
 #'
 #' @noRd
@@ -114,7 +114,7 @@
 #'   with the index.  This is how the three methods assume the data to be
 #'   ordered.
 #'
-#' @return A `data.frame` containing columns for each of the subset variables,
+#' @returns A `data.frame` containing columns for each of the subset variables,
 #'   the ED50 as computed by `DragBehr`, `ReedMuench`, the ED50 and variance as
 #'   computed by `SpearKarb`, and columns of logical values which indicate if
 #'   the data are increasing or decreasing with `log_dil`, has an even dilution

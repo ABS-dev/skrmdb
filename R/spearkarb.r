@@ -11,7 +11,7 @@
 #'   by `.checkmatrix`.
 #' @param show logical.  If TRUE shows the intermediary statistics
 #'
-#' @return Numeric.  ED50 as computed by Spearman-Kärber.
+#' @returns Numeric.  ED50 as computed by Spearman-Kärber.
 #'
 #' @noRd
 .SpearKarb <- function(y_inc, y_dec, x, n, show = FALSE) {

@@ -69,7 +69,7 @@
 #' @param show if TRUE, will print the intermediary statistics used to calculate
 #'   ED50.
 #'
-#' @return An object of class [skrmdb-class]
+#' @returns An object of class [skrmdb-class]
 #'
 #' @name skrmdb
 #'

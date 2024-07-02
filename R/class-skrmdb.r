@@ -5,7 +5,7 @@
 #' `ReedMuench`, `SpearKarb`, or `DragBehr`.
 #'
 #' @param x class skrmdb.
-#' @return the estimated ED50.
+#' @returns the estimated ED50.
 #' @examples
 #' temp <- DragBehr(y = c(0, 3, 5, 8, 10, 10), n = rep(10, 6), x = 1:6)
 #' getED(temp)
@@ -21,7 +21,7 @@ getED <- function(x) {
 #' or `DragBehr`.
 #'
 #' @param x class skrmdb.
-#' @return the estimated variance.
+#' @returns the estimated variance.
 #' @examples
 #' temp <- DragBehr(y = c(0, 3, 5, 8, 10, 10), n = rep(10, 6), x = 1:6)
 #' getvar(temp)
@@ -37,7 +37,7 @@ getvar <- function(x) {
 #' `ReedMuench`, `SpearKarb`, or `DragBehr`.
 #'
 #' @param x class skrmdb.
-#' @return a dataframe containing the sorted data.
+#' @returns a dataframe containing the sorted data.
 #' @examples
 #' temp <- DragBehr(y = c(0, 3, 5, 8, 10, 10), n = rep(10, 6), x = 1:6)
 #' getdata(temp)

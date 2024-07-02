@@ -26,7 +26,7 @@
 #' @param warn.me Logical.  If `TRUE` will display the warning messages
 #'   possibilities 2-4 above.
 #'
-#' @return The sorted and scaled data.frame `A` with attribute flags indicating
+#' @returns The sorted and scaled data.frame `A` with attribute flags indicating
 #'   the status of each warning.
 #'
 #' @importFrom data.table setnames setorder as.data.table := .N
@@ -109,7 +109,7 @@
 #' @param warn.me Logical.  If TRUE indicates that data warnings will be
 #'   displayed during processing.
 #'
-#' @return the result from `.checkmatrix`.
+#' @returns the result from `.checkmatrix`.
 #'
 #' @importFrom stats model.frame formula terms
 #' @importFrom Formula Formula
@@ -155,7 +155,7 @@
 #' @param warn.me Logical.  If TRUE indicates that data warnings will be
 #'   displayed during processing.
 #'
-#' @return the result from `.checkmatrix`.
+#' @returns the result from `.checkmatrix`.
 #'
 #' @importFrom data.table data.table
 #'
@@ -189,7 +189,7 @@
 #' @param warn.me if TRUE, warnings and messages related to the processing of
 #'   the data will be displayed.
 #'
-#' @return a data.table `A` which contains all the data to be processed. The
+#' @returns a data.table `A` which contains all the data to be processed. The
 #'   data has been prepared and potentially sorted for use by the
 #'   `.checkmatrix`.
 #'

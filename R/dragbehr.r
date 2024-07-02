@@ -9,7 +9,7 @@
 #' @param x Integer vector.  The dilution at each level.
 #' @param show logical.  If TRUE shows the intermediary statistics
 #'
-#' @return Numeric.  ED50 as computed by Dragstedt-Behrens.
+#' @returns Numeric.  ED50 as computed by Dragstedt-Behrens.
 #'
 #' @noRd
 .DragBehr <- function(y_inc, y_dec, x, show = FALSE) {

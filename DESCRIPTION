@@ -18,7 +18,7 @@ BugReports: https://github.com/ABS-dev/skrmdb/issues
 LazyLoad: true
 LazyData: true
 Depends:
-  R (>= 3.5)
+  R (>= 4.2)
 Imports:
   data.table,
   Formula
