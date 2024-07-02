@@ -1,5 +1,8 @@
 url: ~
-destination: public/
+destination: docs/
 template:
   bootstrap: 5
-
+repo:
+  url:
+    home:  ttps://github.com/ABS-dev/skrmdb/
+    issue: ttps://github.com/ABS-dev/skrmdb/issues/
