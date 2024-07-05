@@ -6,3 +6,17 @@ repo:
   url:
     home:  ttps://github.com/ABS-dev/skrmdb/
     issue: ttps://github.com/ABS-dev/skrmdb/issues/
+reference:
+- title: Functions
+- contents:
+  - getdata
+  - getED
+  - getvar
+  - skrmdb-class
+  - skrmdb.all
+  - DragBehr
+  - ReedMuench
+  - SpearKarb
+- title: Data Sets
+- contents:
+  - titration
