@@ -9,14 +9,18 @@ repo:
 reference:
 - title: Functions
 - contents:
-  - getdata
-  - getED
-  - getvar
-  - skrmdb-class
-  - skrmdb.all
   - DragBehr
   - ReedMuench
   - SpearKarb
+  - skrmdb.all
+- title: Helper Functions
+- contents:
+  - getdata
+  - getED
+  - getvar
+- title: S3 and S4 classes
+- contents:
+  - skrmdb-class
 - title: Data Sets
 - contents:
   - titration
