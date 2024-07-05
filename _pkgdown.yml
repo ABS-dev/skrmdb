@@ -4,8 +4,8 @@ template:
   bootstrap: 5
 repo:
   url:
-    home:  ttps://github.com/ABS-dev/skrmdb/
-    issue: ttps://github.com/ABS-dev/skrmdb/issues/
+    home:  https://github.com/ABS-dev/skrmdb/
+    issue: https://github.com/ABS-dev/skrmdb/issues/
 reference:
 - title: Functions
 - contents:
