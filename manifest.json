@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "locale": "en_US",
+  "platform": "4.4.0",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "index.html",
+    "content_category": "site",
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    ".nojekyll": {
+      "checksum": "81051bcc2cf1bedf378224b0a93e2877"
+    },
+    "404.html": {
+      "checksum": "5c6e9641d2b1523180eb4cd63a833917"
+    },
+    "apple-touch-icon-120x120.png": {
+      "checksum": "c80d824f33e2838da8f908d09e13775c"
+    },
+    "apple-touch-icon-152x152.png": {
+      "checksum": "4847e1b834b83b5a5712a48283299cce"
+    },
+    "apple-touch-icon-180x180.png": {
+      "checksum": "7505cae7b2b3f0b4ef98f0263af2fa13"
+    },
+    "apple-touch-icon-60x60.png": {
+      "checksum": "643cbe52bee570e7bcd5d3ac8642f068"
+    },
+    "apple-touch-icon-76x76.png": {
+      "checksum": "0bd5648a63695e8a7e17410989f5b93d"
+    },
+    "apple-touch-icon.png": {
+      "checksum": "bab78d9de5496d675bccdb81cd8981b1"
+    },
+    "authors.html": {
+      "checksum": "7856b56424eba8d762872ed1cbd43b51"
+    },
+    "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
+      "checksum": "e2b09c06f0e714b6144a6788a28e3950"
+    },
+    "deps/bootstrap-5.3.1/bootstrap.bundle.min.js.map": {
+      "checksum": "9c73ded054de790fdd86dec929def3b4"
+    },
+    "deps/bootstrap-5.3.1/bootstrap.min.css": {
+      "checksum": "d6b2461fd051c117d0650c37a0a23170"
+    },
+    "deps/data-deps.txt": {
+      "checksum": "3e127c805541113a7c3263160d71fb6b"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.js": {
+      "checksum": "2849239b95f5a9a2aea3f6ed9420bb88"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.js": {
+      "checksum": "8fb8fee4fcc3cc86ff6c724154c49c42"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
+      "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
+    },
+    "favicon-16x16.png": {
+      "checksum": "7a3b232f1aec954f2a0bf4fa07c07b49"
+    },
+    "favicon-32x32.png": {
+      "checksum": "740d2a2f28c00285e19e384b7d3646cb"
+    },
+    "favicon.ico": {
+      "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
+    },
+    "index.html": {
+      "checksum": "03a85a5097a12d89ae7a3773a9b03f2e"
+    },
+    "LICENSE-text.html": {
+      "checksum": "bb1fb796b97fba57e7b6ecc727627311"
+    },
+    "link.svg": {
+      "checksum": "4759f31f8a585e9af173fc579d730265"
+    },
+    "logo.png": {
+      "checksum": "5d093a6d12a042a57dc0585effb988d0"
+    },
+    "news/index.html": {
+      "checksum": "72ce1f95db4776d129d0f49b1256dec3"
+    },
+    "pkgdown.js": {
+      "checksum": "185cbf0f06480c90046685e99e537020"
+    },
+    "pkgdown.yml": {
+      "checksum": "fde814a814808cb8ec7041093246ff38"
+    },
+    "reference/figures/logo.png": {
+      "checksum": "5d093a6d12a042a57dc0585effb988d0"
+    },
+    "reference/getdata.html": {
+      "checksum": "eecd117e9a88971f056a852ebf0da4b4"
+    },
+    "reference/getED.html": {
+      "checksum": "b56f0bdaf56a1112011fd7218b34306e"
+    },
+    "reference/getvar.html": {
+      "checksum": "ea85e85851f3726fe4d4afe737be140b"
+    },
+    "reference/index.html": {
+      "checksum": "c2e30b417bedb9c483f52cc98e8973f2"
+    },
+    "reference/Rplot001.png": {
+      "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
+    },
+    "reference/skrmdb-class.html": {
+      "checksum": "b493de4a78051d237259f608a308ea69"
+    },
+    "reference/skrmdb.all.html": {
+      "checksum": "85cfb2890bd43fcdc5ecc85b4a5112df"
+    },
+    "reference/skrmdb.html": {
+      "checksum": "06e2f66125619f5e8ea336caa6aebf31"
+    },
+    "reference/titration.html": {
+      "checksum": "5eaac3cadb7119417d581b84f182d88a"
+    },
+    "search.json": {
+      "checksum": "2b0d5bcacb226bc11883655fc8db4041"
+    },
+    "sitemap.xml": {
+      "checksum": "9b5bfea4bde5845c5d961f9f55882e20"
+    }
+  },
+  "users": null
+}
