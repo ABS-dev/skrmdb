@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "5c6e9641d2b1523180eb4cd63a833917"
+      "checksum": "cca023e18171cc62c048898a1e523190"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -36,7 +36,7 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "authors.html": {
-      "checksum": "7856b56424eba8d762872ed1cbd43b51"
+      "checksum": "df21383f11e0da13990bc02238ed972d"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -69,10 +69,10 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "03a85a5097a12d89ae7a3773a9b03f2e"
+      "checksum": "c67b73e1fd6cb609ef88fa183254f9e2"
     },
     "LICENSE-text.html": {
-      "checksum": "bb1fb796b97fba57e7b6ecc727627311"
+      "checksum": "632b58785005cae78774b50ac08e61bf"
     },
     "link.svg": {
       "checksum": "4759f31f8a585e9af173fc579d730265"
@@ -81,43 +81,43 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "72ce1f95db4776d129d0f49b1256dec3"
+      "checksum": "bfa8692d9b77ee1af48b3898a89ba08a"
     },
     "pkgdown.js": {
       "checksum": "185cbf0f06480c90046685e99e537020"
     },
     "pkgdown.yml": {
-      "checksum": "fde814a814808cb8ec7041093246ff38"
+      "checksum": "095254b41a0117183ceb87ee2618f6c9"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "eecd117e9a88971f056a852ebf0da4b4"
+      "checksum": "0a962c368654846f2fd192c811174901"
     },
     "reference/getED.html": {
-      "checksum": "b56f0bdaf56a1112011fd7218b34306e"
+      "checksum": "5e2fbc6084ddad6844b19cab2789721c"
     },
     "reference/getvar.html": {
-      "checksum": "ea85e85851f3726fe4d4afe737be140b"
+      "checksum": "66f553c1a60a2014b5bd3f9825acd8fa"
     },
     "reference/index.html": {
-      "checksum": "c2e30b417bedb9c483f52cc98e8973f2"
+      "checksum": "dc6e4b3a8a03ecc0c7a01699a06c4917"
     },
     "reference/Rplot001.png": {
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "b493de4a78051d237259f608a308ea69"
+      "checksum": "ca153a047f895907f33f9335ecc1d776"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "85cfb2890bd43fcdc5ecc85b4a5112df"
+      "checksum": "b75ee6dc87db9e3a43ca6b408d78fd51"
     },
     "reference/skrmdb.html": {
-      "checksum": "06e2f66125619f5e8ea336caa6aebf31"
+      "checksum": "07f99bcea8410cc15be3fd20fe90b253"
     },
     "reference/titration.html": {
-      "checksum": "5eaac3cadb7119417d581b84f182d88a"
+      "checksum": "dd9f68943f588a40e37e7bfe62aa7b9a"
     },
     "search.json": {
       "checksum": "2b0d5bcacb226bc11883655fc8db4041"
