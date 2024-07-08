@@ -1,4 +1,4 @@
-url: ~
+url: https://github.com/ABS-dev/skrmdb/
 destination: docs/
 template:
   bootstrap: 5
