@@ -36,7 +36,7 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "authors.html": {
-      "checksum": "5c231a7a622b4b57fc0e0097d5d1da1f"
+      "checksum": "bcdc7309fa1847ef04128281915e62b0"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -126,7 +126,7 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "2573227213cfc9bd0df50b42359d6811"
+      "checksum": "f029a1aa488d1a9b265b9162fb9d3ac1"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
@@ -150,7 +150,7 @@
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "8c3dec7b49c61c6239e0b5798836d609"
+      "checksum": "1dda441f54290bcee1b9a26be1d0439f"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
@@ -183,7 +183,7 @@
       "checksum": "089c4854a2e3c945708c5a299e58388b"
     },
     "reference/skrmdb.html": {
-      "checksum": "33aaf9db9d427ed233bdbe356f988fe6"
+      "checksum": "f3eaa6b0049e319a6da007b8c085ee57"
     },
     "reference/SpearKarb.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
@@ -192,7 +192,7 @@
       "checksum": "ab6350f5b06aa113eabf44fa9aaa32b7"
     },
     "search.json": {
-      "checksum": "f55ec4caed4fa3ed799081c570b17f35"
+      "checksum": "26b7f91bee46185154c25183310f460a"
     },
     "sitemap.xml": {
       "checksum": "453576ef4bdb9b211a6dae5907830427"
