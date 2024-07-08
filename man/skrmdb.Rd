@@ -151,8 +151,8 @@ Stimuli") without Gauss's Formulae. \emph{Brit. J. of Psychology.} \strong{2:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ABS-dev/skrmdb/blob/master/README.md}
-  \item Report bugs at \url{https://github.com/ABS-dev/skrmdb/issues}
+  \item \url{https://github.com/ABS-dev/skrmdb/}
+  \item Report bugs at \url{https://github.com/ABS-dev/skrmdb/issues/}
 }
 
 }
