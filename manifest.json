@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "cca023e18171cc62c048898a1e523190"
+      "checksum": "ef15815a80aa5961690ac492d5b11dab"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -36,7 +36,7 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "authors.html": {
-      "checksum": "df21383f11e0da13990bc02238ed972d"
+      "checksum": "5c231a7a622b4b57fc0e0097d5d1da1f"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -45,10 +45,58 @@
       "checksum": "9c73ded054de790fdd86dec929def3b4"
     },
     "deps/bootstrap-5.3.1/bootstrap.min.css": {
-      "checksum": "d6b2461fd051c117d0650c37a0a23170"
+      "checksum": "31819d35384826454e083ad4c18d9b65"
+    },
+    "deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js": {
+      "checksum": "c82ff4de8b0955d6ff14f5b05eed7eb6"
+    },
+    "deps/clipboard.js-2.0.11/clipboard.min.js": {
+      "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
     },
     "deps/data-deps.txt": {
-      "checksum": "3e127c805541113a7c3263160d71fb6b"
+      "checksum": "66b2a17d8d4d8e899fa823448051da52"
+    },
+    "deps/font-awesome-6.4.2/css/all.css": {
+      "checksum": "5ca7783adc61f933805bd0467228c7de"
+    },
+    "deps/font-awesome-6.4.2/css/all.min.css": {
+      "checksum": "1d46bd8219a15f094e4489e7f63778e9"
+    },
+    "deps/font-awesome-6.4.2/css/v4-shims.css": {
+      "checksum": "b8d8da46c1755698c28c00e06983371a"
+    },
+    "deps/font-awesome-6.4.2/css/v4-shims.min.css": {
+      "checksum": "665de85010641f678f0178a9d330a7af"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-brands-400.ttf": {
+      "checksum": "bb8cd014d7a55672934233c354e1c4a3"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-brands-400.woff2": {
+      "checksum": "005c9aa92b564b73b7582cc4f1fa49cb"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-regular-400.ttf": {
+      "checksum": "675809e48e35c47d51c7d6fcc687ee28"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-regular-400.woff2": {
+      "checksum": "747442fa76f1d9a31f9a54a2e8a4b448"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-solid-900.ttf": {
+      "checksum": "0248ab19e74fc3731de14d647db4687a"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-solid-900.woff2": {
+      "checksum": "d5e647388e2415268b700d3df2e30a0d"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-v4compatibility.ttf": {
+      "checksum": "58f1253e5639d508a6fe310c97327f82"
+    },
+    "deps/font-awesome-6.4.2/webfonts/fa-v4compatibility.woff2": {
+      "checksum": "f20773a753bf1fbe9ccec04f90a470ea"
+    },
+    "deps/headroom-0.11.0/headroom.min.js": {
+      "checksum": "5b714c82675b78b78737585c71a42aa8"
+    },
+    "deps/headroom-0.11.0/jQuery.headroom.min.js": {
+      "checksum": "5d00b65f84e4be18124b864f30d66754"
     },
     "deps/jquery-3.6.0/jquery-3.6.0.js": {
       "checksum": "2849239b95f5a9a2aea3f6ed9420bb88"
@@ -58,6 +106,15 @@
     },
     "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
       "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
+    },
+    "deps/search-1.0.0/autocomplete.jquery.min.js": {
+      "checksum": "92fe1867b8a852d38fc44334fcde4618"
+    },
+    "deps/search-1.0.0/fuse.min.js": {
+      "checksum": "a9b84ece54b1853525a2c76fd12aa23c"
+    },
+    "deps/search-1.0.0/mark.min.js": {
+      "checksum": "d0c5399929d81f67cd6d7687880498a6"
     },
     "favicon-16x16.png": {
       "checksum": "7a3b232f1aec954f2a0bf4fa07c07b49"
@@ -69,10 +126,16 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "c67b73e1fd6cb609ef88fa183254f9e2"
+      "checksum": "2573227213cfc9bd0df50b42359d6811"
+    },
+    "katex-auto.js": {
+      "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "632b58785005cae78774b50ac08e61bf"
+      "checksum": "070af5b31a45af3b10cf0cd624918965"
+    },
+    "lightswitch.js": {
+      "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
     },
     "link.svg": {
       "checksum": "4759f31f8a585e9af173fc579d730265"
@@ -81,49 +144,58 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "bfa8692d9b77ee1af48b3898a89ba08a"
+      "checksum": "ec042dc1a03d189bd9bbb9498d49e3f7"
     },
     "pkgdown.js": {
-      "checksum": "185cbf0f06480c90046685e99e537020"
+      "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "103b9897d570925334a618e0cd0e22ca"
+      "checksum": "8c3dec7b49c61c6239e0b5798836d609"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "0a962c368654846f2fd192c811174901"
+      "checksum": "a4b3a748d413f1d21a57ecdfba407a85"
     },
     "reference/getED.html": {
-      "checksum": "5e2fbc6084ddad6844b19cab2789721c"
+      "checksum": "3e1ebc5016dd515b90e72667ffcddbd4"
     },
     "reference/getvar.html": {
-      "checksum": "66f553c1a60a2014b5bd3f9825acd8fa"
+      "checksum": "8eec604a286b8342d7131b63aaa85176"
     },
     "reference/index.html": {
-      "checksum": "05e96e108e77b47c7aac80f6f5aa794a"
+      "checksum": "1fa1f4690523d3978fdcb1d4d432353e"
+    },
+    "reference/ReedMuench.html": {
+      "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/Rplot001.png": {
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "ca153a047f895907f33f9335ecc1d776"
+      "checksum": "8ca2deaf27ac86ed50263343293ac19b"
+    },
+    "reference/skrmdb-package.html": {
+      "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "b75ee6dc87db9e3a43ca6b408d78fd51"
+      "checksum": "089c4854a2e3c945708c5a299e58388b"
     },
     "reference/skrmdb.html": {
-      "checksum": "07f99bcea8410cc15be3fd20fe90b253"
+      "checksum": "33aaf9db9d427ed233bdbe356f988fe6"
+    },
+    "reference/SpearKarb.html": {
+      "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/titration.html": {
-      "checksum": "dd9f68943f588a40e37e7bfe62aa7b9a"
+      "checksum": "ab6350f5b06aa113eabf44fa9aaa32b7"
     },
     "search.json": {
-      "checksum": "2b0d5bcacb226bc11883655fc8db4041"
+      "checksum": "f55ec4caed4fa3ed799081c570b17f35"
     },
     "sitemap.xml": {
-      "checksum": "9b5bfea4bde5845c5d961f9f55882e20"
+      "checksum": "453576ef4bdb9b211a6dae5907830427"
     }
   },
   "users": null
