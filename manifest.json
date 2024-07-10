@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "ef15815a80aa5961690ac492d5b11dab"
+      "checksum": "cba04a3b37e1d5a4e3f7e4793ad28913"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -36,7 +36,7 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "authors.html": {
-      "checksum": "bcdc7309fa1847ef04128281915e62b0"
+      "checksum": "ba0ed5133a66992d587ba390c4ed1b97"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -54,7 +54,7 @@
       "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
     },
     "deps/data-deps.txt": {
-      "checksum": "66b2a17d8d4d8e899fa823448051da52"
+      "checksum": "8da7c17bf563d1bdbb6ac6f53bf8fd89"
     },
     "deps/font-awesome-6.4.2/css/all.css": {
       "checksum": "5ca7783adc61f933805bd0467228c7de"
@@ -107,6 +107,9 @@
     "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
       "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
     },
+    "deps/MathJax-3.2.2/tex-chtml.min.js": {
+      "checksum": "986620cdcffee30642d103ab3fe1fbba"
+    },
     "deps/search-1.0.0/autocomplete.jquery.min.js": {
       "checksum": "92fe1867b8a852d38fc44334fcde4618"
     },
@@ -126,13 +129,13 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "f029a1aa488d1a9b265b9162fb9d3ac1"
+      "checksum": "aa072e8812406e14d2a2412f71c2fe51"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "070af5b31a45af3b10cf0cd624918965"
+      "checksum": "bbdab0e607fab6fd830585afdfb4b388"
     },
     "lightswitch.js": {
       "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
@@ -144,28 +147,28 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "ec042dc1a03d189bd9bbb9498d49e3f7"
+      "checksum": "14a3c2a8f0bbe73a0e8217ed9fed1337"
     },
     "pkgdown.js": {
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "1dda441f54290bcee1b9a26be1d0439f"
+      "checksum": "5aa7a9ca7c7734c1fd45a7f16ebcd733"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "a4b3a748d413f1d21a57ecdfba407a85"
+      "checksum": "378e3bb751e2fab07aa86146738388cf"
     },
     "reference/getED.html": {
-      "checksum": "3e1ebc5016dd515b90e72667ffcddbd4"
+      "checksum": "44a86119f4d713d37dfbc4348c8800ed"
     },
     "reference/getvar.html": {
-      "checksum": "8eec604a286b8342d7131b63aaa85176"
+      "checksum": "acc46f2dfa8ff123fde3c1a0f900fb22"
     },
     "reference/index.html": {
-      "checksum": "1fa1f4690523d3978fdcb1d4d432353e"
+      "checksum": "09c1cd21b89eb7e4b5bc6445abb8877f"
     },
     "reference/ReedMuench.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
@@ -174,22 +177,22 @@
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "8ca2deaf27ac86ed50263343293ac19b"
+      "checksum": "0df130daaca25cd3408c00d727e65d8c"
     },
     "reference/skrmdb-package.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "089c4854a2e3c945708c5a299e58388b"
+      "checksum": "b98680f50355f3fd874b073352d04866"
     },
     "reference/skrmdb.html": {
-      "checksum": "f3eaa6b0049e319a6da007b8c085ee57"
+      "checksum": "00f86d8d6e969b4e6542f0d8ca950013"
     },
     "reference/SpearKarb.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/titration.html": {
-      "checksum": "ab6350f5b06aa113eabf44fa9aaa32b7"
+      "checksum": "f28e05cf437de0958d26d21c6529ae5d"
     },
     "search.json": {
       "checksum": "26b7f91bee46185154c25183310f460a"
