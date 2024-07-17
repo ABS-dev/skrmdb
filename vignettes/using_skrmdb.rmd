@@ -8,20 +8,36 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-```{r echo = FALSE, message=FALSE}
-require(knitr)
-hook_source_def <- knit_hooks$get("source")
-knit_hooks$set(source = function(x, options) {
-  if (!is.null(options$verbatim) && options$verbatim) {
-    opts <- gsub(",\\s*verbatim\\s*=\\s*TRUE\\s*", "",
-                 options$params.src)
-    message(length(opts))
-    bef <- sprintf("\n\n    ```{r %s}\n", opts)
-    stringr::str_c(bef, paste(knitr:::indent_block(x, "    "),
-                              collapse = "\n"),
-                   "\n    ```\n")
-  } else {
-     hook_source_def(x, options)
-  }
-})
+
+
+```{r}
+library(skrmdb)
+library(ggplot2)
+dead <- c(0, 3, 5, 8, 10, 10)
+total <- rep(10, 6)
+dil <- 1:6
+SpearKarb(y = dead, n = total, x = dil)
+SpearKarb(dead + total ~ dil)
+data <- data.frame(y = dead, n = total, x = dil)
+SpearKarb(y + n ~ x, data)
+dead <- c(10, 10, 8, 5, 3, 0)
+total <- rep(10, 6)
+dil <- 1:6
+SpearKarb(dead + total ~ dil)
+SpearKarb(rev(dead) + rev(total) ~ rev(dil))
+SpearKarb(dead + total ~ dil, autosort = FALSE)
+head(titration)
+titration$log_dil = -log10(titration$dil)
+ggplot(titration, aes(x = log_dil, y = positive)) +
+  geom_point() +
+  facet_grid(Vial ~ Operator) +
+  geom_line()
+skrmdb.all(positive + total ~ log_dil, titration)
+skrmdb.all(positive + total ~ log_dil | Operator, titration)
+skrmdb.all(positive + total ~ log_dil | Vial, titration)
+skrmdb.all(positive + total ~ log_dil | Vial + Operator, titration)
+res <- SpearKarb(positive + total ~ log_dil, titration)
+getED(res)
+getvar(res)
+getdata(res)
 ```
