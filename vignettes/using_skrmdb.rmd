@@ -1,0 +1,27 @@
+---
+title: "Using skrmdb"
+author: "Thomas Kent"
+date: "`r Sys.Date()`"
+output:  html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using skrmdb}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r echo = FALSE, message=FALSE}
+require(knitr)
+hook_source_def <- knit_hooks$get("source")
+knit_hooks$set(source = function(x, options) {
+  if (!is.null(options$verbatim) && options$verbatim) {
+    opts <- gsub(",\\s*verbatim\\s*=\\s*TRUE\\s*", "",
+                 options$params.src)
+    message(length(opts))
+    bef <- sprintf("\n\n    ```{r %s}\n", opts)
+    stringr::str_c(bef, paste(knitr:::indent_block(x, "    "),
+                              collapse = "\n"),
+                   "\n    ```\n")
+  } else {
+     hook_source_def(x, options)
+  }
+})
+```
