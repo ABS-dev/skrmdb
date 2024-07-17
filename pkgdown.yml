@@ -1,8 +1,9 @@
-pandoc: 3.1.1
+pandoc: 2.19.2
 pkgdown: 2.1.0
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-07-10T22:54Z
+articles:
+  using_skrmdb: using_skrmdb.html
+last_built: 2024-07-17T23:43Z
 urls:
   reference: https://github.com/ABS-dev/skrmdb/reference
   article: https://github.com/ABS-dev/skrmdb/articles

@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "cba04a3b37e1d5a4e3f7e4793ad28913"
+      "checksum": "2ab1e9bb7e38c85f2775744d7a39b139"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -35,8 +35,17 @@
     "apple-touch-icon.png": {
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
+    "articles/index.html": {
+      "checksum": "36b7171e47420164b3189f6f2ae32a9b"
+    },
+    "articles/using_skrmdb.html": {
+      "checksum": "8855ee1bf236510c6e128217b1c9e123"
+    },
+    "articles/using_skrmdb_files/figure-html/unnamed-chunk-11-1.png": {
+      "checksum": "bc8b046bac6d4aa890aed23389a502e4"
+    },
     "authors.html": {
-      "checksum": "ba0ed5133a66992d587ba390c4ed1b97"
+      "checksum": "9dca14e9b621f72f6e8ce9866ababc7e"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -129,13 +138,13 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "aa072e8812406e14d2a2412f71c2fe51"
+      "checksum": "0bb020e71e840c28ab5ec0ee9f4ffeef"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "bbdab0e607fab6fd830585afdfb4b388"
+      "checksum": "4f9f84161791cf08804bf7b2641f8e3c"
     },
     "lightswitch.js": {
       "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
@@ -147,28 +156,28 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "14a3c2a8f0bbe73a0e8217ed9fed1337"
+      "checksum": "72f407ae619e18007af9b01ec4aea6ad"
     },
     "pkgdown.js": {
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "5aa7a9ca7c7734c1fd45a7f16ebcd733"
+      "checksum": "04a20b3bef246666f96237a9515ae5be"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "378e3bb751e2fab07aa86146738388cf"
+      "checksum": "da09b0896b19afc08d109aabc4d5afd0"
     },
     "reference/getED.html": {
-      "checksum": "44a86119f4d713d37dfbc4348c8800ed"
+      "checksum": "a16171c913a45e6ba5712e33c4b0950d"
     },
     "reference/getvar.html": {
-      "checksum": "acc46f2dfa8ff123fde3c1a0f900fb22"
+      "checksum": "bf3ae0d7f3fcc26dd235cd1f4a077a94"
     },
     "reference/index.html": {
-      "checksum": "09c1cd21b89eb7e4b5bc6445abb8877f"
+      "checksum": "e16ae3e0438b759bdd0a0a8845cc0857"
     },
     "reference/ReedMuench.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
@@ -177,28 +186,28 @@
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "0df130daaca25cd3408c00d727e65d8c"
+      "checksum": "e896d3120f804255b095f6c4fc8fcb67"
     },
     "reference/skrmdb-package.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "b98680f50355f3fd874b073352d04866"
+      "checksum": "8b71607a8910991bbf11dffce505f14f"
     },
     "reference/skrmdb.html": {
-      "checksum": "00f86d8d6e969b4e6542f0d8ca950013"
+      "checksum": "75fb1cc1ae090f1abf5ee206aad89748"
     },
     "reference/SpearKarb.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/titration.html": {
-      "checksum": "f28e05cf437de0958d26d21c6529ae5d"
+      "checksum": "666456adceec0810cae2b2dee3558abd"
     },
     "search.json": {
-      "checksum": "26b7f91bee46185154c25183310f460a"
+      "checksum": "c5420d0aa0a759e29b4382cd61773035"
     },
     "sitemap.xml": {
-      "checksum": "453576ef4bdb9b211a6dae5907830427"
+      "checksum": "bf371c5168306c813315bb35ee4a8bf2"
     }
   },
   "users": null
