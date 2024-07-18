@@ -115,7 +115,7 @@ titration$log_dil = -log10(titration$dil)
 Plotting the data shows us that the tests visually seem to give roughly the 
 same ED50, but unfortunately, there are missing data points.
 
-```{r}
+```{r, fig.alt="Nine plots showing titration data."}
 ggplot(titration, aes(x = log_dil, y = positive)) +
   geom_point() +
   facet_grid(Vial ~ Operator) +
@@ -158,10 +158,12 @@ Using the titration data set again.
 res <- SpearKarb(positive + total ~ log_dil, titration)
 ```
 
-We can get the ED50:
+We can get the ED50:  (**Note:** `getED50()` only works on `skrmdb` objects, 
+which are returned by `DragBehr()`, `ReedMuench()`, and `SpearKarb()`,
+not on `skrmdb.all` objects.)
 
 ```{r}
-getED(res)
+getED50(res)
 ```
 
 The variance:

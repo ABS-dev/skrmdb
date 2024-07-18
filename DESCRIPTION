@@ -21,7 +21,8 @@ Depends:
   R (>= 4.2)
 Imports:
   data.table,
-  Formula
+  Formula,
+  lifecycle
 Suggests:
   testthat,
   knitr,

@@ -17,7 +17,7 @@ reference:
 - title: Helper Functions
 - contents:
   - getdata
-  - getED
+  - getED50
   - getvar
 - title: S3 and S4 classes
 - contents:
