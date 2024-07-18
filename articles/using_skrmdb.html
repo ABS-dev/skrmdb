@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">skrmdb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">4.4.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">4.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
                         <h4 data-toc-skip class="author">Thomas
 Kent</h4>
             
-            <h4 data-toc-skip class="date">2024-07-17</h4>
+            <h4 data-toc-skip class="date">2024-07-18</h4>
       
 
       <div class="d-none name"><code>using_skrmdb.rmd</code></div>
@@ -193,7 +193,7 @@ points.</p>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">facet_grid</span><span class="op">(</span><span class="va">Vial</span> <span class="op">~</span> <span class="va">Operator</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="using_skrmdb_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<p><img src="using_skrmdb_files/figure-html/unnamed-chunk-11-1.png" alt="Nine plots showing titration data." width="700"></p>
 <p>We could find ED50 by aggregation the data from all 9 tests for each
 of the three methods.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
@@ -258,9 +258,12 @@ information from the results of <code><a href="../reference/skrmdb.html">DragBeh
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/skrmdb.html">SpearKarb</a></span><span class="op">(</span><span class="va">positive</span> <span class="op">+</span> <span class="va">total</span> <span class="op">~</span> <span class="va">log_dil</span>, <span class="va">titration</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## skrmdb :: combining results from duplicate dilutions</span></span></code></pre>
-<p>We can get the ED50:</p>
+<p>We can get the ED50: (<strong>Note:</strong> <code><a href="../reference/getED50.html">getED50()</a></code>
+only works on <code>skrmdb</code> objects, which are returned by
+<code><a href="../reference/skrmdb.html">DragBehr()</a></code>, <code><a href="../reference/skrmdb.html">ReedMuench()</a></code>, and
+<code><a href="../reference/skrmdb.html">SpearKarb()</a></code>, not on <code>skrmdb.all</code> objects.)</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/getED.html">getED</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/getED50.html">getED50</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 5.332341</span></span></code></pre>
 <p>The variance:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">

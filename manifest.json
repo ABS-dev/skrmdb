@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "2ab1e9bb7e38c85f2775744d7a39b139"
+      "checksum": "55b12b719e067e2b5ac2e42e3da54c8a"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -36,16 +36,16 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "articles/index.html": {
-      "checksum": "36b7171e47420164b3189f6f2ae32a9b"
+      "checksum": "79f64be5fc6d22d502ae7fbfc158b065"
     },
     "articles/using_skrmdb.html": {
-      "checksum": "8855ee1bf236510c6e128217b1c9e123"
+      "checksum": "ec88c3e1109da1e77cb004840a57e55d"
     },
     "articles/using_skrmdb_files/figure-html/unnamed-chunk-11-1.png": {
       "checksum": "bc8b046bac6d4aa890aed23389a502e4"
     },
     "authors.html": {
-      "checksum": "9dca14e9b621f72f6e8ce9866ababc7e"
+      "checksum": "5b2f58a7c559b9040fb8b7ee8bfc6bce"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -138,13 +138,13 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "0bb020e71e840c28ab5ec0ee9f4ffeef"
+      "checksum": "04b09cac5a5706f256d46a90df9e8c75"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "4f9f84161791cf08804bf7b2641f8e3c"
+      "checksum": "4b8cc14a670dd2243126fc9882d5711b"
     },
     "lightswitch.js": {
       "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
@@ -156,28 +156,31 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "72f407ae619e18007af9b01ec4aea6ad"
+      "checksum": "3a13472dcdc7284f466616c9e001d48f"
     },
     "pkgdown.js": {
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "04a20b3bef246666f96237a9515ae5be"
+      "checksum": "e2137c1867989bc9cc3e184d3539ada7"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "da09b0896b19afc08d109aabc4d5afd0"
+      "checksum": "db25aeaadeeb2bff11fdd5fe39580c00"
     },
     "reference/getED.html": {
-      "checksum": "a16171c913a45e6ba5712e33c4b0950d"
+      "checksum": "8cd9a5601f271d8a85b264324249ace6"
+    },
+    "reference/getED50.html": {
+      "checksum": "b7395f0a8f85e2d1e4877a5b5ed471d2"
     },
     "reference/getvar.html": {
-      "checksum": "bf3ae0d7f3fcc26dd235cd1f4a077a94"
+      "checksum": "8980d92576da28d51e11dca9d1d0b48c"
     },
     "reference/index.html": {
-      "checksum": "e16ae3e0438b759bdd0a0a8845cc0857"
+      "checksum": "f740d9cb9d0e285dc85bf1fdde57b46b"
     },
     "reference/ReedMuench.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
@@ -186,28 +189,28 @@
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "e896d3120f804255b095f6c4fc8fcb67"
+      "checksum": "c44cf3be1e0db6c2665e6133fe982a36"
     },
     "reference/skrmdb-package.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "8b71607a8910991bbf11dffce505f14f"
+      "checksum": "ee287eac03b142461d6f4879a4e89643"
     },
     "reference/skrmdb.html": {
-      "checksum": "75fb1cc1ae090f1abf5ee206aad89748"
+      "checksum": "146cfcaae2fba12a3ee8b99234af7cf5"
     },
     "reference/SpearKarb.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/titration.html": {
-      "checksum": "666456adceec0810cae2b2dee3558abd"
+      "checksum": "d842d6eb3e5c6a70e46517db1126c082"
     },
     "search.json": {
-      "checksum": "c5420d0aa0a759e29b4382cd61773035"
+      "checksum": "e32193d3a16b88f02396072ce0cd9248"
     },
     "sitemap.xml": {
-      "checksum": "bf371c5168306c813315bb35ee4a8bf2"
+      "checksum": "d9279d72647b8284e290420f85b05037"
     }
   },
   "users": null
