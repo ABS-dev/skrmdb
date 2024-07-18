@@ -184,7 +184,7 @@ tested by three anonymous operators (TK, NU, CT).</p>
 <span><span class="co">## 6   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-07        1    10</span></span></code></pre>
 <p>First we need to compute the log dilution.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">titration</span><span class="op">$</span><span class="va">log_dil</span> <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">titration</span><span class="op">$</span><span class="va">dil</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">titration</span><span class="op">$</span><span class="va">log_dil</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">titration</span><span class="op">$</span><span class="va">dil</span><span class="op">)</span></span></code></pre></div>
 <p>Plotting the data shows us that the tests visually seem to give
 roughly the same ED50, but unfortunately, there are missing data
 points.</p>
