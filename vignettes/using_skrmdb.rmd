@@ -109,7 +109,7 @@ head(titration)
 First we need to compute the log dilution.
 
 ```{r}
-titration$log_dil = -log10(titration$dil)
+titration$log_dil <- -log10(titration$dil)
 ```
 
 Plotting the data shows us that the tests visually seem to give roughly the 
