@@ -11,12 +11,6 @@ From **within R**
 1. Install last release
 
 ```
-devtools::install_github("ABS-dev/skrmdb", ref = "v4.4.6")
-```
-
-2. Installing work-in-progress on hte main development branch
-
-```
 devtools::install_github("ABS-dev/skrmdb")
 ```
 
