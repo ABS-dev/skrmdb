@@ -1,9 +1,18 @@
-# Version 4.4
-- Total rewrite of functions.  Does not enforce that adata is sorted.
+# Version 4.5.0
+- Add online documentation
+- Deprecate `getED()` and replace with `getED50()`
+- Add vignette.
+
+# Version 4.4.1 to 4.4.6
+- Play around with documetation
+- Play around with GitLab and Package manager issues.
+
+# Version 4.4.0
+- Total rewrite of functions.  Does not enforce that `data` is sorted.
 - Gives warnings
 - Expanded function definitions used to set what is going on
 - Warnings on possible problems with data.
-- use of y, n, and x parameters deprecated.
+- use of `y`, `n`, and `x` parameters deprecated.
 
 # Version 4.2.4
 - SpearKarb, ReedMuench, and DragBehr will enforce that input data is sorted by x (either increasing or decreasing). No estimate will be calculated.
