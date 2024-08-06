@@ -1,0 +1,13 @@
+setorder(pm_challenge, testID, -log_dil)
+
+LD = pm_challenge[, .(LD50_SK = SpearKarb(y = dead, 
+                                          n = total, 
+                                          x = log_dil)$ed,
+                      LD50_RM = ReedMuench(y = dead, 
+                                           n = total, 
+                                           x = log_dil)$ed,
+                      LD50_DB = DragBehr(y = dead, 
+                                         n = total, 
+                                         x = log_dil)$ed), 
+                  by = .(testID)]
+LD = unique(LD)

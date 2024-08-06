@@ -1,0 +1,12 @@
+Update Vignette
+	This is also a STATWI and so needs to go into Master Control / DT / Sharepoint & Package
+	Find all copies rolling around the W: drive and consolodate into one place
+Update testthis
+	Include checks of auto, inc, dec, and examples where RM failed.
+Get testers
+Update Documentation
+Update formulas?
+do data conversion thing with skrmdb.
+Look at Monica's notes
+Look at Joe's notes.
+column name in outputs should be xxx_xxx,not xxx.xxx to be consistent
