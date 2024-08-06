@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "55b12b719e067e2b5ac2e42e3da54c8a"
+      "checksum": "12c2ea2fe817f6928e059faf7db0ebf2"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c80d824f33e2838da8f908d09e13775c"
@@ -36,16 +36,16 @@
       "checksum": "bab78d9de5496d675bccdb81cd8981b1"
     },
     "articles/index.html": {
-      "checksum": "79f64be5fc6d22d502ae7fbfc158b065"
+      "checksum": "e6b6787d84a36ad9c354072ad42acb28"
     },
     "articles/using_skrmdb.html": {
-      "checksum": "2ef2f326f91b5dd7222c7f647b1dd7af"
+      "checksum": "1153cf35ea870cc6e6662d01a334d998"
     },
     "articles/using_skrmdb_files/figure-html/unnamed-chunk-11-1.png": {
       "checksum": "bc8b046bac6d4aa890aed23389a502e4"
     },
     "authors.html": {
-      "checksum": "5b2f58a7c559b9040fb8b7ee8bfc6bce"
+      "checksum": "722ab9da9e8ac29faf0df79570d0b950"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -54,7 +54,7 @@
       "checksum": "9c73ded054de790fdd86dec929def3b4"
     },
     "deps/bootstrap-5.3.1/bootstrap.min.css": {
-      "checksum": "31819d35384826454e083ad4c18d9b65"
+      "checksum": "ebe59e36714ffdc59598548df10f00c7"
     },
     "deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js": {
       "checksum": "c82ff4de8b0955d6ff14f5b05eed7eb6"
@@ -138,13 +138,13 @@
       "checksum": "3e77730aa5f3333a48d21fda4c78a7f9"
     },
     "index.html": {
-      "checksum": "ad0f03cd2aef8bd3a6a1944fe0e39e0f"
+      "checksum": "797e4186c62ddc976e70aba3c640e800"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "4b8cc14a670dd2243126fc9882d5711b"
+      "checksum": "14c90a99d516123c546e4e22c2dbe071"
     },
     "lightswitch.js": {
       "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
@@ -156,31 +156,31 @@
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "news/index.html": {
-      "checksum": "9f9cd25525ca0b30e3426215f1af5783"
+      "checksum": "2f2191b4310ba0d425383706d033206c"
     },
     "pkgdown.js": {
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "658852085b1d68bba994ddc9c7a0f459"
+      "checksum": "73bcd03df239598f6cbf6ac477a9105c"
     },
     "reference/figures/logo.png": {
       "checksum": "5d093a6d12a042a57dc0585effb988d0"
     },
     "reference/getdata.html": {
-      "checksum": "db25aeaadeeb2bff11fdd5fe39580c00"
+      "checksum": "836e3009dfddd8e91f8327e58cdc0ca3"
     },
     "reference/getED.html": {
-      "checksum": "8cd9a5601f271d8a85b264324249ace6"
+      "checksum": "c10305010ce831112ce170fed4819fca"
     },
     "reference/getED50.html": {
-      "checksum": "b7395f0a8f85e2d1e4877a5b5ed471d2"
+      "checksum": "d7e7e374b9df7a325897fecb4614fe09"
     },
     "reference/getvar.html": {
-      "checksum": "8980d92576da28d51e11dca9d1d0b48c"
+      "checksum": "3a84286fdcd4d05259cf7db9358046a8"
     },
     "reference/index.html": {
-      "checksum": "f740d9cb9d0e285dc85bf1fdde57b46b"
+      "checksum": "49ce1f76615d505d95aefb368b331d6e"
     },
     "reference/ReedMuench.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
@@ -189,22 +189,22 @@
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/skrmdb-class.html": {
-      "checksum": "c44cf3be1e0db6c2665e6133fe982a36"
+      "checksum": "db5ffe819d1d2994a58ff3a37b932a41"
     },
     "reference/skrmdb-package.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/skrmdb.all.html": {
-      "checksum": "ee287eac03b142461d6f4879a4e89643"
+      "checksum": "70080c4d13ffb979acc5ebb4a981ceb5"
     },
     "reference/skrmdb.html": {
-      "checksum": "146cfcaae2fba12a3ee8b99234af7cf5"
+      "checksum": "fb8ee6da9f1dc4e9337e7aa8a79eb599"
     },
     "reference/SpearKarb.html": {
       "checksum": "4728d596b02de54877cf0b80886f1ea9"
     },
     "reference/titration.html": {
-      "checksum": "d842d6eb3e5c6a70e46517db1126c082"
+      "checksum": "b820c442768e9ce6b93b75fb9f17ea9e"
     },
     "search.json": {
       "checksum": "cb97d56c2a129a10ac825b63cc555d7d"
