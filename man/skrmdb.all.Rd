@@ -8,10 +8,10 @@ skrmdb.all(formula, data, autosort = TRUE)
 }
 \arguments{
 \item{formula}{A formula of the form \code{y + n ~ x} or \code{y + n ~ x | v1
-+ ... + vK}. \code{y} is the number responding at each dilution level,
+  + ... + vK}. \code{y} is the number responding at each dilution level,
 \code{n} is the number tested at each dilution level, and \code{x} is the
 dilution levels.  \code{v1, ..., vK} are the grouping variables.  \code{y,
-n, x, v1, ..., vK} must all be distenct.}
+  n, x, v1, ..., vK} must all be distenct.}
 
 \item{data}{A data.frame containting the titration data. Formatted as
 specified in the CVB Data Guide.}
@@ -23,11 +23,11 @@ assume the data to be ordered.}
 }
 \value{
 A \code{\link{data.frame}} containing columns for each of the subset
-  variables, the ED50 as computed by \code{DragBehr}, \code{ReedMuench}, the
-  ED50 and variance as computed by \code{SpearKarb}, and columns of logical
-  values which indicate if the data are increasing or decreasing with
-  \code{log_dil}, has an even dilution scheme, are monotonic, and brackets
-  the midpoint.
+variables, the ED50 as computed by \code{DragBehr}, \code{ReedMuench}, the
+ED50 and variance as computed by \code{SpearKarb}, and columns of logical
+values which indicate if the data are increasing or decreasing with
+\code{log_dil}, has an even dilution scheme, are monotonic, and brackets
+the midpoint.
 }
 \description{
 This function is used primarily by the CVB statistics section to run all
