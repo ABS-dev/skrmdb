@@ -7,28 +7,32 @@
 skrmdb.all(formula, data, autosort = TRUE)
 }
 \arguments{
-\item{formula}{A formula of the form \code{y + n ~ x} or \code{y + n ~ x | v1 + ... + vK}. 
-\code{y} is the number responding at each dilution level, \code{n} is the number tested
-at each dilution level, and \code{x} is the dilution levels.  \code{v1, ..., vK} are the 
-grouping variables.  \code{y, n, x, v1, ..., vK} must all be distenct.}
+\item{formula}{A formula of the form \code{y + n ~ x} or \code{y + n ~ x | v1
++ ... + vK}. \code{y} is the number responding at each dilution level,
+\code{n} is the number tested at each dilution level, and \code{x} is the
+dilution levels.  \code{v1, ..., vK} are the grouping variables.  \code{y,
+n, x, v1, ..., vK} must all be distenct.}
 
-\item{data}{A data.frame containting the titration data. Formatted as specified in the CVB
-Data Guide.}
+\item{data}{A data.frame containting the titration data. Formatted as
+specified in the CVB Data Guide.}
 
-\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data according to either
-\code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing with the
-index.  This is how the three methods assume the data to be ordered.}
+\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data
+according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
+appears to be increasing with the index.  This is how the three methods
+assume the data to be ordered.}
 }
 \value{
-A \code{\link{data.frame}} containing columns for each of the subset variables, the ED50
-  as computed by \code{DragBehr}, \code{ReedMuench}, the ED50 and variance as computed by 
-  \code{SpearKarb}, and columns of logical values which indicate if the data are increasing or
-  decreasing with \code{log_dil}, has an even dilution scheme, are monotonic, and brackets the
-  midpoint.
+A \code{\link{data.frame}} containing columns for each of the subset
+  variables, the ED50 as computed by \code{DragBehr}, \code{ReedMuench}, the
+  ED50 and variance as computed by \code{SpearKarb}, and columns of logical
+  values which indicate if the data are increasing or decreasing with
+  \code{log_dil}, has an even dilution scheme, are monotonic, and brackets
+  the midpoint.
 }
 \description{
-This function is used primarily by the CVB statistics section to run all three methods included
-in the \code{\link{skrmdb}} package for determining ED50.
+This function is used primarily by the CVB statistics section to run all
+three methods included in the \code{\link{skrmdb}} package for determining
+ED50.
 }
 \examples{
 data(titration)
@@ -37,5 +41,5 @@ skrmdb.all(positive + total ~ log_dil | Vial + Operator, titration)
 
 titration$dil = NULL
 skrmdb.all(positive + total ~ log_dil | ., titration)
-  
+
 }

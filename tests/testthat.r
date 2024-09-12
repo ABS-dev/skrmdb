@@ -1,4 +1,4 @@
 library(testthat)
-library(skrmdb)
+library(skrmdb2)
 
-test_check("skrmdb")
+test_check("skrmdb2")
