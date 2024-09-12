@@ -6,7 +6,7 @@
 \alias{getED,skrmdb-method}
 \title{Accessor to retrieve the numeric median effective dose from a skrmdb or sk object}
 \usage{
-getED(x)
+getED(object)
 
 \S4method{getED}{skrmdb}(object)
 }
@@ -30,5 +30,5 @@ getED(temp2)
 \code{\link{skrmdb-class}}, \code{\link{sk-class}}
 }
 \author{
-Marie Vendettuol \email{marie.c.vendettuoli@aphis.usda.gov}
+\link{skrmdb-package}
 }

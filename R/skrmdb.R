@@ -1,3 +1,6 @@
+#' @keywords internal
+"_PACKAGE"
+
 #' Gives the Spearman-Karber estimate of the mean effective dose
 #'
 #' Data input may either be a formula and data frame, or variables may be input 
@@ -30,7 +33,7 @@
 #' Use of unsorted X variables will result in error. Y variables are evaluated 
 #' for monotone, increasing or decreasing; however the estimate will be calculated 
 #' in the original order regardless of direction.
-#' @author David Siev \email{David.Siev@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @examples 
 #' X <- data.frame(dead=c(0,3,5,8,10), total=rep(10,5), dil=1:5)
 #' SpearKarb(cbind(dead,total) ~ dil, X)

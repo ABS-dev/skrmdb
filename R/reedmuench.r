@@ -20,13 +20,13 @@
 #' @param x log dilution or dose
 #' @param warn.me boolean to give warning message
 #' @param show boolean to display extended summary
-#' @return object of class \code{skrmdb} with slots:\cr 
+#' @return object of class \code{SKRMDB} with slots:\cr 
 #' \item{ed}{Estimated median effective dose (ED50)}
 #' \item{eval}{Evaluation method: 'ReedMuench'}
 #' @export
 #' @references Miller, Rupert G. (1973). Nonparametric estimateors of the mean tolerance in bioassay. \emph{Biometrika.} \bold{60: 535 -- 542}. \cr \cr
 #' Reed LJ, Muench H (1938). A simple method of estimating fifty percent endpoints. \emph{American Journal of Hygiene.} \bold{27:493--497.} 
-#' @author David Siev \email{David.Siev@@aphis.usda.gov}
+#' @author \link{skrmdb-package}
 #' @note Many microbiology texts mistakenly present the Dragstedt-Behrens method 
 #' as the Reed-Muench method.\cr
 #'

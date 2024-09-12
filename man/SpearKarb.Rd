@@ -84,5 +84,5 @@ Miller, Rupert G. (1973). Nonparametric estimateors of the mean tolerance in bio
  Spearman, C. (1908). The method of "right and wrong cases" ("constant stimuli") without Gauss's formulae. \emph{Brit J. of Psychology.} \bold{2: 227--242.}
 }
 \author{
-David Siev \email{David.Siev@aphis.usda.gov}
+\link{skrmdb-package}
 }

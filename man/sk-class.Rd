@@ -23,5 +23,5 @@ new('sk', sk.var = 0.06888889, ed = 2.9, eval = "SpearKarb")
 \code{\link{skrmdb-class}}
 }
 \author{
-Marie Vendettuoli \email{marie.c.vendettuoli@aphis.usda.gov}
+\link{skrmdb-package}
 }

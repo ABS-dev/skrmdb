@@ -4,7 +4,8 @@
 \alias{DragBehr}
 \title{Dragstedt-Behrens estimator}
 \usage{
-DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T, show = F)
+DragBehr(formula = NULL, data = NULL, y, n, x, warn.me = T,
+  show = F)
 }
 \arguments{
 \item{formula}{a formula of the form \code{cbind(y,n) ~ x}}
@@ -88,5 +89,5 @@ Dragstedt, CA., Lang, VF. (1928). Respiratory Stimulants in acute poisoning in r
 The function \link{ReedMuench} gives the Reed-Muench estimate of ED50, \code{\link{skrmdb-class}}
 }
 \author{
-David Siev \email{David.Siev@aphis.usda.gov}
+\link{skrmdb-package}
 }
