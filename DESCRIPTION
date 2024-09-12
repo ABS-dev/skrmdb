@@ -1,8 +1,8 @@
 Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
-Version: 4.4.6
-Date: 2024-04-17
+Version: 4.5.0
+Date: 2024-07-18
 Authors@R: c(
   person(given   = "CVB Statistics", email = "CVB.Data.Help@usda.gov", role = c("cre", "fmo")),
   person(given   = "David",  family  = "Siev",        role = "aut", comment = "until 2019"),
@@ -13,15 +13,16 @@ Description: Package to estimate ED50 by the methods of Spearman-Karber,
   implied for this package. It is made available for investigational or 
   pedagogical use only.
 License: file LICENSE
-URL: https://github.com/ABS-dev/skrmdb/blob/master/README.md
-BugReports: https://github.com/ABS-dev/skrmdb/issues
+URL: https://github.com/ABS-dev/skrmdb/
+BugReports: https://github.com/ABS-dev/skrmdb/issues/
 LazyLoad: true
 LazyData: true
 Depends:
-  R (>= 3.5)
+  R (>= 4.2)
 Imports:
   data.table,
-  Formula
+  Formula,
+  lifecycle
 Suggests:
   testthat,
   knitr,
@@ -29,6 +30,5 @@ Suggests:
   R.rsp
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Config/build/clean-inst-doc: FALSE
+RoxygenNote: 7.3.2
 VignetteBuilder: R.rsp

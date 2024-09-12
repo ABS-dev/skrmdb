@@ -3,6 +3,7 @@
 %   R/spearkarb.r
 \docType{package}
 \name{DragBehr}
+\alias{skrmdb-package}
 \alias{DragBehr}
 \alias{ReedMuench}
 \alias{skrmdb}
@@ -34,8 +35,7 @@ SpearKarb(
 )
 }
 \arguments{
-\item{formula}{a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~
-x}}
+\item{formula}{a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~ x}}
 
 \item{data}{a data frame}
 
@@ -47,10 +47,10 @@ dilution or dose.}
 
 \item{x}{a vector corresponding to the log dilution or dose for each group.}
 
-\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data
-according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
-appears to be increasing with the index.  This is how the three methods
-assume the data to be ordered.}
+\item{autosort}{Default \code{TRUE}.  If \code{TRUE} will sort the data according to
+either \code{sort(x)} or \code{sort(-x)} so that \code{y / n} appears to be increasing
+with the index.  This is how the three methods assume the data to be
+ordered.}
 
 \item{warn.me}{if TRUE, warnings and messages related to the processing of
 the data will be displayed.}
@@ -59,7 +59,7 @@ the data will be displayed.}
 ED50.}
 }
 \value{
-An object of class \code{\link{skrmdb-class}}
+An object of class \linkS4class{skrmdb}
 }
 \description{
 The skrmdb package provides functionality to compute the median effective
@@ -80,7 +80,7 @@ lines connecting the two sets of cumulative sums between bracketing doses.
 The Spearman-Karber method gives a non-parametric estimate of the mean of an
 tolerance distribution from its empirical distribution (EDF). The empirical
 PMF is derived from the EDF by differencing and the estimator is \eqn{\sum{ x
-f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of \var{x},
+f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of \code{x},
 \code{SpearKarb()} extends it by assuming the next lower dilution would
 produce zero response and the next higher dilution would produce complete
 response.
@@ -96,8 +96,8 @@ Many microbiology texts mistakenly present the Dragstedt-Behrens method
 as the Reed-Muench method.
 }
 \examples{
-# All examples are with \code{SpearKarb}, however, the usage for
-# \code{DragBehr} and \code{ReedMuench} is identical.
+# All examples are with `SpearKarb`, however, the usage for
+# `DragBehr` and `ReedMuench` is identical.
 
 ## Monotonically increasing data
 # The three calls are equivalent.
@@ -120,24 +120,50 @@ SpearKarb(rev(dead) + rev(total) ~ rev(dil))
 
 ## Unordered data
 # Observe that the data is not monotonic after being sorted by dil.
-dead <- c(10, 8,5, 3, 0)
+dead <- c(10, 8, 5, 3, 0)
 total <- rep(10, 5)
 dil <- c(1, 3, 2, 4, 5)
 SpearKarb(dead + total ~ dil)
 }
 \references{
 Behrens, B. (1929) Zur Auswertung der Digitalisblätter im
-Froschversuch. \emph{Arkiv für Experimentelle Pathologie und
-Pharmakologie.} \bold{140: 237-256}.\cr Dragstedt, C. A., Lang, V. F.
-(1928). Respiratory Stimulants in Acute Cocaine Poisoning in Rabbits.
-\emph{J. of Pharmacology and Experimental Therapeutics.} \bold{32:
-215--222}.\cr Kärber, G. (1931). Beitrag zur kollektiven Behandlung
-Parmakogischer Reihenversuche. \emph{Archiv für Experimentelle Pathologie
-und Pharmakologie.} \bold{162: 480--483}.\cr Miller, Rupert G. (1973).
-Nonparametric Estimators of the Mean Tolerance in Bioassay.
-\emph{Biometrika.} \bold{60: 535 - 542}.\cr Reed LJ, Muench H (1938). A
-Simple Method of Estimating Fifty Percent Endpoints. \emph{American Journal
-of Hygiene.} \bold{27: 493--497.} \cr Spearman, C. (1908). The Method of
-'Right and Wrong Cases' ('Constant Stimuli') without Gauss's Formulae.
-\emph{Brit. J. of Psychology.} \bold{2: 227--242.}
+Froschversuch. \emph{Arkiv für Experimentelle Pathologie und Pharmakologie.}
+\strong{140: 237-256}.
+
+Dragstedt, C. A., Lang, V. F. (1928). Respiratory Stimulants in Acute
+Cocaine Poisoning in Rabbits. \emph{J. of Pharmacology and Experimental
+Therapeutics.} \strong{32: 215--222}.
+
+Kärber, G. (1931). Beitrag zur kollektiven Behandlung Parmakogischer
+Reihenversuche. \emph{Archiv für Experimentelle Pathologie und Pharmakologie.}
+\strong{162: 480--483}.
+
+Miller, Rupert G. (1973). Nonparametric Estimators of the Mean Tolerance in
+Bioassay. \emph{Biometrika.} \strong{60: 535 - 542}.
+
+Reed LJ, Muench H (1938). A Simple Method of Estimating Fifty Percent
+Endpoints. \emph{American Journal of Hygiene.} \strong{27: 493--497}.
+
+Spearman, C. (1908). The Method of "Right and Wrong Cases" ("Constant
+Stimuli") without Gauss's Formulae. \emph{Brit. J. of Psychology.} \strong{2:
+227--242}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ABS-dev/skrmdb/}
+  \item Report bugs at \url{https://github.com/ABS-dev/skrmdb/issues/}
+}
+
+}
+\author{
+\strong{Maintainer}: CVB Statistics \email{CVB.Data.Help@usda.gov} [former owner]
+
+Authors:
+\itemize{
+  \item David Siev (until 2019)
+  \item Marie Vendettuoli (until 2019)
+  \item Thomas Kent (starting 2020)
+}
+
 }

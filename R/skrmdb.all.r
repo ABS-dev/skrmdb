@@ -1,12 +1,11 @@
-#' \code{.get_opvar}
+#' .get_opvar
 #'
 #' Parses a formula for operators and variables.
 #'
 #' @param fmla a formula
 #'
-#' @return a list of two vectors. \code{operators} is a vector of all operators
-#'   used in \code{fmla}, and \code{variables} is a vector of all variables used
-#'   in \code{fmla}.
+#' @returns a list of two vectors. `operators` is a vector of all operators used
+#'   in `fmla`, and `variables` is a vector of all variables used in `fmla`.
 #'
 #' @noRd
 .get_opvar <- function(fmla) {
@@ -30,14 +29,14 @@
   return(opvar)
 }
 
-#' \code{.parse_formula}
+#' .parse_formula
 #'
-#' Parses a formula to determine if it is of one of the following forms \code{y
-#' + n ~ x} \code{y + n ~ x | v1} \code{y + n ~ x | v1 + ... + vK}
+#' Parses a formula to determine if it is of one of the following forms
+#' `y + n ~ x`, `y + n ~ x | v1`, `y + n ~ x | v1 + ... + vK`
 #'
 #' @param fmla a formula
 #'
-#' @return Logical.  True if \code{fmla} is of the correcto form, FALSE
+#' @returns Logical.  True if `fmla` is of the correcto form, FALSE
 #'   otherwise.
 #'
 #' @noRd
@@ -67,7 +66,7 @@
   TRUE
 }
 
-#' \code{.skrmdb.all}
+#' .skrmdb.all
 #'
 #' Computes ED50 using the three methods found in this package for a single
 #' test.
@@ -78,7 +77,7 @@
 #' @param autosort logical.  If TRUE, sorts according to -x or x so that y/n is
 #'   increasing with the index
 #'
-#' @return a list containing the ED50 for the three methods, the variance as
+#' @returns a list containing the ED50 for the three methods, the variance as
 #'   computed by SpearKarb, and Boolean values for the four warning messages
 #'
 #' @noRd
@@ -101,27 +100,25 @@
 #' Function to run all three methods for determining ED50.
 #'
 #' This function is used primarily by the CVB statistics section to run all
-#' three methods included in the \code{\link{skrmdb}} package for determining
-#' ED50.
+#' three methods included in the [skrmdb] package for determining ED50.
 #'
-#' @param formula A formula of the form \code{y + n ~ x} or \code{y + n ~ x | v1
-#'   + ... + vK}. \code{y} is the number responding at each dilution level,
-#'   \code{n} is the number tested at each dilution level, and \code{x} is the
-#'   dilution levels.  \code{v1, ..., vK} are the grouping variables.  \code{y,
-#'   n, x, v1, ..., vK} must all be distenct.
-#' @param data A data.frame containting the titration data. Formatted as
+#' @param formula A formula of the form `y + n ~ x` or
+#'   `y + n ~ x | v1 + ... + vK`. `y` is the number responding at each dilution
+#'   level, `n` is the number tested at each dilution level, and `x` is the
+#'   dilution levels.  `v1`, ..., `vK` are the grouping variables.  `y`, `n`,
+#'   `x`, `v1`, ..., `vK` must all be distinct.
+#' @param data A data.frame containing the titration data. Formatted as
 #'   specified in the CVB Data Guide.
-#' @param autosort Default \code{TRUE}.  If \code{TRUE} will sort the data
-#'   according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
-#'   appears to be increasing with the index.  This is how the three methods
-#'   assume the data to be ordered.
+#' @param autosort Default `TRUE`.  If `TRUE` will sort the data according to
+#'   either `sort(x)` or `sort(-x)` so that `y / n` appears to be increasing
+#'   with the index.  This is how the three methods assume the data to be
+#'   ordered.
 #'
-#' @return A \code{\link{data.frame}} containing columns for each of the subset
-#'   variables, the ED50 as computed by \code{DragBehr}, \code{ReedMuench}, the
-#'   ED50 and variance as computed by \code{SpearKarb}, and columns of logical
-#'   values which indicate if the data are increasing or decreasing with
-#'   \code{log_dil}, has an even dilution scheme, are monotonic, and brackets
-#'   the midpoint.
+#' @returns A `data.frame` containing columns for each of the subset variables,
+#'   the ED50 as computed by `DragBehr`, `ReedMuench`, the ED50 and variance as
+#'   computed by `SpearKarb`, and columns of logical values which indicate if
+#'   the data are increasing or decreasing with `log_dil`, has an even dilution
+#'   scheme, are monotonic, and brackets the midpoint.
 #'
 #' @examples
 #' data(titration)

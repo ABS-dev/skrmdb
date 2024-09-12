@@ -1,14 +1,14 @@
 #' .checkmatrix
 #'
-#' Scales \code{y} and \code{n} so that n is constant.
+#' Scales `y` and `n` so that n is constant.
 #'
-#' If \code{autosort == TRUE}, sorts \code{A} according to \code{x} or \code{-x}
-#' so that \code{y} is increasing with the index.
+#' If `autosort == TRUE`, sorts `A` according to `x` or `-x` so that `y` is
+#' increasing with the index.
 #'
-#' Checks the matrix \code{A} for common issues which would make the computation
-#' of ED50 less reliable.
+#' Checks the matrix `A` for common issues which would make the computation of
+#' ED50 less reliable.
 #'
-#' 1. \code{y} is not increasing with the index
+#' 1. `y` is not increasing with the index
 #'
 #' 2. Uneven dilution scheme
 #'
@@ -21,14 +21,13 @@
 #' @param A a data.frame.  Assumes that the first column is the number
 #'   responding at each level, the second column is the number tested at each
 #'   level and the third column is the dilution at each level.
-#' @param autosort Logical.  If \code{TRUE} sorts \code{A} according to
-#'   \code{dilution} or \code{-dilution} so that \code{y} is increasing with the
-#'   index.
-#' @param warn.me Logical.  If \code{TRUE} will display the warning messages
+#' @param autosort Logical.  If `TRUE` sorts `A` according to `dilution` or
+#'   `-dilution` so that `y` is increasing with the index.
+#' @param warn.me Logical.  If `TRUE` will display the warning messages
 #'   possibilities 2-4 above.
 #'
-#' @return The sorted and scaled data.frame \code{A} with attribute flags
-#'   indicating the status of each warning.
+#' @returns The sorted and scaled data.frame `A` with attribute flags indicating
+#'   the status of each warning.
 #'
 #' @importFrom data.table setnames setorder as.data.table := .N
 #'
@@ -99,18 +98,18 @@
 
 #' .checkdata
 #'
-#' Checks that formula is of the form \code{y + n ~ x} and that all variables
-#' are in the data.frame \code{A}.
+#' Checks that formula is of the form `y + n ~ x` and that all variables are in
+#' the data.frame `A`.
 #'
 #' @param formula a formula
 #' @param data a data.table
 #' @param autosort Logical.  If TRUE indicates that the code should
-#'   automatically sort \code{A} so that the number responding is increasing
-#'   with the index.
+#'   automatically sort `A` so that the number responding is increasing with the
+#'   index.
 #' @param warn.me Logical.  If TRUE indicates that data warnings will be
 #'   displayed during processing.
 #'
-#' @return the result from \code{.checkmatrix}.
+#' @returns the result from `.checkmatrix`.
 #'
 #' @importFrom stats model.frame formula terms
 #' @importFrom Formula Formula
@@ -142,7 +141,7 @@
 
 #' .checkvars
 #'
-#' Depreciated.  Checks to see if \code{y}, \code{n}, \code{x} were used instead
+#' Depreciated.  Checks to see if `y`, `n`, `x` were used instead
 #' of passing the function a formula and data.
 #'
 #' @param y Integer vector.  Number of subjects responding at each level.
@@ -151,12 +150,12 @@
 #'   be constant.
 #' @param x Integer vector.  The dilution at each level.
 #' @param autosort Logical.  If TRUE indicates that the code should
-#'   automatically sort \code{A} so that the number responding is increasing
+#'   automatically sort `A` so that the number responding is increasing
 #'   with the index.
 #' @param warn.me Logical.  If TRUE indicates that data warnings will be
 #'   displayed during processing.
 #'
-#' @return the result from \code{.checkmatrix}.
+#' @returns the result from `.checkmatrix`.
 #'
 #' @importFrom data.table data.table
 #'
@@ -174,26 +173,25 @@
 #' .checkall
 #'
 #' Checks to see how the ED50 funcions were called: either via a formula and
-#' data or by passing \code{y}, \code{n}, and \code{x} directly.
+#' data or by passing `y`, `n`, and `x` directly.
 #'
-#' @param formula a formula of the form \code{y + n ~ x} or \code{cbind(y, n) ~
-#'   x}
+#' @param formula a formula of the form `y + n ~ x` or `cbind(y, n) ~ x`.
 #' @param data a data frame
 #' @param y an integer vector corresponding to the number responding at each log
 #'   dilution or dose.
 #' @param n an integer vector corresponding to the group size at each log
 #'   dilution or dose.
 #' @param x a vector corresponding to the log dilution or dose for each group.
-#' @param autosort Default \code{TRUE}.  If \code{TRUE} will sort the data
-#'   according to either \code{sort(x)} or \code{sort(-x)} so that \code{y / n}
-#'   appears to be increasing with the index.  This is how the three methods
-#'   assume the data to be ordered.
+#' @param autosort Default `TRUE`.  If `TRUE` will sort the data according to
+#'   either `sort(x)` or `sort(-x)` so that `y / n` appears to be increasing
+#'   with the index.  This is how the three methods assume the data to be
+#'   ordered.
 #' @param warn.me if TRUE, warnings and messages related to the processing of
 #'   the data will be displayed.
 #'
-#' @return a data.table \code{A} which contains all the data to be processed.
-#'   The data has been prepared and potentially sorted for use by the
-#'   \code{.checkmatrix}.
+#' @returns a data.table `A` which contains all the data to be processed. The
+#'   data has been prepared and potentially sorted for use by the
+#'   `.checkmatrix`.
 #'
 #' @noRd
 .checkall <- function(formula,

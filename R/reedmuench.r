@@ -9,7 +9,7 @@
 #' @param x Integer vector.  The dilution at each level.
 #' @param show logical.  If TRUE shows the intermediary statistics
 #'
-#' @return Numeric.  ED50 as computed by Reed-Muench.
+#' @returns Numeric.  ED50 as computed by Reed-Muench.
 #'
 #' @noRd
 .ReedMuench <- function(y_inc, y_dec, x, show = FALSE) {

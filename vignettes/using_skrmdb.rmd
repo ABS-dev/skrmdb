@@ -1,0 +1,179 @@
+---
+title: "Using skrmdb"
+author: "Thomas Kent"
+date: "`r Sys.Date()`"
+output:  html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using skrmdb}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r, echo=FALSE}
+library(skrmdb)
+library(ggplot2)
+```
+
+# Notation
+The methods of Spearman-Karber, Reed-Muench, and Dragstedt-Behrens are all
+commonly used to estimate ED50. In what follows, we use the following variable
+notation:
+
+-   `x` is a vector corresponding to the log dilution or dose for each group.
+-   `n` is an integer vector corresponding to the group size at each log
+dilution or dose.
+-   `y` is an integer vector corresponding to the number responding at each log
+dilution or dose.
+
+All examples are with `SpearKarb()`, however, the usage for `DragBehr()` and
+`ReedMuench()` is identical.
+
+# Usage
+
+Each of the main functions in `skrmdb` can be called in three different ways.
+
+To illustrate this, we start with a simple data set where the number of dead
+increases with the dosage.
+
+```{r}
+dead <- c(0, 3, 5, 8, 10, 10)
+total <- rep(10, 6)
+dil <- 1:6
+```
+
+First we use the historical, deprecated, function call.
+
+```{r}
+SpearKarb(y = dead, n = total, x = dil)
+```
+
+The preferred method is to use formulas in the function call.
+
+We can use the formula on the individual vectors.
+
+```{r}
+SpearKarb(dead + total ~ dil)
+```
+
+We can also use the formula on columns in a data.frame.
+
+```{r}
+data <- data.frame(y = dead, n = total, x = dil)
+SpearKarb(y + n ~ x, data)
+```
+
+# Method Assumptions
+
+Each of these methods was designed to work under the assumption that x is either 
+increasing or decreasing and y / n is increasing with the index.
+
+It was decided that the functions `DragBehr()`, `ReedMuench()`, and
+`SpearKarb()` will sort the data for you according to this assumption.
+
+To illustrate this, we create some data that is descending according to dilution.
+
+```{r}
+dead <- c(10, 10, 8, 5, 3, 0)
+total <- rep(10, 6)
+dil <- 1:6
+```
+
+And we see that no mater how we enter the data, the same ED50 is reported.
+
+```{r}
+SpearKarb(dead + total ~ dil)
+SpearKarb(rev(dead) + rev(total) ~ rev(dil))
+```
+
+However, if we can decided to turn off the autosort, which will give us a
+different, but incorrect, estimate of ED50.
+
+```{r}
+SpearKarb(dead + total ~ dil, autosort = FALSE)
+```
+
+# Conditional ED50
+
+The function `skrmdb.all` returns the ED50 for the three methods, along with
+additional data about the data sets that may be of interest.
+
+For this section, we use the example data set `titration`. This `data.frame`
+contains the results of a hypothetical experiment where the ED50 of three vials
+(numbered 1, 2, 3) were each tested by three anonymous operators (TK, NU, CT).
+
+```{r}
+head(titration)
+```
+
+First we need to compute the log dilution.
+
+```{r}
+titration$log_dil <- -log10(titration$dil)
+```
+
+Plotting the data shows us that the tests visually seem to give roughly the 
+same ED50, but unfortunately, there are missing data points.
+
+```{r, fig.alt="Nine plots showing titration data."}
+ggplot(titration, aes(x = log_dil, y = positive)) +
+  geom_point() +
+  facet_grid(Vial ~ Operator) +
+  geom_line()
+```
+
+We could find ED50 by aggregation the data from all 9 tests for each of the
+three methods.
+
+```{r}
+skrmdb.all(positive + total ~ log_dil, titration)
+```
+
+We can also see if there is a difference between Operators;
+
+```{r}
+skrmdb.all(positive + total ~ log_dil | Operator, titration)
+```
+
+Or by Vial;
+
+```{r}
+skrmdb.all(positive + total ~ log_dil | Vial, titration)
+```
+
+Or by Operator and Vial.
+
+```{r}
+skrmdb.all(positive + total ~ log_dil | Vial + Operator, titration)
+```
+
+# Additional Methods
+
+Finally, there are three accessor functions to help retrieve information from
+the results of `DragBehr()`, `ReedMuench()`, and `SpearKarb()`.
+
+Using the titration data set again.
+
+```{r}
+res <- SpearKarb(positive + total ~ log_dil, titration)
+```
+
+We can get the ED50:  (**Note:** `getED50()` only works on `skrmdb` objects, 
+which are returned by `DragBehr()`, `ReedMuench()`, and `SpearKarb()`,
+not on `skrmdb.all` objects.)
+
+```{r}
+getED50(res)
+```
+
+The variance:
+
+```{r}
+getvar(res)
+```
+
+And the data which was used.
+
+```{r}
+getdata(res)
+```

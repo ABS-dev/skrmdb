@@ -134,7 +134,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-# monotincity + reversed
+# test this: monotincity + reversed
 test_that("examples work", {
   y    <- c(4, 1, 2, 1, 0)
   n    <- c(4, 4, 4, 4, 4)
@@ -161,7 +161,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-# bracket + uneven
+# test this: bracket + uneven
 test_that("examples work", {
   y    <- c(0, 1, 2, 4)
   n    <- c(8, 8, 8, 8)
@@ -214,7 +214,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-# monotinicity + bracket
+# test this: monotinicity + bracket
 test_that("examples work", {
   y    <- c(0, 1, 2, 1, 4)
   n    <- c(8, 8, 8, 8, 8)
@@ -241,7 +241,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-#  + reversed
+#  test this: + reversed
 test_that("examples work", {
   y    <- c(4, 1, 2, 1, 0) + 4
   n    <- c(8, 8, 8, 8, 8)
@@ -268,7 +268,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-# monotinicity + uneven
+# test this: monotinicity + uneven
 test_that("examples work", {
   y    <- c(0, 2, 1, 4)
   n    <- c(4, 4, 4, 4)
@@ -295,7 +295,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-#   + reversed
+# test this: + reversed
 test_that("examples work", {
   y    <- c(4, 1, 2, 0)
   n    <- c(4, 4, 4, 4)
@@ -322,7 +322,7 @@ test_that("examples work", {
   expect_equal(resc$var, res$var, tolerance = 0.0001)
 })
 
-# monotinicity + uneven + bracket
+# test this: monotinicity + uneven + bracket
 test_that("examples work", {
   y    <- c(0, 2, 1, 4)
   n    <- c(4, 4, 4, 4) + 4
