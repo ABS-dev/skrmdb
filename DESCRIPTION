@@ -1,22 +1,27 @@
-Package: skrmdb
+Package: skrmdb2
 Type: Package
 Title: Package to estimate ED50
-Version: 4.2.6
-Date: 2019-08-15
+Version: 4.3.0
+Date: 2021-11-01
 Authors@R: c(
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "cre"),
   person("David", "Siev", , , c("fmo", "aut"), comment = "until 2019"),
-  person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "aut", 
-    comment = "starting 2010"))
-Description: Package to estimate ED50 by the methods of Spearman-Karber,
-    Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
-    implied for this package. It is made available for investigational or pedagogical use only.
-License: CC0
+  person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "aut", comment = "starting 2010"),
+  person("Thomas", "Kent", , , "aut", comment = "starting 2021"))
+Maintainer: Thomas Kent <thomas.kent@usda.gov>
+Description: Package to estimate ED50 by the methods of Spearman-Kärber,
+  Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
+  implied for this package. It is made available for investigational or pedagogical use only.
+License: MIT + file LICENSE
+LazyLoad: true
 URL: https://github.com/ABS-dev/skrmdb/blob/master/README.md
 BugReports: https://github.com/ABS-dev/skrmdb/issues
-LazyLoad: yes
 Depends:
-    R (>= 3.5)
+  R (>= 3.5)
 Imports:
-    methods, stats
-RoxygenNote: 6.1.1
+  data.table,
+  Formula
+Suggests:
+  testthat
+Encoding: UTF-8
+RoxygenNote: 7.2.1
