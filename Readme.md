@@ -1,8 +1,12 @@
-# Under Reconstruction
+# skrmdb
+Package to estimate ED50 by the methods of Spearman-Karber, Reed-Muench, and Dragstedt-Behrens.
 
-**2024-09-11**
+## To update or install from this repo
+### Run from within R
+    require(devtools)
+    install_github("ABS-dev/skrmdb")
 
-The Repository for the R package `{skrmdb}` has temporarily been taken down.
 
-Watch for updates.
+This package was developed on a Windows machine running `R v3.2.4`, `devtools v1.10.0`
+
 

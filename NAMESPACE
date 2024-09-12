@@ -1,0 +1,6 @@
+export(DragBehr)
+export(ReedMuench)
+export(SpearKarb)
+exportClasses(sk)
+exportClasses(skrmdb)
+exportMethods(getED)
