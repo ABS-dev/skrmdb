@@ -1,8 +1,8 @@
 Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
-Version: 4.4.1
-Date: 2023-11-1
+Version: 4.4.2
+Date: 2024-04-15
 Authors@R: c(
   person(given   = "CVB Statistics", email = "CVB.Data.Help@usda.gov", role = c("cre", "fmo")),
   person(given   = "David",  family  = "Siev",        role = "aut", comment = "until 2019"),
@@ -23,7 +23,10 @@ Imports:
   data.table,
   Formula
 Suggests:
-  testthat
+  testthat,
+  knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Config/build/clean-inst-doc: FALSE
+VignetteBuilder: knitr
