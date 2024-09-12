@@ -49,7 +49,7 @@
 #' #     2.906593
 #' 
 #' 
-#' #' \dontrun{
+#' \dontrun{
 #' 
 #' ## unordered data
 #' X2 <- data.frame(dead = c(10,8,5,3,0), total = rep(10, 5), dil = c(1, 3, 2, 4, 5))
@@ -81,6 +81,10 @@ DragBehr <- function(formula=NULL, data=NULL, y, n, x, warn.me = T, show = F){
   a <- cumsum(y)
   b <- rev(cumsum(rev(n - y)))
   h <- length(y)
+  if (length(unique(n)) > 1){
+    a <- cumsum(p)
+    b <- rev(cumsum(rev(1 - p)))
+    }
   P <- a/(a + b)
   i <- max(c(1:h)[P <= 0.5])
   if(length(d) > 1) {
