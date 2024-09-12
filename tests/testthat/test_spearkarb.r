@@ -9,7 +9,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 3,
                var  = 0.2083333)
 
@@ -36,7 +36,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 3.5,
                var  = 0.2083333)
 
@@ -63,7 +63,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 3,
                var  = 0.25)
 
@@ -90,7 +90,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4.25,
                var  = 0.1116071)
 
@@ -116,7 +116,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.1116071)
 
@@ -143,7 +143,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 2.5,
                var  = 0.2083333)
 
@@ -170,7 +170,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.21875)
 
@@ -196,7 +196,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.1294643)
 
@@ -223,7 +223,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.09375)
 
@@ -250,7 +250,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4,
                var  = 0.1294643)
 
@@ -277,7 +277,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 3.5,
                var  = 0.25)
 
@@ -304,7 +304,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 2.5,
                var  = 0.25)
 
@@ -331,7 +331,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.1116071)
 
@@ -357,7 +357,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 1.5,
                var  = 0.1116071)
 
@@ -383,7 +383,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.2366071)
 
@@ -409,7 +409,7 @@ test_that("examples work", {
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
   resc <- SpearKarb(dead + total ~ dil, dt)
-  res  <- list(eval = "Spearman-Kärber",
+  res  <- list(eval = "Spearman-Karber",
                ed   = 4.25,
                var  = 0.2366071)
 

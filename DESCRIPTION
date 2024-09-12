@@ -1,17 +1,18 @@
-Package: skrmdb2
+Package: skrmdb
 Type: Package
 Title: Package to estimate ED50
-Version: 4.3.1
-Date: 2021-11-01
+Version: 4.4.0
+Date: 2023-10-26
 Authors@R: c(
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "cre"),
   person("David", "Siev", , , c("fmo", "aut"), comment = "until 2019"),
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov", "aut", comment = "starting 2010"),
   person("Thomas", "Kent", , , "aut", comment = "starting 2021"))
 Maintainer: Thomas Kent <thomas.kent@usda.gov>
-Description: Package to estimate ED50 by the methods of Spearman-Kärber,
+Description: Package to estimate ED50 by the methods of Spearman-Karber,
   Reed-Muench, Dragstedt-Behrens. No endorsement, claim, or warranty is 
-  implied for this package. It is made available for investigational or pedagogical use only.
+  implied for this package. It is made available for investigational or 
+  pedagogical use only.
 License: file LICENSE
 LazyLoad: true
 LazyData: true
@@ -25,4 +26,4 @@ Imports:
 Suggests:
   testthat
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

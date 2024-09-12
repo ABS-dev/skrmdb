@@ -28,12 +28,12 @@
   return(c(ed, var))
 }
 
-#' @rdname skrmdb2
+#' @rdname skrmdb
 #'
 #' @export
 SpearKarb <- function(formula, data, y, n, x,
                      autosort = TRUE, warn.me = TRUE, show = FALSE) {
   A <- .checkall(formula, data, y, n, x, autosort, warn.me)
   res <- .SpearKarb(A$y_inc, A$y_dec, A$x, A$n, show)
-  return(new_skrmdb("Spearman-K\344rber", A, res[1], res[2]))
+  return(new_skrmdb("Spearman-Karber", A, res[1], res[2]))
 }
