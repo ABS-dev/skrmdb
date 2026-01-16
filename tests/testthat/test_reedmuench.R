@@ -1,6 +1,3 @@
-context("ReedMuench")
-
-#All Good
 test_that("examples work", {
   y    <- c(0, 1, 2, 3, 4)
   n    <- c(4, 4, 4, 4, 4)
