@@ -152,6 +152,7 @@ Stimuli") without Gauss's Formulae. \emph{Brit. J. of Psychology.} \strong{2:
 Useful links:
 \itemize{
   \item \url{https://github.com/ABS-dev/skrmdb/}
+  \item \url{https://abs-dev.github.io/skrmdb/}
   \item Report bugs at \url{https://github.com/ABS-dev/skrmdb/issues/}
 }
 

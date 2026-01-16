@@ -12,7 +12,7 @@
 
 <meta name="author" content="Thomas Kent" />
 
-<meta name="date" content="2024-09-16" />
+<meta name="date" content="2026-01-16" />
 
 <title>Using skrmdb</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -340,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Using skrmdb</h1>
 <h4 class="author">Thomas Kent</h4>
-<h4 class="date">2024-09-16</h4>
+<h4 class="date">2026-01-16</h4>
 
 
 
@@ -445,56 +446,36 @@ points.</p>
 <span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Vial <span class="sc">~</span> Operator) <span class="sc">+</span></span>
 <span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="data:image/png;base64,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" alt="Nine plots showing titration data." /></p>
+<p><img role="img" aria-label="Nine plots showing titration data." src="data:image/png;base64,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" alt="Nine plots showing titration data." /></p>
 <p>We could find ED50 by aggregation the data from all 9 tests for each
 of the three methods.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">skrmdb.all</span>(positive <span class="sc">+</span> total <span class="sc">~</span> log_dil, titration)</span></code></pre></div>
-<pre><code>##   DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic
-## 1 5.365201   5.331023  5.332341   0.005014876               FALSE                TRUE          TRUE      TRUE
-##   bracket.midpoint
-## 1             TRUE</code></pre>
+<pre><code>##   DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic bracket.midpoint
+## 1 5.365201   5.331023  5.332341   0.005014876               FALSE                TRUE          TRUE      TRUE             TRUE</code></pre>
 <p>We can also see if there is a difference between Operators;</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">skrmdb.all</span>(positive <span class="sc">+</span> total <span class="sc">~</span> log_dil <span class="sc">|</span> Operator, titration)</span></code></pre></div>
-<pre><code>##   Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic
-## 1       TK 5.286004   5.247059  5.283333    0.01954578               FALSE                TRUE          TRUE     FALSE
-## 2       NU 5.376350   5.340000  5.333333    0.01222222               FALSE                TRUE          TRUE     FALSE
-## 3       CT 5.418526   5.402062  5.383333    0.01399022               FALSE                TRUE          TRUE     FALSE
-##   bracket.midpoint
-## 1             TRUE
-## 2             TRUE
-## 3             TRUE</code></pre>
+<pre><code>##   Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic bracket.midpoint
+## 1       TK 5.286004   5.247059  5.283333    0.01954578               FALSE                TRUE          TRUE     FALSE             TRUE
+## 2       NU 5.376350   5.340000  5.333333    0.01222222               FALSE                TRUE          TRUE     FALSE             TRUE
+## 3       CT 5.418526   5.402062  5.383333    0.01399022               FALSE                TRUE          TRUE     FALSE             TRUE</code></pre>
 <p>Or by Vial;</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">skrmdb.all</span>(positive <span class="sc">+</span> total <span class="sc">~</span> log_dil <span class="sc">|</span> Vial, titration)</span></code></pre></div>
-<pre><code>##   Vial DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic
-## 1    1 5.405272   5.377551  5.383333    0.02231347               FALSE                TRUE          TRUE      TRUE
-## 2    2 5.339806   5.304348  5.300000    0.01164751               FALSE                TRUE          TRUE      TRUE
-## 3    3 5.360000   5.319149  5.333333    0.01454527               FALSE                TRUE          TRUE      TRUE
-##   bracket.midpoint
-## 1             TRUE
-## 2             TRUE
-## 3             TRUE</code></pre>
+<pre><code>##   Vial DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic bracket.midpoint
+## 1    1 5.405272   5.377551  5.383333    0.02231347               FALSE                TRUE          TRUE      TRUE             TRUE
+## 2    2 5.339806   5.304348  5.300000    0.01164751               FALSE                TRUE          TRUE      TRUE             TRUE
+## 3    3 5.360000   5.319149  5.333333    0.01454527               FALSE                TRUE          TRUE      TRUE             TRUE</code></pre>
 <p>Or by Operator and Vial.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">skrmdb.all</span>(positive <span class="sc">+</span> total <span class="sc">~</span> log_dil <span class="sc">|</span> Vial <span class="sc">+</span> Operator, titration)</span></code></pre></div>
-<pre><code>##   Vial Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic
-## 1    1       TK 5.306306   5.266667      5.30    0.06666667               FALSE               FALSE          TRUE     FALSE
-## 2    1       NU 5.429825   5.411765      5.40    0.04777778               FALSE               FALSE          TRUE     FALSE
-## 3    1       CT       NA         NA      5.20    0.02777778               FALSE               FALSE          TRUE     FALSE
-## 4    2       TK 5.185185   5.153846      5.20    0.04555556               FALSE               FALSE          TRUE      TRUE
-## 5    2       NU 5.285714   5.235294      5.20    0.02333333               FALSE               FALSE          TRUE      TRUE
-## 6    2       CT 5.500000   5.500000      5.50    0.03555556               FALSE               FALSE          TRUE      TRUE
-## 7    3       TK 5.482759   5.400000      5.55    0.08250000               FALSE               FALSE         FALSE      TRUE
-## 8    3       NU 5.411765   5.375000      5.40    0.04333333               FALSE               FALSE          TRUE      TRUE
-## 9    3       CT 5.349462   5.312500      5.30    0.03333333               FALSE               FALSE          TRUE      TRUE
-##   bracket.midpoint
-## 1             TRUE
-## 2             TRUE
-## 3            FALSE
-## 4             TRUE
-## 5             TRUE
-## 6             TRUE
-## 7             TRUE
-## 8             TRUE
-## 9             TRUE</code></pre>
+<pre><code>##   Vial Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing duplicate.dilutions even.dilution monotonic bracket.midpoint
+## 1    1       TK 5.306306   5.266667      5.30    0.06666667               FALSE               FALSE          TRUE     FALSE             TRUE
+## 2    1       NU 5.429825   5.411765      5.40    0.04777778               FALSE               FALSE          TRUE     FALSE             TRUE
+## 3    1       CT       NA         NA      5.20    0.02777778               FALSE               FALSE          TRUE     FALSE            FALSE
+## 4    2       TK 5.185185   5.153846      5.20    0.04555556               FALSE               FALSE          TRUE      TRUE             TRUE
+## 5    2       NU 5.285714   5.235294      5.20    0.02333333               FALSE               FALSE          TRUE      TRUE             TRUE
+## 6    2       CT 5.500000   5.500000      5.50    0.03555556               FALSE               FALSE          TRUE      TRUE             TRUE
+## 7    3       TK 5.482759   5.400000      5.55    0.08250000               FALSE               FALSE         FALSE      TRUE             TRUE
+## 8    3       NU 5.411765   5.375000      5.40    0.04333333               FALSE               FALSE          TRUE      TRUE             TRUE
+## 9    3       CT 5.349462   5.312500      5.30    0.03333333               FALSE               FALSE          TRUE      TRUE             TRUE</code></pre>
 </div>
 <div id="additional-methods" class="section level1">
 <h1>Additional Methods</h1>
