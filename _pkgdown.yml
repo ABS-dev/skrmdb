@@ -6,8 +6,8 @@ template:
   light-switch: true
 repo:
   url:
-    home:  https://github.com/ABS-dev/PF
-    issue: https://github.com/ABS-dev/PF/issues
+    home:  https://github.com/ABS-dev/skrmdb
+    issue: https://github.com/ABS-dev/skrmdb/issues
 home:
   sidebar:
     structure: [links, license, community, citation, authors, dev, primary]
