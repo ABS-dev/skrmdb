@@ -14,13 +14,6 @@ devtools::install_github("ABS-dev/skrmdb")
 devtools::install_github("ABS-dev/skrmdb", ref = "4.5.0")
 ```
 
-## Vignettes
-
-This package contains the following manuals and vignettes:
-
--   skrmdb Package
--   Using skrmdb
-
 ## Issues
 
 Report any issues or requests on the package
