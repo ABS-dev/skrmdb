@@ -1,8 +1,8 @@
-# Example titration data.
+# Example Titration Data
 
-A dataset that illustrates the dichotomous data format for titration
-data as found in the CVB DATA Guide. The data is purposely incomplete
-and not- monotonic.
+A data set that illustrates the dichotomous data format for titration
+data as found in the CVB Data Guide. The data are intentionally
+incomplete and nonmonotonic.
 
 ## Usage
 
@@ -12,18 +12,17 @@ titration
 
 ## Format
 
-A data.frame with 67 rows and 9 columns
+A `data.frame` with 67 rows and 9 columns.
 
-- `testID`: Mandatory. A test identifier that is unique in the table.
-  Every test must have a test identifier.
+- `testID`: Mandatory. A test identifier that is unique within table.
 
-- `PrepID`: Mandatory. The identifier of the preparation used. This will
-  usually be a lot or serial number of a vaccine.
+- `PrepID`: Mandatory. The identifier for the preparation used. This
+  will usually be a vaccine lot or serial number.
 
 - `PrepRole`: Mandatory. The role of the preparation. This must be
-  reference, test, or other.
+  "reference", "test", or "other".
 
-- `Date`: Optional. The Date the test was performed.
+- `Date`: Optional. The date the test was performed.
 
 - `Vial`: Optional. The vial number tested.
 
@@ -31,8 +30,8 @@ A data.frame with 67 rows and 9 columns
 
 - `dil`: Mandatory. The dilution used in a well.
 
-- `positive`: Mandatory. Total number of positive readings (tubes or
-  wells) affected by challenge.
+- `positive`: Mandatory. The total number of positive readings (tubes or
+  wells) affected by the challenge.
 
-- `total`: Mandatory. The total number of tubes or wells in a group
-  (treatment group or at a specified dilution).
+- `total`: Mandatory. The total number of tubes or wells in a group at
+  the specified dilution.

@@ -1,6 +1,6 @@
 # skrmdb
 
-Package to estimate ED50 by the methods of Spearman-Karber, Reed-Muench,
+Package to estimate ED50 by the methods of Spearman-Kärber, Reed-Muench,
 and Dragstedt-Behrens.
 
 ## Installation

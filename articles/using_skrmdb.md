@@ -2,7 +2,7 @@
 
 ## Notation
 
-The methods of Spearman-Karber, Reed-Muench, and Dragstedt-Behrens are
+The methods of Spearman-Kärber, Reed-Muench, and Dragstedt-Behrens are
 all commonly used to estimate ED50. In what follows, we use the
 following variable notation:
 
@@ -13,153 +13,127 @@ following variable notation:
 - `y` is an integer vector corresponding to the number responding at
   each log dilution or dose.
 
-All examples are with
-[`SpearKarb()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
-however, the usage for
-[`DragBehr()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md) and
-[`ReedMuench()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md)
+All examples use
+[`SpearKarb()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md).
+However, the usage for
+[`DragBehr()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
+[`ReedMuench()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
+and
+[`skrmdb.all()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md)
 is identical.
 
 ## Usage
 
-Each of the main functions in `skrmdb` can be called in three different
-ways.
+Each of the main functions in
+[skrmdb](https://github.com/ABS-dev/skrmdb/) can be called in three
+different ways.
 
-To illustrate this, we start with a simple data set where the number of
+To illustrate this, we start with a simple data set where the number
 dead increases with the dosage.
 
 ``` r
+
 dead <- c(0, 3, 5, 8, 10, 10)
 total <- rep(10, 6)
 dil <- 1:6
 ```
 
-First we use the historical, deprecated, function call.
+### Example 1
+
+First we use the deprecated historical function call. We will also
+suppress extra messages that help interpret the data.
 
 ``` r
-SpearKarb(y = dead, n = total, x = dil)
+
+print(
+  SpearKarb(y = dead, n = total, x = dil),
+  verbose = FALSE
+)
 ```
 
-    ## Warning: skrmdb :: Calling this function with the parameters y, n, x is
-    ## depreciated.
+    Warning: The `y`, `n`, and `x` arguments of `SpearKarb()` was deprecated in skrmdb
+    5.0.0.
+    ℹ Use the `data` and `formula` arguments instead.
 
-    ## ED50 by the Spearman-Karber method
-    ## ed:   2.9
+    skrmdb :: Autosorting dilution sequences.
 
-    ## Count trend is increasing with dilution.
+    ED50 by the Spearman-Karber method.
+
+      ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+    2.900 0.069     No     Regular  Increasing    Yes      Yes   
+
+### Example 2
 
 The preferred method is to use formulas in the function call.
 
-We can use the formula on the individual vectors.
+We can use a formula with individual vectors.
 
 ``` r
-SpearKarb(dead + total ~ dil)
+
+print(
+  SpearKarb(dead + total ~ dil),
+  verbose = FALSE
+)
 ```
 
-    ## ED50 by the Spearman-Karber method
-    ## ed:   2.9
+    ED50 by the Spearman-Karber method.
 
-    ## Count trend is increasing with dilution.
+      ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+    2.900 0.069     No     Regular  Increasing    Yes      Yes   
 
-We can also use the formula on columns in a data.frame.
+### Example 3
+
+We can also use the same formula on columns in a `data.frame`.
 
 ``` r
+
 data <- data.frame(y = dead, n = total, x = dil)
-SpearKarb(y + n ~ x, data)
+print(
+  SpearKarb(data, y + n ~ x),
+  verbose = FALSE
+)
 ```
 
-    ## ED50 by the Spearman-Karber method
-    ## ed:   2.9
+    ED50 by the Spearman-Karber method.
 
-    ## Count trend is increasing with dilution.
-
-## Method Assumptions
-
-Each of these methods was designed to work under the assumption that x
-is either increasing or decreasing and y / n is increasing with the
-index.
-
-It was decided that the functions
-[`DragBehr()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
-[`ReedMuench()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
-and
-[`SpearKarb()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md)
-will sort the data for you according to this assumption.
-
-To illustrate this, we create some data that is descending according to
-dilution.
-
-``` r
-dead <- c(10, 10, 8, 5, 3, 0)
-total <- rep(10, 6)
-dil <- 1:6
-```
-
-And we see that no mater how we enter the data, the same ED50 is
-reported.
-
-``` r
-SpearKarb(dead + total ~ dil)
-```
-
-    ## ED50 by the Spearman-Karber method
-    ## ed:   4.1
-
-    ## Count trend is decreasing with dilution.
-
-``` r
-SpearKarb(rev(dead) + rev(total) ~ rev(dil))
-```
-
-    ## ED50 by the Spearman-Karber method
-    ## ed:   4.1
-
-    ## Count trend is decreasing with dilution.
-
-However, if we can decided to turn off the autosort, which will give us
-a different, but incorrect, estimate of ED50.
-
-``` r
-SpearKarb(dead + total ~ dil, autosort = FALSE)
-```
-
-    ## ED50 by the Spearman-Karber method
-    ## ed:   2.9
-
-    ## Count trend is decreasing with dilution.
+      ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+    2.900 0.069     No     Regular  Increasing    Yes      Yes   
 
 ## Conditional ED50
 
-The function `skrmdb.all` returns the ED50 for the three methods, along
-with additional data about the data sets that may be of interest.
-
-For this section, we use the example data set `titration`. This
+ED50 can also be estimated conditional on grouping variables. To
+illustrate this, we use the example data set `titration`. This
 `data.frame` contains the results of a hypothetical experiment where the
-ED50 of three vials (numbered 1, 2, 3) were each tested by three
+ED50 in which three vials (numbered 1, 2, 3) were each tested by three
 anonymous operators (TK, NU, CT).
 
 ``` r
+
 head(titration)
 ```
 
-    ##   testID   PrepID PrepRole      Date Vial Operator   dil positive total
-    ## 1   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-02       10    10
-    ## 2   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-03       10    10
-    ## 3   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-04        9    10
-    ## 4   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-05        6    10
-    ## 5   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-06        1    10
-    ## 6   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-07        1    10
+      testID   PrepID PrepRole      Date Vial Operator   dil positive total
+    1   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-02       10    10
+    2   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-03       10    10
+    3   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-04        9    10
+    4   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-05        6    10
+    5   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-06        1    10
+    6   BRSV BRSV-001     test 03-Mar-19    1       TK 1e-07        1    10
 
-First we need to compute the log dilution.
+First, we need to compute the log dilution.
 
 ``` r
+
 titration$log_dil <- -log10(titration$dil)
 ```
 
-Plotting the data shows us that the tests visually seem to give roughly
-the same ED50, but unfortunately, there are missing data points.
+The plot suggests that the tests give roughly similar ED50 values, but
+some data points are missing. For example, Vial 3 by TK is missing a
+count at `log_dil == 6` and Vial 1 by CT is missing counts for
+`log_dil >= 6`.
 
 ``` r
+
 ggplot(titration, aes(x = log_dil, y = positive)) +
   geom_point() +
   facet_grid(Vial ~ Operator) +
@@ -167,78 +141,230 @@ ggplot(titration, aes(x = log_dil, y = positive)) +
 ```
 
 ![Nine plots showing titration
-data.](using_skrmdb_files/figure-html/unnamed-chunk-11-1.png)
+data.](using_skrmdb_files/figure-html/unnamed-chunk-8-1.png)
 
-We could find ED50 by aggregation the data from all 9 tests for each of
-the three methods.
+### Example 1
 
-``` r
-skrmdb.all(positive + total ~ log_dil, titration)
-```
-
-    ##   DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing
-    ## 1 5.365201   5.331023  5.332341   0.005014876               FALSE
-    ##   duplicate.dilutions even.dilution monotonic bracket.midpoint
-    ## 1                TRUE          TRUE      TRUE             TRUE
-
-We can also see if there is a difference between Operators;
+We can estimate ED50 by aggregating the data from all nine tests for
+each of the three methods.
 
 ``` r
-skrmdb.all(positive + total ~ log_dil | Operator, titration)
+
+print(
+  SpearKarb(titration, positive + total ~ log_dil),
+  verbose = FALSE
+)
 ```
 
-    ##   Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing
-    ## 1       TK 5.286004   5.247059  5.283333    0.01954578               FALSE
-    ## 2       NU 5.376350   5.340000  5.333333    0.01222222               FALSE
-    ## 3       CT 5.418526   5.402062  5.383333    0.01399022               FALSE
-    ##   duplicate.dilutions even.dilution monotonic bracket.midpoint
-    ## 1                TRUE          TRUE     FALSE             TRUE
-    ## 2                TRUE          TRUE     FALSE             TRUE
-    ## 3                TRUE          TRUE     FALSE             TRUE
+    ED50 by the Spearman-Karber method.
 
-Or by Vial;
+      ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+    5.332 0.005    Yes     Regular  Decreasing    Yes      Yes   
+
+### Example 2
+
+We can also check for differences between operators:
 
 ``` r
-skrmdb.all(positive + total ~ log_dil | Vial, titration)
+
+print(
+  SpearKarb(titration, positive + total ~ log_dil | Operator),
+  verbose = FALSE
+)
 ```
 
-    ##   Vial DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing
-    ## 1    1 5.405272   5.377551  5.383333    0.02231347               FALSE
-    ## 2    2 5.339806   5.304348  5.300000    0.01164751               FALSE
-    ## 3    3 5.360000   5.319149  5.333333    0.01454527               FALSE
-    ##   duplicate.dilutions even.dilution monotonic bracket.midpoint
-    ## 1                TRUE          TRUE      TRUE             TRUE
-    ## 2                TRUE          TRUE      TRUE             TRUE
-    ## 3                TRUE          TRUE      TRUE             TRUE
+    ED50 by the Spearman-Karber method.
 
-Or by Operator and Vial.
+    Operator   ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+       CT    5.383 0.014    Yes     Regular  Decreasing     No      Yes
+       NU    5.333 0.012    Yes     Regular  Decreasing     No      Yes
+       TK    5.283 0.020    Yes     Regular  Decreasing     No      Yes   
+
+### Example 3
+
+Or by vial:
 
 ``` r
-skrmdb.all(positive + total ~ log_dil | Vial + Operator, titration)
+
+print(
+  SpearKarb(titration, positive + total ~ log_dil | Vial),
+  verbose = FALSE
+)
 ```
 
-    ##   Vial Operator DragBehr ReedMuench SpearKarb SpearKarb.var response.increasing
-    ## 1    1       TK 5.306306   5.266667      5.30    0.06666667               FALSE
-    ## 2    1       NU 5.429825   5.411765      5.40    0.04777778               FALSE
-    ## 3    1       CT       NA         NA      5.20    0.02777778               FALSE
-    ## 4    2       TK 5.185185   5.153846      5.20    0.04555556               FALSE
-    ## 5    2       NU 5.285714   5.235294      5.20    0.02333333               FALSE
-    ## 6    2       CT 5.500000   5.500000      5.50    0.03555556               FALSE
-    ## 7    3       TK 5.482759   5.400000      5.55    0.08250000               FALSE
-    ## 8    3       NU 5.411765   5.375000      5.40    0.04333333               FALSE
-    ## 9    3       CT 5.349462   5.312500      5.30    0.03333333               FALSE
-    ##   duplicate.dilutions even.dilution monotonic bracket.midpoint
-    ## 1               FALSE          TRUE     FALSE             TRUE
-    ## 2               FALSE          TRUE     FALSE             TRUE
-    ## 3               FALSE          TRUE     FALSE            FALSE
-    ## 4               FALSE          TRUE      TRUE             TRUE
-    ## 5               FALSE          TRUE      TRUE             TRUE
-    ## 6               FALSE          TRUE      TRUE             TRUE
-    ## 7               FALSE         FALSE      TRUE             TRUE
-    ## 8               FALSE          TRUE      TRUE             TRUE
-    ## 9               FALSE          TRUE      TRUE             TRUE
+    ED50 by the Spearman-Karber method.
 
-## Additional Methods
+    Vial   ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+      1  5.383 0.022    Yes     Regular  Decreasing    Yes      Yes
+      2  5.300 0.012    Yes     Regular  Decreasing    Yes      Yes
+      3  5.333 0.015    Yes     Regular  Decreasing    Yes      Yes   
+
+### Example 4
+
+Or by operator and vial.
+
+``` r
+
+print(
+  SpearKarb(titration, positive + total ~ log_dil | Operator + Vial),
+  verbose = FALSE
+)
+```
+
+    ED50 by the Spearman-Karber method.
+
+    Operator Vial   ed   var  Duplicate Dilutions  Response  Monotonic Bracket
+       CT      1  5.200 0.028     No     Regular  Decreasing     No       No
+       CT      2  5.500 0.036     No     Regular  Decreasing    Yes      Yes
+       CT      3  5.300 0.033     No     Regular  Decreasing    Yes      Yes
+       NU      1  5.400 0.048     No     Regular  Decreasing     No      Yes
+       NU      2  5.200 0.023     No     Regular  Decreasing    Yes      Yes
+       NU      3  5.400 0.043     No     Regular  Decreasing    Yes      Yes
+       TK      1  5.300 0.067     No     Regular  Decreasing     No      Yes
+       TK      2  5.200 0.046     No     Regular  Decreasing    Yes      Yes
+       TK      3  5.550 0.082     No    Irregular Decreasing    Yes      Yes   
+
+## Multiple Tests
+
+A helper function
+[`skrmdb.all()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md)
+estimates ED50 using all three methods provided by this package. This
+function is called in the same way that
+[`DragBehr()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
+[`ReedMuench()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
+and
+[`SpearKarb()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md)
+are called, and the output is similar.
+
+``` r
+
+print(
+  skrmdb.all(titration, positive + total ~ log_dil | Operator + Vial),
+  verbose = FALSE
+)
+```
+
+    ED50 by the all skrmdb methods.
+
+    Operator Vial DragBehr ReedMuench SpearKarb SpearKarb.var Duplicate Dilutions  Response  Monotonic Bracket
+       CT      1     NA        NA       5.200       0.028         No     Regular  Decreasing     No       No
+       CT      2    5.500     5.500     5.500       0.036         No     Regular  Decreasing    Yes      Yes
+       CT      3    5.349     5.312     5.300       0.033         No     Regular  Decreasing    Yes      Yes
+       NU      1    5.430     5.412     5.400       0.048         No     Regular  Decreasing     No      Yes
+       NU      2    5.286     5.235     5.200       0.023         No     Regular  Decreasing    Yes      Yes
+       NU      3    5.412     5.375     5.400       0.043         No     Regular  Decreasing    Yes      Yes
+       TK      1    5.306     5.267     5.300       0.067         No     Regular  Decreasing     No      Yes
+       TK      2    5.185     5.154     5.200       0.046         No     Regular  Decreasing    Yes      Yes
+       TK      3    5.483     5.400     5.550       0.082         No    Irregular Decreasing    Yes      Yes   
+
+## Output
+
+By default, the print statement for a `skrmdb` object gives an
+interpretation of the columns in the table. This should help explain any
+ways in which the data deviate from the assumptions made by the methods
+(See the next section).
+
+``` r
+
+DragBehr(titration, positive + total ~ log_dil | Operator + Vial)
+```
+
+    ED50 by the Dragstedt-Behrens method.
+
+    Operator Vial   ed  Duplicate Dilutions  Response  Monotonic Bracket
+       CT      1    NA      No     Regular  Decreasing     No       No
+       CT      2  5.500     No     Regular  Decreasing    Yes      Yes
+       CT      3  5.349     No     Regular  Decreasing    Yes      Yes
+       NU      1  5.430     No     Regular  Decreasing     No      Yes
+       NU      2  5.286     No     Regular  Decreasing    Yes      Yes
+       NU      3  5.412     No     Regular  Decreasing    Yes      Yes
+       TK      1  5.306     No     Regular  Decreasing     No      Yes
+       TK      2  5.185     No     Regular  Decreasing    Yes      Yes
+       TK      3  5.483     No    Irregular Decreasing    Yes      Yes
+
+    ✔ No duplicate dilutions detected.
+    ✖ Possible missing dilution or irregular dilution series detected.
+    ✔ All count trends appear to decrease as x increases.
+      `autosort == TRUE`: decreasing response ED50 values computed using 1-y/n.
+    ✖ Some count trends are not monotonic along x.
+    ✖ Some count trends do not bracket ED50. 
+
+## Method Assumptions
+
+Each of these methods was designed under the following assumptions:
+
+1.  The group size \\n_i\\ is constant.
+2.  The log dilutions \\\mathbf{x} = \\x_1, x_2, \dots, x_k\\\\ form an
+    increasing sequence.
+3.  The sequence \\\mathbf{x}\\ is arithmetic. That is, there is some
+    number \\\Delta\\ such that \\x_k = (k - 1) \times \Delta\\ for all
+    \\k\\.
+4.  The count ratio sequence \\\mathbf{r} = \\r_1, r_2, \dots, r_k\\\\,
+    defined by \\r_i = y_i / n_i\\, trends from smaller to larger.
+5.  Preferably, the count ratio sequence is monotonic, that is \\r_i
+    \leq r\_{i+1}\\ for all \\i\\.
+6.  The log dilution sequence brackets ED50. That is, there is an \\i\\
+    such that \\x_i \leq \text{ED50} \leq x\_{i+1}\\. Note: This is
+    **not** equivalent to saying that there is an \\i\\ such that \\r_i
+    \leq 0.5 \leq r\_{i+1}\\. However, if it is the case that \\0.5 \<
+    r_1\\ or \\r_k \< 0.5\\, then the log dilution sequence will not
+    bracket ED50.
+
+The functions in this package will automatically sort the data by `x`
+and then determine whether \\y_i/n_i\\ or \\1-y_i/n_i\\ better meets the
+criterion that the response sequence be increasing. The selected
+sequence will be used to estimate ED50. In the case of noisy data, it
+may be best to gather more data or optimize the experiment before using
+any of these methods.
+
+To illustrate this, we create some data where the number dead decreases
+as dilution increases, and so the number alive is increases.
+
+``` r
+
+dead  <- c(10, 10, 8, 5, 3, 0)
+total <- rep(10, 6)
+alive <- total - dead
+dil   <- 1:6
+```
+
+Given the assumptions that the methods make, it is appropriate to
+estimate ED50 from `alive + total ~ dil`, but we see that no matter how
+we enter the data, the same ED50 is reported.
+
+``` r
+
+SpearKarb(alive + total ~ dil)$ed
+```
+
+    [1] 4.1
+
+``` r
+
+SpearKarb(dead + total ~ dil)$ed
+```
+
+    [1] 4.1
+
+We can turn off the auto-sort feature, which will still give us a
+correct estimate of ED50 for `alive + total ~ dil`, but and incorrect
+estimate for `dead + total ~ dil`.
+
+``` r
+
+SpearKarb(alive + total ~ dil, autosort = FALSE)$ed
+```
+
+    [1] 4.1
+
+``` r
+
+SpearKarb(dead + total ~ dil, autosort = FALSE)$ed
+```
+
+    [1] 2.9
+
+## Accessor Functions
 
 Finally, there are three accessor functions to help retrieve information
 from the results of
@@ -247,16 +373,17 @@ from the results of
 and
 [`SpearKarb()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md).
 
-Using the titration data set again.
+Using the titration data set again:
 
 ``` r
-res <- SpearKarb(positive + total ~ log_dil, titration)
+
+res <- SpearKarb(titration, positive + total ~ log_dil)
 ```
 
-    ## skrmdb :: combining results from duplicate dilutions
+    skrmdb :: Combining results from duplicate dilutions.
 
-We can get the ED50: (**Note:**
-[`getED50()`](https://abs-dev.github.io/skrmdb/reference/getED50.md)
+We can retrieve the estimated ED50: (**Note:**
+[`getED50()`](https://abs-dev.github.io/skrmdb/reference/skrmdb-class.md)
 only works on `skrmdb` objects, which are returned by
 [`DragBehr()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
 [`ReedMuench()`](https://abs-dev.github.io/skrmdb/reference/skrmdb.md),
@@ -265,31 +392,44 @@ and
 not on `skrmdb.all` objects.)
 
 ``` r
+
 getED50(res)
 ```
 
-    ## [1] 5.332341
+    [1] 5.332341
 
 The variance:
 
 ``` r
-getvar(res)
+
+getVar(res)
 ```
 
-    ## [1] 0.005014876
+    [1] 0.005014876
 
-And the data which was used.
+The data which were used:
 
 ``` r
-getdata(res)
+
+getData(res)
 ```
 
-    ##   x  y  n  y_inc  y_dec
-    ## 1 2 89 90   5600 498400
-    ## 2 3 89 90   5600 498400
-    ## 3 4 89 90   5600 498400
-    ## 4 5 62 90 156800 347200
-    ## 5 6  8 70 446400  57600
-    ## 6 7  3 80 485100  18900
-    ## 7 8  1 80 497700   6300
-    ## 8 9  1 80 497700   6300
+       y  n x y_inc y_dec Duplicate Dilutions   Response Monotonic Bracket
+    1 89 90 2    56  4984       Yes   Regular Decreasing       Yes     Yes
+    2 89 90 3    56  4984       Yes   Regular Decreasing       Yes     Yes
+    3 89 90 4    56  4984       Yes   Regular Decreasing       Yes     Yes
+    4 62 90 5  1568  3472       Yes   Regular Decreasing       Yes     Yes
+    5  8 70 6  4464   576       Yes   Regular Decreasing       Yes     Yes
+    6  3 80 7  4851   189       Yes   Regular Decreasing       Yes     Yes
+    7  1 80 8  4977    63       Yes   Regular Decreasing       Yes     Yes
+    8  1 80 9  4977    63       Yes   Regular Decreasing       Yes     Yes
+
+The results table:
+
+``` r
+
+getResults(res)
+```
+
+            ed         var Duplicate Dilutions   Response Monotonic Bracket
+    1 5.332341 0.005014876       Yes   Regular Decreasing       Yes     Yes

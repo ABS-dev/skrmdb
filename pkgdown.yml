@@ -1,9 +1,10 @@
-pandoc: 3.6.3
-pkgdown: 2.2.0
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
+  lab_notes: lab_notes.html
   using_skrmdb: using_skrmdb.html
-last_built: 2026-04-15T18:45Z
+last_built: 2026-10-08T20:20Z
 urls:
   reference: https://abs-dev.github.io/skrmdb/reference
   article: https://abs-dev.github.io/skrmdb/articles
