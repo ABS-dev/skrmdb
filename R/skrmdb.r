@@ -1,36 +1,113 @@
-#' skrmdb package
+#' @title Functions for computing ED50
 #'
-#' The skrmdb package provides functionality to compute the median effective
-#' dose (ED50) using the Dragstedt-Behrens, Reed-Muench, and Spearman-Kärber
-#' estimators.
+#' @description The skrmdb package provides functionality to compute the median
+#'   effective dose (ED50) using the Dragstedt-Behrens, Reed-Muench, and
+#'   Spearman-Kärber estimators.
 #'
-#' The Dragstedt-Behrens and Reed-Muench methods estimate the median effective
-#' dose by interpolating between the two doses that bracket the dose producing
-#' median response. They accumulate sums in both directions by assuming that
-#' those that responded at a lower dose would respond at a higher dose, and
-#' those that did not respond at a higher dose would not respond at a lower
-#' dose. The Dragstedt-Behrens method estimates ED50 by interpolating on the
-#' line that connects the hypothetical fractions of the bracketing doses for
-#' ED50, while the Reed-Muench method estimates ED50 as the intersection of the
-#' lines connecting the two sets of cumulative sums between bracketing doses.
+#'   The Dragstedt-Behrens and Reed-Muench methods estimate the median effective
+#'   dose by interpolating between the two doses that bracket the dose producing
+#'   median response. They accumulate sums in both directions by assuming that
+#'   subjects that responded at a lower dose would respond at a higher dose, and
+#'   subjects that did not respond at a higher dose would not respond at a lower
+#'   dose. The Dragstedt-Behrens method estimates ED50 by interpolating on the
+#'   line that connects the hypothetical fractions of the bracketing doses for
+#'   ED50, while the Reed-Muench method estimates ED50 as the intersection of
+#'   the lines connecting the two sets of cumulative sums between bracketing
+#'   doses.
 #'
-#' The Spearman-Karber method gives a non-parametric estimate of the mean of an
-#' tolerance distribution from its empirical distribution (EDF). The empirical
-#' PMF is derived from the EDF by differencing and the estimator is \eqn{\sum{ x
-#' f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of `x`,
-#' `SpearKarb()` extends it by assuming the next lower dilution would
-#' produce zero response and the next higher dilution would produce complete
-#' response.
+#'   The Spearman-Kärber method gives a non-parametric estimate of the mean of a
+#'   tolerance distribution from its empirical distribution (EDF). The empirical
+#'   PMF is derived from the EDF by differencing.  The estimator is \eqn{\sum{ x
+#'   f(x)}}{\sum x f(x)}. If the EDF does not cover the entire support of `x`,
+#'   `SpearKarb()` extends it by assuming the next lower dilution would produce
+#'   zero response and the next higher dilution would produce complete response.
 #'
-#' @note These methods assume that the `y` is monotonic in `x`,
-#'   however ED50 will still be computed if this is not the case. These methods
-#'   also assume that data brackets ED50.  If the data does not bracket ED50, a
-#'   result could still be returned, but the accuracy of this value in
-#'   estimating ED50 is suspect.
+#'   The function `skrmdb.all()` reports the results for all three methods.
+#'
+#'   There are several assumptions that these methods make:
+#'
+#'   1. The group size \eqn{n_i} is constant.
+#'
+#'      *  Group sizes and responses are scaled silently if this condition is
+#'   not met.
+#'
+#'   1. The log dilutions \eqn{\mathbf{x} = \{x_1, x_2, \dots, x_k\}} form an
+#'   increasing sequence.
+#'
+#'      *  The data will be automatically sorted so this condition holds.  If
+#'   a dilution \eqn{x} appears more than once in \eqn{\mathbf{x}}, a new
+#'   dilution sequence will be created where each dilution appears once.  For
+#'   each dilution \eqn{x}, the corresponding \eqn{n_i} values are summed to
+#'   create a new \eqn{n} sequence, and the corresponding \eqn{y_i} values are
+#'   summed to create a new \eqn{y} sequence.  The column **Duplicate** in the
+#'   output reports "Yes" if a dilution appears more than once in the original
+#'   sequence and "No" otherwise.
+#'
+#'   1. That \eqn{\mathbf{x}} is an arithmetic sequence. That is, there is some
+#'   number \eqn{\Delta} such that \eqn{x_k = x_1 + (k - 1) \times \Delta} for
+#'   all \eqn{k}.
+#'
+#'      -  The column **Dilutions** in the output reports "regular" if this
+#'   condition is met and "irregular" otherwise.  Generally, this is used to
+#'   indicate the possibility of a missing dilution in a sequence.  However, it
+#'   is possible that in some cases, a sequence which is marked as "irregular"
+#'   may in fact be regular and have no missing dilutions.  In these cases, use
+#'   your best judgment.
+#'
+#'   1. The count ratio sequence \eqn{\mathbf{r} = \{r_1, r_2, \dots, r_k\}}
+#'   defined by \eqn{r_i = y_i / n_i} trends from smaller to larger.
+#'
+#'      -   The column **Response** indicates whether \eqn{\mathbf{r}} is
+#'   "increasing", "decreasing", or shows "no change".  If it is "decreasing"
+#'   and `autosort` is `TRUE`, then ED50 will be computed using the sequence
+#'   \eqn{1 - r_i}, which is the appropriate transformation for decreasing
+#'   response data.  When the data is very noisy and the trend is not clear, it
+#'   is likely that using these methods to compute ED50 is not appropriate.
+#'
+#'   1. Preferably, the count ratio sequence is monotonic, that is \eqn{r_i \leq
+#'   r_{i+1}} for all \eqn{i} or \eqn{r_i \geq r_{i+1}} for all \eqn{i}.
+#'
+#'      -   The column **Monotonic** indicates if this condition holds.
+#'   Real-world data is rarely monotonic, but good data is generally "close
+#'   enough to monotonic for all practical purposes."  Once again, use your best
+#'   judgment.
+#'
+#'   1. The log dilution sequence brackets ED50.  That is, there is an \eqn{i}
+#'   such that \eqn{x_i \leq \text{ED50} \leq x_{i+1}}.  Note: This is **not**
+#'   equivalent to saying that there is an \eqn{i} such that \eqn{r_i \leq 0.5
+#'   \leq r_{i + 1}}.  However, if it is the case that \eqn{0.5 < r_1} or
+#'   \eqn{r_k < 0.5}, then the log dilution sequence will not bracket ED50.
+#'
+#'      -   The column **Bracket** indicates if this condition holds.  If it
+#'   does not hold, use your best judgment as to whether or not ED50 could be
+#'   considered to be meaningful.
 #'
 #' @note Many microbiology texts mistakenly present the Dragstedt-Behrens method
 #'   as the Reed-Muench method.
-
+#'
+#' @returns A list of class [skrmdb-class] which contains the following elements
+#' *  `eval`: Which method or methods were used to compute ED50.
+#'
+#' *  `data`: The transformed data used to compute ED50. It contains the
+#'   columns `y`, `n`, `x`, and any extra columns on which the results are
+#'   conditioned.  The columns `y_inc` and `y_dec` contain the increasing and
+#'   decreasing versions of the response proportions, based on `y / n` and `1 -
+#'   y / n`.  The columns `Duplicate`, `Dilutions`, `Response`, `Monotonic`, and
+#'   `Bracket` give information about the how well the data for each group meets
+#'   each of the assumptions and can be used to find specific parts of the data
+#'   which do not meet a particular assumption.
+#'
+#' *  `ed`:  ED50.  If returned from `skrmdb.all()`, then `NA`.
+#'
+#' *  `var`: The variance.  Only meaningful for `SpearKarb()`.
+#'
+#' *  `results`: A `data.frame` giving the ED50 for each group based on the
+#'   conditions.  it also contains the columns `Duplicate`, `Dilutions`,
+#'   `Response`, `Monotonic`, and `Bracket` which describe how well the data for
+#'   that group meets each of the assumptions.
+#'
+#' *  `autosort`: The value of the parameter `autosort`.
+#'
 #' @references Behrens, B. (1929) Zur Auswertung der Digitalisblätter im
 #'   Froschversuch. *Arkiv für Experimentelle Pathologie und Pharmakologie.*
 #'   **140: 237-256**.
@@ -39,67 +116,98 @@
 #'   Cocaine Poisoning in Rabbits. *J. of Pharmacology and Experimental
 #'   Therapeutics.* **32: 215--222**.
 #'
-#'   Kärber, G. (1931). Beitrag zur kollektiven Behandlung Parmakogischer
+#'   Kärber, G. (1931). Beitrag zur kollektiven Behandlung Pharmakologischer
 #'   Reihenversuche. *Archiv für Experimentelle Pathologie und Pharmakologie.*
 #'   **162: 480--483**.
 #'
 #'   Miller, Rupert G. (1973). Nonparametric Estimators of the Mean Tolerance in
 #'   Bioassay. *Biometrika.* **60: 535 - 542**.
 #'
-#'   Reed LJ, Muench H (1938). A Simple Method of Estimating Fifty Percent
+#'   Reed, L.J., Muench, H. (1938). A Simple Method of Estimating Fifty Percent
 #'   Endpoints. *American Journal of Hygiene.* **27: 493--497**.
 #'
 #'   Spearman, C. (1908). The Method of "Right and Wrong Cases" ("Constant
 #'   Stimuli") without Gauss's Formulae. *Brit. J. of Psychology.* **2:
 #'   227--242**.
 #'
-#' @param formula a formula of the form `y + n ~ x` or `cbind(y, n) ~ x`
-#' @param data a data frame
-#' @param y an integer vector corresponding to the number responding at each log
-#'   dilution or dose.
-#' @param n an integer vector corresponding to the group size at each log
-#'   dilution or dose.
-#' @param x a vector corresponding to the log dilution or dose for each group.
-#' @param autosort Default `TRUE`.  If `TRUE` will sort the data according to
-#'   either `sort(x)` or `sort(-x)` so that `y / n` appears to be increasing
-#'   with the index.  This is how the three methods assume the data to be
-#'   ordered.
-#' @param warn.me if TRUE, warnings and messages related to the processing of
-#'   the data will be displayed.
-#' @param show if TRUE, will print the intermediary statistics used to calculate
-#'   ED50.
-#'
-#' @returns An object of class [skrmdb-class]
-#'
+#' @param data A `data.frame` containing the titration data. Formatted as
+#'   specified in the CVB Data Guide.
+#' @param formula A formula of the form `y + n ~ x` or `y + n ~ x | w1 + ... +
+#'   wn` where `w1` ... `wn` are grouping variables.  All variables must be
+#'   distinct.
+#' @param autosort If `TRUE`, the functions will compute the ED50 based on
+#'   either `y / n` or `1 - y / n`, whichever appears to increase with `x`. This
+#'   is how the three methods assume the data to be ordered. If `FALSE`, ED50
+#'   will be computed using `y / n`, which could give incorrect results.  Do not
+#'   change this parameter unless you are certain you know what you are doing.
+#' @param warn.me If `TRUE`, warnings and messages related to the processing of
+#'   the data will be displayed.  These warnings correspond to the assumptions
+#'   and feedback columns in the output as outlined in the **Description**
+#'   section above.
+#' @param show If `TRUE`, will print the intermediate statistics used to
+#'   calculate ED50.  These statistics are captured in the data component of the
+#'   output.
+#' @param y `r badge("deprecated")` An integer vector corresponding to the
+#'   number responding at each log dilution or dose.
+#' @param n `r badge("deprecated")` An integer vector corresponding to the group
+#'   size at each log dilution or dose.
+#' @param x `r badge("deprecated")` A vector corresponding to the log dilution
+#'   or dose for each group.
+#' @importFrom lifecycle badge
 #' @name skrmdb
 #'
 #' @examples
-#' # All examples are with `SpearKarb`, however, the usage for
-#' # `DragBehr` and `ReedMuench` is identical.
+#' # Processing Data with grouping variables.
+#'
+#' titration$log_dil <- -log10(titration$dil)
+#'
+#' SpearKarb(titration, positive + total ~ log_dil)
+#' SpearKarb(titration, positive + total ~ log_dil | Operator)
+#' SpearKarb(titration, positive + total ~ log_dil | Vial)
+#' SpearKarb(titration, positive + total ~ log_dil | Operator + Vial)
+#'
+#' skrmdb.all(titration, positive + total ~ log_dil | Operator + Vial)
 #'
 #' ## Monotonically increasing data
-#' # The three calls are equivalent.
-#' dead <- c(0, 3, 5, 8, 10, 10)
-#' total <- rep(10, 6)
-#' dil <- 1:6
-#' data <- data.frame(y = dead, n = total, x = dil)
-#' SpearKarb(dead + total ~ dil)
-#' SpearKarb(y + n ~ x, data)
-#' SpearKarb(y = dead, n = total, x = dil)  # depreciated
 #'
-#' ## Decreasing data
-#' # The function will reverse the order of the data
-#' # and two calls are equivalent.
-#' dead <- c(10, 10, 8, 5, 3, 0)
+#' # The three calls are equivalent.
+#' dead  <- c(0, 3, 5, 8, 10, 10)
 #' total <- rep(10, 6)
-#' dil <- 1:6
+#' dil   <- 1:6
+#'
+#' ## Use numeric vectors in the formula
+#' DragBehr(dead + total ~ dil)
+#' ReedMuench(dead + total ~ dil)
 #' SpearKarb(dead + total ~ dil)
-#' SpearKarb(rev(dead) + rev(total) ~ rev(dil))
+#' skrmdb.all(dead + total ~ dil)
+#'
+#' data  <- data.frame(y = dead,
+#'                     n = total,
+#'                     x = dil)
+#'
+#' ## Use data plus the formula
+#' DragBehr(data, y + n ~ x)
+#' ReedMuench(data, y + n ~ x)
+#' SpearKarb(data, y + n ~ x)
+#' skrmdb.all(data, y + n ~ x)
+#'
+#'
+#' ## Using y, n, x is deprecated.
+#' DragBehr(y = dead, n = total, x = dil) |> suppressWarnings()
+#' ReedMuench(y = dead, n = total, x = dil) |> suppressWarnings()
+#' SpearKarb(y = dead, n = total, x = dil) |> suppressWarnings()
+#'
+#' # The function automatically automatically reorders the data as needed to
+#' # meet the ordering assumption.
+#' dead  <- rev(dead)
+#' total <- rev(total)
+#' dil   <- rev(dil)
+#' SpearKarb(dead + total ~ dil)
 #'
 #' ## Unordered data
 #' # Observe that the data is not monotonic after being sorted by dil.
-#' dead <- c(10, 8, 5, 3, 0)
+#' dead  <- c(10, 8, 5, 3, 0)
 #' total <- rep(10, 5)
-#' dil <- c(1, 3, 2, 4, 5)
+#' dil   <- c(1, 3, 2, 4, 5)
 #' SpearKarb(dead + total ~ dil)
-"_PACKAGE"
+NULL

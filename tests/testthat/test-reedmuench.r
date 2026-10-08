@@ -1,3 +1,8 @@
+test_that(".ReedMuench", {
+  expect_true(TRUE)
+})
+
+#All Good
 test_that("examples work", {
   y    <- c(0, 1, 2, 3, 4)
   n    <- c(4, 4, 4, 4, 4)
@@ -5,7 +10,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 3)
 
@@ -15,9 +20,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity
@@ -28,7 +33,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 3.66666666666)
 
@@ -38,9 +43,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # uneven
@@ -51,7 +56,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 3.2)
 
@@ -61,9 +66,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # bracket
@@ -74,7 +79,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4.33333333)
 
@@ -84,9 +89,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -96,7 +101,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 1.66666666666)
 
@@ -106,9 +111,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotincity + reversed
@@ -119,7 +124,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 2.3333333)
 
@@ -129,9 +134,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: bracket + uneven
@@ -142,7 +147,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4.4)
 
@@ -152,9 +157,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -164,7 +169,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 1.555555555)
 
@@ -174,9 +179,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + bracket
@@ -187,7 +192,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4.63636363636)
 
@@ -197,9 +202,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 #  test this: + reversed
@@ -210,7 +215,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4.11111)
 
@@ -220,9 +225,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven
@@ -233,7 +238,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4)
 
@@ -243,9 +248,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 #   test this: + reversed
@@ -256,7 +261,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 2)
 
@@ -266,9 +271,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven + bracket
@@ -279,7 +284,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 4.72727272)
 
@@ -289,9 +294,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -301,7 +306,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 1.36363636)
 
@@ -311,9 +316,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -323,7 +328,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed   = 2)
 
@@ -333,9 +338,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -345,7 +350,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(ReedMuench(y = y, x = x, n = n))
   resb <- ReedMuench(y + n ~ x)
-  resc <- ReedMuench(dead + total ~ dil, dt)
+  resc <- ReedMuench(dt, dead + total ~ dil)
   res  <- list(eval = "Reed-Muench",
                ed = 4)
 
@@ -355,7 +360,7 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })

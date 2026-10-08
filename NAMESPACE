@@ -4,20 +4,54 @@ S3method(print,skrmdb)
 export(DragBehr)
 export(ReedMuench)
 export(SpearKarb)
+export(getData)
 export(getED)
 export(getED50)
+export(getResults)
+export(getVar)
 export(getdata)
 export(getvar)
 export(skrmdb.all)
 importFrom(Formula,Formula)
-importFrom(data.table,":=")
-importFrom(data.table,.N)
-importFrom(data.table,as.data.table)
-importFrom(data.table,data.table)
-importFrom(data.table,setnames)
-importFrom(data.table,setorder)
-importFrom(lifecycle,badge)
-importFrom(lifecycle,deprecate_warn)
-importFrom(stats,formula)
-importFrom(stats,model.frame)
-importFrom(stats,terms)
+importFrom(R6,R6Class)
+importFrom(cli,symbol)
+importFrom(crayon,
+  green,
+  red
+)
+importFrom(data.table,
+  "%notin%",
+  ":=",
+  .I,
+  .N,
+  .SD,
+  as.data.table,
+  data.table,
+  fifelse,
+  fsetdiff,
+  melt,
+  setcolorder,
+  setkey,
+  setkeyv,
+  setnames
+)
+importFrom(lifecycle,
+  badge,
+  deprecate_warn,
+  deprecated,
+  is_present
+)
+importFrom(rlang,enexpr)
+importFrom(stats,
+  reformulate,
+  setNames,
+  terms
+)
+importFrom(stringr,
+  str_detect,
+  str_dup,
+  str_pad,
+  str_replace,
+  str_replace_all,
+  str_to_title
+)

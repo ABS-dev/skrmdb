@@ -3,32 +3,31 @@
 \docType{data}
 \name{titration}
 \alias{titration}
-\title{Example titration data.}
+\title{Example Titration Data}
 \format{
-A data.frame with 67 rows and 9 columns
+A \code{data.frame} with 67 rows and 9 columns.
 \itemize{
-\item \code{testID}: Mandatory. A test identifier that is unique in the table.
-Every test must have a test identifier.
-\item \code{PrepID}: Mandatory. The identifier of the preparation used. This
-will usually be a lot or serial number of a vaccine.
+\item \code{testID}: Mandatory. A test identifier that is unique within table.
+\item \code{PrepID}: Mandatory. The identifier for the preparation used. This
+will usually be a vaccine lot or serial number.
 \item \code{PrepRole}: Mandatory. The role of the preparation. This must be
-reference, test, or other.
-\item \code{Date}: Optional. The Date the test was performed.
+"reference", "test", or "other".
+\item \code{Date}: Optional. The date the test was performed.
 \item \code{Vial}: Optional. The vial number tested.
 \item \code{Operator}: Optional. The operator who performed the test.
 \item \code{dil}: Mandatory. The dilution used in a well.
-\item \code{positive}: Mandatory. Total number of positive readings (tubes or
-wells) affected by challenge.
-\item \code{total}: Mandatory. The total number of tubes or wells in a group
-(treatment group or at a specified dilution).
+\item \code{positive}: Mandatory. The total number of positive readings (tubes or
+wells) affected by the challenge.
+\item \code{total}: Mandatory. The total number of tubes or wells in a group at the
+specified dilution.
 }
 }
 \usage{
 titration
 }
 \description{
-A dataset that illustrates the dichotomous data format for titration data as
-found in the CVB DATA Guide.  The data is purposely incomplete and not-
-monotonic.
+A data set that illustrates the dichotomous data format for
+titration data as found in the CVB Data Guide.  The data are intentionally
+incomplete and nonmonotonic.
 }
 \keyword{datasets}

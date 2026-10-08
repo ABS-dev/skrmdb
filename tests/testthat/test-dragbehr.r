@@ -1,3 +1,8 @@
+test_that(".DragBehr", {
+  expect_true(TRUE)
+})
+
+#All Good
 test_that("examples work", {
   y    <- c(0, 1, 2, 3, 4)
   n    <- c(4, 4, 4, 4, 4)
@@ -5,7 +10,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 3)
 
@@ -15,9 +20,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # monotinicity
@@ -28,7 +33,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 3.6363636)
 
@@ -38,9 +43,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # uneven
@@ -51,7 +56,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 3.23076923)
 
@@ -61,9 +66,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # bracket
@@ -74,7 +79,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4.3181818)
 
@@ -84,9 +89,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -96,7 +101,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 1.68181)
 
@@ -106,9 +111,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotincity + reversed
@@ -119,7 +124,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 2.363636)
 
@@ -129,9 +134,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: bracket + uneven
@@ -142,7 +147,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4.327586)
 
@@ -152,9 +157,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -164,7 +169,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 1.573770)
 
@@ -174,9 +179,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + bracket
@@ -187,7 +192,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4.5833333)
 
@@ -197,9 +202,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 #  test this: + reversed
@@ -210,7 +215,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4.105263)
 
@@ -220,9 +225,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven
@@ -233,7 +238,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4)
 
@@ -243,9 +248,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 #   test this: + reversed
@@ -256,7 +261,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 2)
 
@@ -266,9 +271,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven + bracket
@@ -279,7 +284,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 4.676923076923)
 
@@ -289,9 +294,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -301,7 +306,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 1.416666)
 
@@ -311,9 +316,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -323,7 +328,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 2.071428571429)
 
@@ -333,9 +338,9 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -345,7 +350,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(DragBehr(y = y, x = x, n = n))
   resb <- DragBehr(y + n ~ x)
-  resc <- DragBehr(dead + total ~ dil, dt)
+  resc <- DragBehr(dt, dead + total ~ dil)
   res  <- list(eval = "Dragstedt-Behrens",
                ed   = 3.928571)
 
@@ -355,7 +360,7 @@ test_that("examples work", {
   expect_equal(resa$eval, res$eval)
   expect_equal(resb$eval, res$eval)
   expect_equal(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
 })

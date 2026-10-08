@@ -2,22 +2,50 @@
 % Please edit documentation in R/class-skrmdb.r
 \name{skrmdb-class}
 \alias{skrmdb-class}
-\title{Class definition for skrmdb object}
+\alias{getED50}
+\alias{getED}
+\alias{getVar}
+\alias{getvar}
+\alias{getData}
+\alias{getdata}
+\alias{getResults}
+\title{skrmdb class}
+\usage{
+getED50(x)
+
+getVar(x)
+
+getData(x)
+
+getResults(x)
+}
 \arguments{
-\item{eval}{Evaluation method. One of "ReedMuench", "SpearKarb", or
-"DragBehr". character string.}
-
-\item{ed}{Median effective dose by eval method. numeric.}
-
-\item{var}{Variance (for Spearman-Kärber method only). numeric.}
-
-\item{data}{The data used to compute the effective median dose. data.frame,
-numeric.}
-
-\item{message}{Messages and warnings generated durning the calculation.
-character string.}
+\item{x}{An object of class \code{skrmdb}.}
 }
 \description{
-The skrmdb object holds output from functions in the skrmdb package. A valid
-skrmdb object is a list whicn contains the followling components:
+The functions \code{ReedMuench()}, \code{SpearKarb()}, \code{DragBehr()}, and
+\code{skrmdb.all()} return an S3 object of class \code{skrmdb}.
+
+The \code{skrmdb} class object contains the following fields:
+\itemize{
+\item \code{eval}:    The name of the method used to compute the ED50.
+\item \code{data}:    A \code{data.frame} of the data used to compute the ED50.
+\item \code{ed}:      A vector of ED50 values.
+\item \code{var}:     A vector of variances, only is SpearKarb was used.
+\item \code{results}: A \code{data.table} of the results, including brief information
+about the data.
+}
+
+These components can be accessed via the appropriate accessor functions.
+}
+\examples{
+y <- c(0, 3, 5, 8, 10, 10)
+n <- rep(10, 6)
+x <- 1:6
+res <- SpearKarb(y + n ~ x)
+print(res)
+getED50(res)
+getVar(res)
+getData(res)
+getResults(res)
 }

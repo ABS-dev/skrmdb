@@ -12,3 +12,5 @@ utilities
 ^public$
 ^_pkgdown\.yml$
 ^\.github$
+^\.positai$
+^\.claude$

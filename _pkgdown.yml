@@ -29,11 +29,17 @@ reference:
 - title: S3 and S4 classes
 - contents:
   - skrmdb-class
-  - getdata
+  - getData
   - getED50
-  - getvar
+  - getVar
+  - getResults
+  - print.skrmdb
 - title: Data Sets
 - contents:
   - titration
-
-
+articles:
+- title: Articles
+  navbar: ~
+  contents:
+  - using_skrmdb
+  - lab_notes

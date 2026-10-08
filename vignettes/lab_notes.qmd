@@ -1,0 +1,721 @@
+---
+title: "ED50 Hand Calculations"
+author: "Center for Veterinary Biologics - Statistics Section"
+date: "`r Sys.Date()`"
+execute: 
+  echo: false
+  warning: false
+  error: false
+output:  html_vignette
+vignette: >
+  %\VignetteIndexEntry{ED50 Hand Calculations}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| label: load-package
+
+library(data.table)
+library(tinytable)
+library(ggplot2)
+library(skrmdb)
+```
+
+```{r}
+pal <- c("red", "black")
+```
+
+```{r}
+#| label: data-definition
+
+dil <- pos <- neg <- value <- variable <- NULL
+
+cs <- function(x, y) {
+  if (lm(y ~ x)$coef[2] >= 0) {
+    cumsum(y)
+  } else {
+    rev(cumsum(rev(y)))
+  }
+}
+
+.n <- 10
+
+dt <- data.table(
+  dil = 0:5,
+  pos = .n - c(1, 2, 3, 5, 8, 10)
+) |>
+  _[, neg := .n - pos] |>
+  _[, n := pos + neg] |>
+  _[, cum_pos := cs(dil, pos)] |>
+  _[, cum_neg := cs(dil, neg)] |>
+  _[, fract_pos := cum_pos / (cum_pos + cum_neg)]
+
+res <- skrmdb.all(
+  dt,
+  pos + n ~ dil,
+  warn.me = FALSE)$results |>
+  _[, SpearKarb.var := NULL]
+
+if (dt[1, fract_pos] <= dt[.N, fract_pos]) {
+  low  <- dt[fract_pos <= 0.5, max(dil)]
+  high <- dt[fract_pos >= 0.5, min(dil)]
+} else {
+  low  <- dt[fract_pos >= 0.5, max(dil)]
+  high <- dt[fract_pos <= 0.5, min(dil)]
+}
+a_low  <- dt[dil == low, cum_pos]
+a_high <- dt[dil == high, cum_pos]
+b_low  <- dt[dil == low, cum_neg]
+b_high <- dt[dil == high, cum_neg]
+
+.fr <- function(x, digits = 2) {
+  pat <- sprintf("%%02.%df", digits)
+  sprintf(pat, round(x, digits))
+}
+
+.gcd <- function(a, b) {
+  if (a == b || a == 0 || b == 0) return(max(a, b))
+  if (a > b) {
+    t <- a
+    a <- b
+    b <- t
+  }
+  .gcd(b %% a, a)
+}
+
+.lcm <- function(...) {
+  list(...) |>
+    unlist() |>
+    unique() |>
+    sort() |>
+    rev() ->
+    x
+  if (length(x) == 1) return(x)
+  t <- 1
+  for (i in seq_along(x)) {
+    if (i == 1) {
+      t <- x[i]
+    } else {
+      t <- t * x[i] / .gcd(t, x[i])
+    }
+  }
+  t
+}
+```
+
+# Introduction
+
+These notes can be viewed as a supplement to CVB-WI-0281, Nonparametric Estimation of Median Effective Dose.  Their purpose is to give specific examples of the calculations a technician may perform if computing $ED_{50}$ by hand for either the Dragstedt-Behrens or Reed-Muench methods.  Using these notes as a guide will also provide the technician with a tool to check the instructions for computing $ED_{50}$ contained in a firm's Outline of Production or Special Outline.
+
+In the literature, there are two distinct methods which are both called "Reed-Muench".  However, one of these methods is actually the Dragstedt-Behrens method.  If one is instructed to use the Reed-Muench method to compute $ED_{50}$, it is imperative to determine which of the two methods is actually intended.  Since this case of mistaken identity is so firmly entrenched in the scientific community, we typically treat this misnomer as a minor issue.
+
+
+# Data With Equal-Sized Groups {#sec-data}
+
+CVB-WI-0281 states that the "Positives are those with increasing response".  However, in laboratory experiments, it is common for the number of positives to have a decreasing response.  As the Dragstedt-Behrens and Reed-Muench methods do not actually require this, our sample data has decreasing positive response. We first consider the following example data which has 10 subjects at each dose. The columns "Pos" and "Neg" are the observed responses at each dose.  "Cum Pos" is the cumulative sum of "Pos" and is computed in the same direction as we observe the number of positive responses increasing.  Similarly, "Cum Neg" is the cumulative sum of "Neg" and is computed in the same direction as we observe the number of negative responses increasing.  Finally, the column "Fract Pos" is the fraction of the cumulative responses which are positive at each dose.  (e.g. At -log(dil) = 4, the positive fraction is `r dt[dil == 4, cum_pos]` / (`r dt[dil == 4, cum_pos]` + `r dt[dil == 4, cum_neg]`) = `r dt[dil == 4, .fr(cum_pos / (cum_pos + cum_neg))]`.)
+
+
+
+```{=typst}
+#align(center)[
+```
+
+
+```{r}
+#| label: tbl-data-1
+#| tbl-cap: Hypothetical data with the same number of subjects at each dose. \
+#|   Intermediate computations have been added.\
+#|   Variable names that match those described in CVB-WI-0281 have been added.
+#| tbl-cap-location: bottom
+
+dt |>
+  data.table() |>
+  _[, fract_pos := .fr(fract_pos, 4)] |>
+  setnames(c("x =\n-log(dil)",
+             "y =\nPos",
+             "Neg",
+             "N",
+             "a =\nCum Pos",
+             "b =\nCum Neg",
+             "z =\nFract Pos")) |>
+  tt() |>
+  format_tt(
+    linebreak = "\n") |>
+  style_tt(
+    align = "c",
+    alignv = "b")
+```
+
+```{=typst}
+]
+```
+
+```{=typst}
+#columns(2)[
+```
+
+## Reed-Muench {#sec-rm}
+
+```{r}
+labels <- c(
+  lapply(0:5, \(i) bquote(x[.(i)])),
+  list(bquote(ED[50]))
+)
+
+major_colors <- c(rep("white", 6), "transparent")
+```
+
+```{r}
+#| label: fig-db-eq
+#| fig-cap: Plot of cumulative sums, used by Reed-Muench.\
+#|   The value of $ED_{50}$ computed by this method is shown.\
+#|   Only the points of interest are labelled.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+rm <- res[, ReedMuench]
+breaks <- c(0:5, rm)
+srt <- order(breaks)
+breaks <- breaks[srt]
+
+intersect <- dt[between(dil, low, high),
+                (cum_pos[2] - cum_pos[1]) * (rm - dil[1]) + cum_pos[1]]
+
+dat <- dt[, .(dil, cum_pos, cum_neg)] |>
+  melt(id.vars = "dil") |>
+  _[, label := sprintf("(%d,%d)", dil, value)]
+
+  ggplot(dat,
+    aes(x = dil,
+        y = value,
+        color = variable)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = round(breaks, 2),
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks = seq(0, 30, 5),
+    minor_breaks = NULL) +
+  scale_color_manual(
+    values = pal) +
+  geom_segment(
+    x = rm,
+    y = intersect,
+    xend = rm,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[dil < rm, dil := dil - 0.2] |>
+      _[value < intersect, value := value + 1] |>
+      _[value > intersect, value := value - 1] |>
+      _[dil > rm, dil := dil + 0.2],
+    aes(label = label)) +
+  labs(
+    x = "-log(dil)",
+    y = "Cumulative Sum") +
+  theme(
+    legend.position = "none") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+$ED_{50}$ is defined to be the dilution at which the two lines intersect, which is
+
+$$
+ED_{50} = `r low` + \frac{(`r a_low` - `r b_low`)(3 - 2)}{(`r b_high`-`r b_low`) - (`r a_high` - `r a_low`)} = `r .fr(rm)`
+$$
+The general plot looks like this:
+
+
+```{r}
+#| label: fig-db-eq-2
+#| fig-cap: General plot for Reed-Muench.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+intersect <- dt[between(dil, low, high),
+                (cum_pos[2] - cum_pos[1]) * (rm - dil[1]) + cum_pos[1]]
+
+dat <- dt[, .(dil, cum_pos, cum_neg)] |>
+  melt(id.vars = "dil") |>
+  _[variable == "cum_pos", label := sprintf("(x[%d]~','~a[%d])", dil, dil)] |>
+  _[variable == "cum_neg", label := sprintf("(x[%d]~','~b[%d])", dil, dil)]
+
+  ggplot(dat,
+    aes(x = dil,
+        y = value,
+        color = variable)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = labels[srt],
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks = seq(0, 30, 5),
+    labels = c(expression(c[0]),
+               expression(c[1]),
+               expression(c[2]),
+               expression(c[3]),
+               expression(c[4]),
+               expression(c[5]),
+               expression(c[6])),
+    minor_breaks = NULL) +
+  scale_color_manual(
+    values = pal) +
+  geom_segment(
+    x = rm,
+    y = intersect,
+    xend = rm,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[dil < rm, dil := dil - 0.2] |>
+      _[value < intersect, value := value + 1] |>
+      _[value > intersect, value := value - 1] |>
+      _[dil > rm, dil := dil + 0.2],
+    aes(label = label),
+    parse = TRUE) +
+  labs(
+    x = "-log(dil)",
+    y = "Cumulative Sum") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+And the general equation is:
+
+$$
+ED_{50} = x_`r low` + \frac{(a_`r low` - b_`r low`)(x_`r high` - x_`r low`)}{(b_`r high` - b_`r low`) - (a_`r high` - a_`r low`)}
+$$
+
+```{=typst}
+#colbreak()
+```
+
+## Dragstedt-Behrens {#sec-db}
+
+```{r}
+#| label: fig-rm-eq
+#| fig-cap: Plot of fraction positive, used by Dragstedt-Behrens.\
+#|   The value of $ED_{50}$ computed by this method is shown.\
+#|   Only the points of interest are labelled.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+db <- res[, DragBehr]
+breaks <- c(0:5, db)
+srt <- order(breaks)
+breaks <- breaks[srt]
+
+dat <- dt[, .(dil, cum_pos, cum_neg, fract_pos)] |>
+  _[, label := sprintf("(%d, %0.2f = %d / (%d + %d))",
+                       dil, fract_pos, cum_pos, cum_pos, cum_neg)]
+
+ggplot(
+  dat,
+  aes(x = dil,
+      y = fract_pos)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = round(breaks, 2),
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks       = seq(0, 1, .1),
+    minor_breaks = NULL) +
+  geom_segment(
+    x = -Inf,
+    y = 0.5,
+    xend = db,
+    yend = 0.5) +
+  geom_segment(
+    x = db,
+    y = 0.5,
+    xend = db,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[, dil := dil + 1] |>
+      _[, fract_pos := fract_pos + 0.04],
+    aes(label = label)) +
+  labs(
+    x = "-log(dil)",
+    y = "Fraction Positive") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+$ED_{50}$ is defined to be the dilution at which the fraction positive is equal to 0.5, which is
+
+$$
+ED_{50} = `r low` + \frac{1}{2} \cdot \frac{(`r a_high` + `r b_high`)(`r a_low` - `r b_low`)(3 - 2)}{`r a_low` \cdot `r b_high` - `r a_high` \cdot `r b_low`} = `r .fr(db)`
+$$
+
+The general plot looks like this:
+
+```{r}
+#| label: fig-rm-eq-2
+#| fig-cap: General plot for Dragstedt-Behrens.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+
+dat <- dt[, .(dil, cum_pos, cum_neg, fract_pos)] |>
+  _[, label := sprintf("(x[%d]~','~z[%d]~'='~a[%d] / (a[%d] + b[%d]))",
+                       dil, dil, dil, dil, dil)]
+
+ggplot(
+  dat,
+  aes(x = dil,
+      y = fract_pos)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = labels[srt],
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks       = seq(0, 1, .1),
+    minor_breaks = NULL) +
+  geom_segment(
+    x = -Inf,
+    y = 0.5,
+    xend = db,
+    yend = 0.5) +
+  geom_segment(
+    x = db,
+    y = 0.5,
+    xend = db,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[, dil := dil + 1] |>
+      _[, fract_pos := fract_pos + 0.04],
+    aes(label = label),
+    parse = TRUE) +
+  labs(
+    x = "-log(dil)",
+    y = "Fraction Positive") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+And the general equation is:
+
+$$
+ED_{50} = x_`r low` + \frac{1}{2} \cdot \frac{(a_`r high` + b_`r high`)(a_`r low` - b_`r low`)(x_`r high` - x_2)}{a_`r low` \cdot b_`r high` - a_`r high` \cdot b_`r low`}
+$$
+
+```{=typst}
+]
+```
+
+
+{{< pagebreak >}}
+
+# Data with Different Sized Groups
+
+Occasionally, there is not the same number of subjects at each dose.  However, one of the fundamental assumptions of these methods is that the number of subjects at each dose is the same. We demonstrate two ways that the data can be adjusted to account for the unequal group sizes.  The method you choose to use will probably depend on whether you would rather work with larger integers or with decimals.  In either case, the two methods produce the same Reed-Muench and Dragstedt-Behrens estimates, apart from rounding.
+
+```{r}
+dt_ds <- dt[, .(dil, pos, neg, n)] |>
+  _[dil %in% c(3, 4), n := .n - 1]
+
+dt_2a <- dt_ds |>
+  data.table() |>
+  _[, adj_pos   := NA_real_] |>
+  _[, adj_neg   := NA_real_] |>
+  _[, adj_n     := .lcm(n)] |>
+  _[, adj_pos   := pos * adj_n / n] |>
+  _[, adj_neg   := neg * adj_n / n] |>
+  _[, cum_pos   := cs(dil, adj_pos)] |>
+  _[, cum_neg   := cs(dil, adj_neg)] |>
+  _[, fract_pos := cum_pos / (cum_pos + cum_neg)]
+
+dt_2b <- dt_ds |>
+  data.table() |>
+  _[, adj_pos   := pos / n] |>
+  _[, adj_neg   := neg / n] |>
+  _[, cum_pos   := cs(dil, adj_pos)] |>
+  _[, cum_neg   := cs(dil, adj_neg)] |>
+  _[, fract_pos := cum_pos / (cum_pos + cum_neg)]
+```
+
+## Method 1 - Integers
+
+Because each group contains either 9 or 10 subjects, we want to work with a hypothetical group size that is divisible by both 9 and 10, which in this case is 90.  (If there were either 8 or 10 subjects in each group, we could choose a hypothetical group size of 40 or 80.)  
+
+Continuing with our example, the adjusted number of positives is 90 $\times$ Pos / N and the adjusted number of negatives is 90 $\times$ Neg / N.  "Cum Pos" is now the cumulative sum of the adjusted positives and "Cum Neg" is the cumulative sum of the adjusted negatives, as described in @sec-data.  Similarly, "Fract Pos" is computed as before.  Using these adjusted values, you can proceed with either method as described in @sec-rm and @sec-db.
+
+```{r}
+#| label: tbl-data-2a
+#| tbl-cap: Hypothetical data with different number of subjects at each dose.
+#| tbl-cap-location: bottom
+
+dt_2a |>
+  data.table() |>
+  _[, fract_pos := .fr(fract_pos, 4)] |>
+  setnames(c("x =\n-log(dil)",
+             "Pos",
+             "Neg",
+             "N",
+             "y =\nAdj Pos",
+             "Adj Neg",
+             "Adj N",
+             "a =\nCum Pos",
+             "b =\nCum Neg",
+             "z =\nFract Pos")) |>
+  tt() |>
+  format_tt(
+    linebreak = "\n") |>
+  style_tt(
+    align = "c",
+    alignv = "b")
+```
+
+## Method 2 - Decimals
+
+In this case, Adj Pos = Pos / N and Adj Neg = Neg / N.  If doing this by hand, we suggest using at least 4 decimal places to minimize rounding errors. "Cum Pos" is now the cumulative sum of the adjusted positives and "Cum Neg" is the cumulative sum of the adjusted negatives, as described in @sec-data.  Similarly, "Fract Pos" is computed as before.  (Notice how the "Fract Pos" column is the same in both tables.) Using these adjusted values, you can proceed with either method as described in @sec-rm and @sec-db.
+
+```{r}
+#| label: tbl-data-2b
+#| tbl-cap: Hypothetical data with a different number of subjects at each dose.
+#| tbl-cap-location: bottom
+
+dt_2b |>
+  data.table() |>
+  _[, adj_pos   := .fr(adj_pos, 4)] |>
+  _[, adj_neg   := .fr(adj_neg, 4)] |>
+  _[, cum_pos   := .fr(cum_pos, 4)] |>
+  _[, cum_neg   := .fr(cum_neg, 4)] |>
+  _[, fract_pos := .fr(fract_pos, 4)] |>
+  setnames(c("x =\n-log(dil)",
+             "Pos",
+             "Neg",
+             "N",
+             "y =\nAdj Pos",
+             "Adj Neg",
+             "a =\nCum Pos",
+             "b =\nCum Neg",
+             "z =\nFract Pos")) |>
+  tt() |>
+  format_tt(
+    linebreak = "\n") |>
+  style_tt(
+    align = "c",
+    alignv = "b")
+```
+
+{{< pagebreak >}}
+
+# Boundary Cases
+
+It may happen that there is a dose at which Cum Neg is equal to Cum Pos. If this happens, then $ED_{50}$ is the -log(dil) value at which the cumulative responses are equal.  For example, in @tbl-data-3, when -log(dil) = 3, both Cum Neg and Cum Pos are equal and the fraction positive is 0.5.  Thus, $ED_{50}$ is 3 for both the Reed-Muench and Dragstedt-Behrens methods.
+
+```{r}
+
+dt_3 <- data.table(
+  dil = 0:5,
+  pos = c(10, 9, 8, 6, 1, 0)
+) |>
+  _[, neg := .n - pos] |>
+  _[, n := pos + neg] |>
+  _[, cum_pos := cs(dil, pos)] |>
+  _[, cum_neg := cs(dil, neg)] |>
+  _[, fract_pos := cum_pos / (cum_pos + cum_neg)]
+
+rm <- db <- 3
+low <- high <- 3
+```
+
+
+```{r}
+#| label: tbl-data-3
+#| tbl-cap: Example data in which "Cum Pos" = "Cum Neg" at -log(dil) = 3.
+#| tbl-cap-location: bottom
+
+dt_3 |>
+  data.table() |>
+  _[, fract_pos := .fr(fract_pos, 4)] |>
+  setnames(c("x =\n-log(dil)",
+             "y =\nPos",
+             "Neg",
+             "N",
+             "a =\nCum Pos",
+             "b =\nCum Neg",
+             "z =\nFract Pos")) |>
+  tt() |>
+  format_tt(
+    linebreak = "\n") |>
+  style_tt(
+    align = "c",
+    alignv = "b") |>
+  style_tt(
+    i = 4,
+    background = "aliceblue",
+    line = "tb",
+    line_width = 0.05) |>
+  style_tt(
+    i = 4,
+    j = 1,
+    line = "l",
+    line_width = 0.05) |>
+  style_tt(
+    i = 4,
+    j = 7,
+    line = "r",
+    line_width = 0.05)
+```
+
+
+```{=typst}
+#columns(2)[
+```
+
+## Reed-Muench
+
+```{r}
+labels <- c(
+  lapply(0:5, \(i) bquote(x[.(i)])),
+  list(bquote(ED[50]))
+)
+
+major_colors <- c(rep("white", 6), "transparent")
+```
+
+```{r}
+#| label: fig-db-3
+#| fig-cap: Plot of cumulative sums, used by Reed-Muench.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+breaks <- c(0:5)
+srt <- order(breaks)
+breaks <- breaks[srt]
+
+intersect <- dt[dil == rm, cum_pos]
+
+dat <- dt_3[, .(dil, cum_pos, cum_neg)] |>
+  melt(id.vars = "dil") |>
+  _[, label := sprintf("(%d,%d)", dil, value)]
+
+  ggplot(dat,
+    aes(x = dil,
+        y = value,
+        color = variable)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = round(breaks, 2),
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks = seq(0, 30, 5),
+    minor_breaks = NULL) +
+  scale_color_manual(
+    values = pal) +
+  geom_segment(
+    x = rm,
+    y = intersect,
+    xend = rm,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[dil < rm, dil := dil - 0.2] |>
+      _[value < intersect, value := value + 1] |>
+      _[value > intersect, value := value - 1] |>
+      _[dil >= rm, dil := dil + 0.3],
+    aes(label = label)) +
+  labs(
+    x = "-log(dil)",
+    y = "Cumulative Sum") +
+  theme(
+    legend.position = "none") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+
+```{=typst}
+#colbreak()
+```
+
+## Dragstedt-Behrens
+
+```{r}
+#| label: fig-rm-3
+#| fig-cap: Plot of fraction positive, used by Dragstedt-Behrens.
+#| fig-cap-location: bottom
+#| fig-height: 4
+
+breaks <- c(0:5)
+srt <- order(breaks)
+breaks <- breaks[srt]
+
+dat <- dt_3[, .(dil, cum_pos, cum_neg, fract_pos)] |>
+  _[, label := sprintf("(%d, %0.2f = %d / (%d + %d))",
+                       dil, fract_pos, cum_pos, cum_pos, cum_neg)]
+
+ggplot(
+  dat,
+  aes(x = dil,
+      y = fract_pos)) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(
+    breaks       = breaks,
+    labels       = round(breaks, 2),
+    minor_breaks = NULL) +
+  scale_y_continuous(
+    breaks       = seq(0, 1, .1),
+    minor_breaks = NULL) +
+  geom_segment(
+    x = -Inf,
+    y = 0.5,
+    xend = db,
+    yend = 0.5) +
+  geom_segment(
+    x = db,
+    y = 0.5,
+    xend = db,
+    yend = -Inf,
+    arrow = arrow(length = unit(0.2, "cm"))) +
+  geom_text(
+    data = dat[between(dil, low, high)] |>
+      _[, dil := as.numeric(dil)] |>
+      _[, dil := dil + 1] |>
+      _[, fract_pos := fract_pos + 0.04],
+    aes(label = label)) +
+  labs(
+    x = "-log(dil)",
+    y = "Fraction Positive") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_line(color = major_colors[srt]))
+```
+
+
+
+```{=typst}
+]
+```

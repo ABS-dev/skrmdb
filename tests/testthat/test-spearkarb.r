@@ -1,3 +1,8 @@
+test_that(".SpearKarb", {
+  expect_true(TRUE)
+})
+
+#All Good
 test_that("examples work", {
   y    <- c(0, 1, 2, 3, 4)
   n    <- c(4, 4, 4, 4, 4)
@@ -5,7 +10,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 3,
                var  = 0.2083333)
@@ -16,12 +21,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # monotinicity
@@ -32,7 +37,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 3.5,
                var  = 0.2083333)
@@ -43,12 +48,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # uneven
@@ -59,7 +64,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 3,
                var  = 0.25)
@@ -70,12 +75,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # bracket
@@ -86,7 +91,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4.25,
                var  = 0.1116071)
@@ -97,12 +102,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -112,7 +117,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.1116071)
@@ -123,12 +128,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: monotincity + reversed
@@ -139,7 +144,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 2.5,
                var  = 0.2083333)
@@ -150,12 +155,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: bracket + uneven
@@ -166,7 +171,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.21875)
@@ -177,12 +182,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -192,7 +197,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.1294643)
@@ -203,12 +208,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: monotinicity + bracket
@@ -219,7 +224,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.09375)
@@ -230,12 +235,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 #  test this: + reversed
@@ -246,7 +251,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4,
                var  = 0.1294643)
@@ -257,12 +262,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven
@@ -273,7 +278,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 3.5,
                var  = 0.25)
@@ -284,12 +289,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: + reversed
@@ -300,7 +305,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 2.5,
                var  = 0.25)
@@ -311,12 +316,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 # test this: monotinicity + uneven + bracket
@@ -327,7 +332,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4.5,
                var  = 0.1116071)
@@ -338,12 +343,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -353,7 +358,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 1.5,
                var  = 0.1116071)
@@ -364,12 +369,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -379,7 +384,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 1.75,
                var  = 0.2366071)
@@ -390,12 +395,12 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
 
 test_that("examples work", {
@@ -405,7 +410,7 @@ test_that("examples work", {
   dt   <- data.frame(dead = y, total = n, dil = x)
   resa <- suppressWarnings(SpearKarb(y = y, x = x, n = n))
   resb <- SpearKarb(y + n ~ x)
-  resc <- SpearKarb(dead + total ~ dil, dt)
+  resc <- SpearKarb(dt, dead + total ~ dil)
   res  <- list(eval = "Spearman-Karber",
                ed   = 4.25,
                var  = 0.2366071)
@@ -416,10 +421,10 @@ test_that("examples work", {
   expect_identical(resa$eval, res$eval)
   expect_identical(resb$eval, res$eval)
   expect_identical(resc$eval, res$eval)
-  expect_equal(resa$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resb$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resc$ed, res$ed, tolerance = 0.0001)
-  expect_equal(resa$var, res$var, tolerance = 0.0001)
-  expect_equal(resb$var, res$var, tolerance = 0.0001)
-  expect_equal(resc$var, res$var, tolerance = 0.0001)
+  expect_equal(resa$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resb$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resc$res$ed, res$ed, tolerance = 0.0001)
+  expect_equal(resa$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resb$res$var, res$var, tolerance = 0.0001)
+  expect_equal(resc$res$var, res$var, tolerance = 0.0001)
 })
